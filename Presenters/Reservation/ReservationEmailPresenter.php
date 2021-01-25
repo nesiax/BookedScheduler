@@ -79,7 +79,7 @@ class ReservationEmailPresenter
             Log::Debug('Attempting to email reservation but user does not have permission. Reference Number %s, UserId %s', $existingSeries->CurrentInstance()->ReferenceNumber(), $this->userSession->UserId);
             return;
         }
-        
+
         foreach ($this->page->GetEmailAddresses() as $emailAddress)
         {
             Log::Debug('Emailing reservation details. Reference Number %s, UserId %s, To %s', $existingSeries->CurrentInstance()->ReferenceNumber(), $this->userSession->UserId, $emailAddress);

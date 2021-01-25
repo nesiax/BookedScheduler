@@ -38,9 +38,9 @@ class GroupAdminGroupsRepositoryTests extends TestBase
 
         $groupRepository = new GroupAdminGroupRepository($userRepo, $this->fakeUser);
 
-		$groupRows = new GroupItemRow();
-		$groupRows->With(1, '1');
-		$rows = $groupRows->Rows();
+        $groupRows = new GroupItemRow();
+        $groupRows->With(1, '1');
+        $rows = $groupRows->Rows();
 
         $this->db->SetRow(0, array( array(ColumnNames::TOTAL => 4) ));
         $this->db->SetRow(1, $rows);

@@ -129,10 +129,10 @@ CAS_ProxiedService_Abstract implements CAS_ProxiedService_Http
      * @return void
      * @throws CAS_OutOfSequenceException If called multiple times.
      * @throws CAS_ProxyTicketException If there is a proxy-ticket failure.
-     *		The code of the Exception will be one of:
-     *			PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_FAILURE
+     *        The code of the Exception will be one of:
+     *            PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_FAILURE
      * @throws CAS_ProxiedService_Exception If there is a failure sending the
      * request to the target service.
      */
@@ -198,10 +198,10 @@ CAS_ProxiedService_Abstract implements CAS_ProxiedService_Http
      *
      * @return void
      * @throws CAS_ProxyTicketException If there is a proxy-ticket failure.
-     *		The code of the Exception will be one of:
-     *			PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_FAILURE
+     *        The code of the Exception will be one of:
+     *            PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_FAILURE
      * @throws CAS_ProxiedService_Exception If there is a failure sending the
      * request to the target service.
      */

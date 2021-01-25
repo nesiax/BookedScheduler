@@ -22,14 +22,14 @@ require_once(ROOT_DIR . 'tests/AllTests.php');
 
 class Plugins_Auth_ActiveDirectory_Suite
 {
-	public static function suite()
+    public static function suite()
     {
-    	return TestHelper::GetSuite('tests/Plugins/Authentication/ActiveDirectory', array(__CLASS__, "IsIgnored"));
+        return TestHelper::GetSuite('tests/Plugins/Authentication/ActiveDirectory', array(__CLASS__, "IsIgnored"));
     }
 
     public static function IsIgnored($fileName)
     {
-    	return false;
+        return false;
     }
 }
 ?>

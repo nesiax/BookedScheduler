@@ -31,9 +31,9 @@ class ActiveDirectoryConfig
     const ACCOUNT_SUFFIX = 'account.suffix';
     const SECTION_AD = 'ad';
     const RETRY_AGAINST_DATABASE = 'database.auth.when.ldap.user.not.found';
-	const ATTRIBUTE_MAPPING = 'attribute.mapping';
-	const REQUIRED_GROUPS = 'required.groups';
-	const SYNC_GROUPS = 'sync.groups';
-	const USE_SSO = 'use.sso';
+    const ATTRIBUTE_MAPPING = 'attribute.mapping';
+    const REQUIRED_GROUPS = 'required.groups';
+    const SYNC_GROUPS = 'sync.groups';
+    const USE_SSO = 'use.sso';
     const PREVENT_CLEAN_USERNAME = 'prevent.clean.username';
 }

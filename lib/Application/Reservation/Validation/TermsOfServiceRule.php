@@ -26,16 +26,16 @@ class TermsOfServiceRule implements IReservationValidationRule
         $this->termsOfServiceRepository = $termsOfServiceRepository;
     }
 
-	/**
-	 * @see IReservationValidationRule::Validate()
-	 *
-	 * @param ReservationSeries $reservationSeries
-	 * @param null|ReservationRetryParameter[] $retryParameters
-	 * @return ReservationRuleResult
-	 */
-	public function Validate($reservationSeries, $retryParameters)
-	{
-		if (!$reservationSeries->HasAcceptedTerms())
+    /**
+     * @see IReservationValidationRule::Validate()
+     *
+     * @param ReservationSeries $reservationSeries
+     * @param null|ReservationRetryParameter[] $retryParameters
+     * @return ReservationRuleResult
+     */
+    public function Validate($reservationSeries, $retryParameters)
+    {
+        if (!$reservationSeries->HasAcceptedTerms())
         {
             $terms = $this->termsOfServiceRepository->Load();
             if ($terms != null && $terms->AppliesToReservation())
@@ -44,6 +44,6 @@ class TermsOfServiceRule implements IReservationValidationRule
             }
         }
 
-		return new ReservationRuleResult();
-	}
+        return new ReservationRuleResult();
+    }
 }

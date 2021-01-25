@@ -16,5 +16,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class GlobalKeys
 {
-	const TIMEZONES = 'APP_TIMEZONES';
+    const TIMEZONES = 'APP_TIMEZONES';
 }

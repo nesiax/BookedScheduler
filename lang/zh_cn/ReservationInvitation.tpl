@@ -65,7 +65,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 {if $RequiresApproval}
     <br/>
-	一个或多个资源在预约使用之前需要被批准，此预约在批准之前处于待定状态。
+    一个或多个资源在预约使用之前需要被批准，此预约在批准之前处于待定状态。
 {/if}
 
 <br/>

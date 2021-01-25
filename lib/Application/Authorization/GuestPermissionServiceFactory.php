@@ -19,15 +19,15 @@ require_once(ROOT_DIR . 'lib/Application/Authorization/PermissionServiceFactory.
 
 class GuestPermissionService implements IPermissionService
 {
-	/**
-	 * @param IPermissibleResource $resource
-	 * @param UserSession $user
-	 * @return bool
-	 */
-	public function CanAccessResource(IPermissibleResource $resource, UserSession $user)
-	{
-		return true;
-	}
+    /**
+     * @param IPermissibleResource $resource
+     * @param UserSession $user
+     * @return bool
+     */
+    public function CanAccessResource(IPermissibleResource $resource, UserSession $user)
+    {
+        return true;
+    }
 
     /**
      * @param IPermissibleResource $resource
@@ -52,11 +52,11 @@ class GuestPermissionService implements IPermissionService
 
 class GuestPermissionServiceFactory implements IPermissionServiceFactory
 {
-	/**
-	 * @return IPermissionService
-	 */
-	public function GetPermissionService()
-	{
-		return new GuestPermissionService();
-	}
+    /**
+     * @return IPermissionService
+     */
+    public function GetPermissionService()
+    {
+        return new GuestPermissionService();
+    }
 }

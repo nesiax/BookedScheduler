@@ -924,10 +924,10 @@ class LayoutParser
     private function ParseSlots($allSlots, $dayOfWeek, $callback)
     {
         $trimmedSlots = trim($allSlots);
-//		if (empty($trimmedSlots) && $dayOfWeek == null)
-//		{
-//			throw new Exception('Empty slots on ' . $dayOfWeek);
-//		}
+//        if (empty($trimmedSlots) && $dayOfWeek == null)
+//        {
+//            throw new Exception('Empty slots on ' . $dayOfWeek);
+//        }
 
         $lines = preg_split("/[\n]/", $trimmedSlots, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($lines as $slotLine) {

@@ -12,8 +12,8 @@ CREATE TABLE `resource_groups` (
   PRIMARY KEY (`resource_group_id`),
   INDEX `resource_groups_parent_id` (`parent_id`),
   FOREIGN KEY (`parent_id`)
-	REFERENCES `resource_groups`(`resource_group_id`)
-	ON DELETE CASCADE
+    REFERENCES `resource_groups`(`resource_group_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 DROP TABLE IF EXISTS `resource_types`;
@@ -34,11 +34,11 @@ CREATE TABLE `resource_group_assignment` (
   INDEX `resource_group_assignment_resource_id` (`resource_id`),
   INDEX `resource_group_assignment_resource_group_id` (`resource_group_id`),
   FOREIGN KEY (`resource_group_id`)
-		REFERENCES resource_groups(`resource_group_id`)
-		ON DELETE CASCADE,
-	FOREIGN KEY (`resource_id`)
-		REFERENCES `resources`(`resource_id`)
-	ON DELETE CASCADE
+        REFERENCES resource_groups(`resource_group_id`)
+        ON DELETE CASCADE,
+    FOREIGN KEY (`resource_id`)
+        REFERENCES `resources`(`resource_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 DROP TABLE IF EXISTS `blackout_series_resources`;
@@ -46,12 +46,12 @@ CREATE TABLE `blackout_series_resources` (
  `blackout_series_id` int unsigned NOT NULL,
  `resource_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY (`blackout_series_id`, `resource_id`),
-	FOREIGN KEY (`blackout_series_id`)
-		REFERENCES `blackout_series`(`blackout_series_id`)
-		ON DELETE CASCADE,
-	FOREIGN KEY (`resource_id`)
-		REFERENCES `resources`(`resource_id`)
-	ON DELETE CASCADE
+    FOREIGN KEY (`blackout_series_id`)
+        REFERENCES `blackout_series`(`blackout_series_id`)
+        ON DELETE CASCADE,
+    FOREIGN KEY (`resource_id`)
+        REFERENCES `resources`(`resource_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 DELETE `blackout_series`

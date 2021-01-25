@@ -16,8 +16,8 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationNotification
 {
-	/**
-	 * @param ReservationSeries $reservationSeries
-	 */
-	function Notify($reservationSeries);
+    /**
+     * @param ReservationSeries $reservationSeries
+     */
+    function Notify($reservationSeries);
 }

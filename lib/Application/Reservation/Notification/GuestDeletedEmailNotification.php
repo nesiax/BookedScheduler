@@ -23,10 +23,10 @@ class GuestDeletedEmailNotification implements IReservationNotification
      */
     private $userRepository;
 
-	/**
-	 * @var IAttributeRepository
-	 */
-	private $attributeRepository;
+    /**
+     * @var IAttributeRepository
+     */
+    private $attributeRepository;
 
     public function __construct(IUserRepository $userRepository, IAttributeRepository $attributeRepository)
     {

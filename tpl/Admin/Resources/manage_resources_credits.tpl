@@ -17,11 +17,11 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 <div class="creditsPerSlot"
-	 data-value="{$resource->GetCreditsPerSlot()}">
-	{translate key=CreditUsagePerSlot args=$resource->GetCreditsPerSlot()}
+     data-value="{$resource->GetCreditsPerSlot()}">
+    {translate key=CreditUsagePerSlot args=$resource->GetCreditsPerSlot()}
 </div>
 
 <div class="peakCreditsPerSlot"
-	 data-value="{$resource->GetPeakCreditsPerSlot()}">
-	{translate key=PeakCreditUsagePerSlot args=$resource->GetPeakCreditsPerSlot()}
+     data-value="{$resource->GetPeakCreditsPerSlot()}">
+    {translate key=PeakCreditUsagePerSlot args=$resource->GetPeakCreditsPerSlot()}
 </div>

@@ -362,45 +362,45 @@ class bg_bg extends en_gb
         $strings['AdditionalAttributes'] = 'Допълнителни атрибути';
         $strings['True'] = 'Истина';
         $strings['False'] = 'Лъжа';
-		$strings['ForgotPasswordEmailSent'] = 'На адреса е изпратен един имейл, съдържащ инструкции за смяна на Вашата парола';
-		$strings['ActivationEmailSent'] = 'Скоро Вие ще получите имейл за активиране.';
-		$strings['AccountActivationError'] = 'Съжаляваме, не можем да активираме Вашия профил.';
-		$strings['Attachments'] = 'Прикачени файлове';
-		$strings['AttachFile'] = 'Прикачване на файл';
-		$strings['Maximum'] = 'макс';
-		$strings['NoScheduleAdministratorLabel'] = 'Няма администратор на разписание';
-		$strings['ScheduleAdministrator'] = 'Администратор на разписание';
-		$strings['Total'] = 'Общо';
-		$strings['QuantityReserved'] = 'Резервирано количество';
-		$strings['AllAccessories'] = 'Всички аксесоари';
-		$strings['GetReport'] = 'Получаване на отчет';
-		$strings['NoResultsFound'] = 'Няма намерени съвпадащи резултати';
-		$strings['SaveThisReport'] = 'Запази този отчет';
-		$strings['ReportSaved'] = 'Отчетът запазен!';
-		$strings['EmailReport'] = 'Email отчет';
-		$strings['ReportSent'] = 'отчетът изпратен!';
-		$strings['RunReport'] = 'Пускане на отчет';
-		$strings['NoSavedReports'] = 'Вие нямате запазени отчети.';
-		$strings['CurrentWeek'] = 'Текущата седмица';
-		$strings['CurrentMonth'] = 'Текущия месец';
-		$strings['AllTime'] = 'Цялото време';
-		$strings['FilterBy'] = 'Филтриране по';
-		$strings['Select'] = 'Избиране';
-		$strings['List'] = 'Списък';
-		$strings['TotalTime'] = 'Общо време';
-		$strings['Count'] = 'Брой';
-		$strings['Usage'] = 'Използване';
-		$strings['AggregateBy'] = 'Сумиране по';
-		$strings['Range'] = 'Обхват';
-		$strings['Choose'] = 'Избиране';
-		$strings['All'] = 'Всички';
-		$strings['ViewAsChart'] = 'Виж като Графика';
-		$strings['ReservedResources'] = 'Запазени ресурси';
-		$strings['ReservedAccessories'] = 'RЗапазени аксесоари';
-		$strings['ResourceUsageTimeBooked'] = 'Използване на ресурс - Ангажирано време';
-		$strings['ResourceUsageReservationCount'] = 'Използване на ресурс - Брой резервации';
-		$strings['Top20UsersTimeBooked'] = 'Топ 20 Потребители - Ангажирано време';
-		$strings['Top20UsersReservationCount'] = 'Топ 20 Потребители - Брой резервации';
+        $strings['ForgotPasswordEmailSent'] = 'На адреса е изпратен един имейл, съдържащ инструкции за смяна на Вашата парола';
+        $strings['ActivationEmailSent'] = 'Скоро Вие ще получите имейл за активиране.';
+        $strings['AccountActivationError'] = 'Съжаляваме, не можем да активираме Вашия профил.';
+        $strings['Attachments'] = 'Прикачени файлове';
+        $strings['AttachFile'] = 'Прикачване на файл';
+        $strings['Maximum'] = 'макс';
+        $strings['NoScheduleAdministratorLabel'] = 'Няма администратор на разписание';
+        $strings['ScheduleAdministrator'] = 'Администратор на разписание';
+        $strings['Total'] = 'Общо';
+        $strings['QuantityReserved'] = 'Резервирано количество';
+        $strings['AllAccessories'] = 'Всички аксесоари';
+        $strings['GetReport'] = 'Получаване на отчет';
+        $strings['NoResultsFound'] = 'Няма намерени съвпадащи резултати';
+        $strings['SaveThisReport'] = 'Запази този отчет';
+        $strings['ReportSaved'] = 'Отчетът запазен!';
+        $strings['EmailReport'] = 'Email отчет';
+        $strings['ReportSent'] = 'отчетът изпратен!';
+        $strings['RunReport'] = 'Пускане на отчет';
+        $strings['NoSavedReports'] = 'Вие нямате запазени отчети.';
+        $strings['CurrentWeek'] = 'Текущата седмица';
+        $strings['CurrentMonth'] = 'Текущия месец';
+        $strings['AllTime'] = 'Цялото време';
+        $strings['FilterBy'] = 'Филтриране по';
+        $strings['Select'] = 'Избиране';
+        $strings['List'] = 'Списък';
+        $strings['TotalTime'] = 'Общо време';
+        $strings['Count'] = 'Брой';
+        $strings['Usage'] = 'Използване';
+        $strings['AggregateBy'] = 'Сумиране по';
+        $strings['Range'] = 'Обхват';
+        $strings['Choose'] = 'Избиране';
+        $strings['All'] = 'Всички';
+        $strings['ViewAsChart'] = 'Виж като Графика';
+        $strings['ReservedResources'] = 'Запазени ресурси';
+        $strings['ReservedAccessories'] = 'RЗапазени аксесоари';
+        $strings['ResourceUsageTimeBooked'] = 'Използване на ресурс - Ангажирано време';
+        $strings['ResourceUsageReservationCount'] = 'Използване на ресурс - Брой резервации';
+        $strings['Top20UsersTimeBooked'] = 'Топ 20 Потребители - Ангажирано време';
+        $strings['Top20UsersReservationCount'] = 'Топ 20 Потребители - Брой резервации';
         // End Strings
 
         // Errors
@@ -467,14 +467,14 @@ class bg_bg extends en_gb
         $strings['ResourceReservations'] = 'Ресурсни резервации';
         $strings['Customization'] = 'Персонализиране';
         $strings['Attributes'] = 'Атрибути';
-		$strings['AccountActivation'] = 'Активиране на профил';
-		$strings['ScheduleReservations'] = 'Разписание резервации';
-		$strings['Reports'] = 'Отчети';
-		$strings['GenerateReport'] = 'Създаване на нов отчет';
-		$strings['MySavedReports'] = 'Моите запазени отчети';
-		$strings['CommonReports'] = 'Общи отчети';
-		$strings['ViewDay'] = 'Преглеждане на ден';
-		$strings['Group'] = 'Група';
+        $strings['AccountActivation'] = 'Активиране на профил';
+        $strings['ScheduleReservations'] = 'Разписание резервации';
+        $strings['Reports'] = 'Отчети';
+        $strings['GenerateReport'] = 'Създаване на нов отчет';
+        $strings['MySavedReports'] = 'Моите запазени отчети';
+        $strings['CommonReports'] = 'Общи отчети';
+        $strings['ViewDay'] = 'Преглеждане на ден';
+        $strings['Group'] = 'Група';
         // End Page Titles
 
         // Day representations
@@ -493,7 +493,7 @@ class bg_bg extends en_gb
         $strings['DayThursdayAbbr'] = 'Чет';
         $strings['DayFridayAbbr'] = 'Пет';
         $strings['DaySaturdayAbbr'] = 'Съб';
-		// End Day representations
+        // End Day representations
 
         // Email Subjects
         $strings['ReservationApprovedSubject'] = 'Вашата резервация е одобрена';

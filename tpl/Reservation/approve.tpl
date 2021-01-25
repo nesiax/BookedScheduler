@@ -19,36 +19,36 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {extends file="Reservation/view.tpl"}
 
 {block name=header}
-	{include file='globalheader.tpl' TitleKey='EditReservationHeading'}
+    {include file='globalheader.tpl' TitleKey='EditReservationHeading'}
 {/block}
 
 {block name=reservationHeader}
-	{translate key="EditReservationHeading"}
+    {translate key="EditReservationHeading"}
 {/block}
 
 {block name=deleteButtons}
-	<div class="btn-group">
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-			{translate key=More} <span class="caret"></span>
-		</button>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            {translate key=More} <span class="caret"></span>
+        </button>
 
-		<ul class="dropdown-menu" role="menu">
-			<li>
-				{assign var=icsUrl value="{$Path}export/{Pages::CALENDAR_EXPORT}?{QueryStringKeys::REFERENCE_NUMBER}={$ReferenceNumber}"}
-				<a href="{$icsUrl}" download="{$icsUrl}">
-					<span class="fa fa-calendar"></span>
-					{translate key=AddToOutlook}</a>
-			</li>
-			<li><a href="#" class="btnPrint">
-					<span class="fa fa-print"></span>
-					{translate key='Print'}</a>
-			</li>
-			<li><a href="#" class="btnPDF">
-					<span class="fa fa-file-pdf-o"></span>
-					PDF</a>
-			</li>
-		</ul>
-	</div>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                {assign var=icsUrl value="{$Path}export/{Pages::CALENDAR_EXPORT}?{QueryStringKeys::REFERENCE_NUMBER}={$ReferenceNumber}"}
+                <a href="{$icsUrl}" download="{$icsUrl}">
+                    <span class="fa fa-calendar"></span>
+                    {translate key=AddToOutlook}</a>
+            </li>
+            <li><a href="#" class="btnPrint">
+                    <span class="fa fa-print"></span>
+                    {translate key='Print'}</a>
+            </li>
+            <li><a href="#" class="btnPDF">
+                    <span class="fa fa-file-pdf-o"></span>
+                    PDF</a>
+            </li>
+        </ul>
+    </div>
 
     <div id="deleteButtonPrompt" class="modal fade">
         <div class="modal-dialog">
@@ -110,21 +110,21 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {/block}
 
 {block name=submitButtons}
-	<a href="{$SCRIPT_NAME}?{QueryStringKeys::REFERENCE_NUMBER}={$ReferenceNumber}&update=1&{QueryStringKeys::REDIRECT}={$ReturnUrl|escape:url}" class="btn btn-default" id="btnApprovalUpdate">
-		<span class=""></span>
-		{translate key='Update'}
-	</a>
+    <a href="{$SCRIPT_NAME}?{QueryStringKeys::REFERENCE_NUMBER}={$ReferenceNumber}&update=1&{QueryStringKeys::REDIRECT}={$ReturnUrl|escape:url}" class="btn btn-default" id="btnApprovalUpdate">
+        <span class=""></span>
+        {translate key='Update'}
+    </a>
     <button type="button" class="btn btn-danger {if $IsRecurring}delete prompt{else}triggerDeletePrompt delete prompt-single{/if}">
         <span class="fa fa-remove"></span>
         {translate key='Reject'}
     </button>
     <button type="button" class="btn btn-success" id="btnApprove">
-		<span class="glyphicon glyphicon-ok-circle"></span>
-		{translate key='Approve'}
-	</button>
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        {translate key='Approve'}
+    </button>
 {/block}
 
 {block name="ajaxMessage"}
-	{translate key=UpdatingReservation}...
-	<br/>
+    {translate key=UpdatingReservation}...
+    <br/>
 {/block}

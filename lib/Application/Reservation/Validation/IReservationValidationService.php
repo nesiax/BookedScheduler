@@ -16,10 +16,10 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationValidationService
 {
-	/**
-	 * @param ReservationSeries|ExistingReservationSeries $series
-	 * @param ReservationRetryParameter[]|null $retryParameters
-	 * @return IReservationValidationResult
-	 */
-	public function Validate($series, $retryParameters = null);
+    /**
+     * @param ReservationSeries|ExistingReservationSeries $series
+     * @param ReservationRetryParameter[]|null $retryParameters
+     * @return IReservationValidationResult
+     */
+    public function Validate($series, $retryParameters = null);
 }

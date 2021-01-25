@@ -31,10 +31,10 @@ class ServiceLocator
      */
     private static $_emailService = null;
 
-	/**
-	 * @var \Booked\IFileSystem
-	 */
-	private static $_fileSystem = null;
+    /**
+     * @var \Booked\IFileSystem
+     */
+    private static $_fileSystem = null;
 
     /**
      * @return Database
@@ -74,11 +74,11 @@ class ServiceLocator
         self::$_server = $server;
     }
 
-	/**
-	 * @static
-	 * @return IEmailService
-	 */
-	public static function GetEmailService()
+    /**
+     * @static
+     * @return IEmailService
+     */
+    public static function GetEmailService()
     {
         require_once(ROOT_DIR . 'lib/Email/namespace.php');
 
@@ -102,25 +102,25 @@ class ServiceLocator
         self::$_emailService = $emailService;
     }
 
-	/**
-	 * @static
-	 * @return \Booked\FileSystem
-	 */
-	public static function GetFileSystem()
-	{
-		require_once(ROOT_DIR . 'lib/FileSystem/namespace.php');
+    /**
+     * @static
+     * @return \Booked\FileSystem
+     */
+    public static function GetFileSystem()
+    {
+        require_once(ROOT_DIR . 'lib/FileSystem/namespace.php');
 
-		if (self::$_fileSystem == null)
-		{
-			self::$_fileSystem = new \Booked\FileSystem();
-		}
+        if (self::$_fileSystem == null)
+        {
+            self::$_fileSystem = new \Booked\FileSystem();
+        }
 
-		return self::$_fileSystem;
-	}
+        return self::$_fileSystem;
+    }
 
-	public static function SetFileSystem(\Booked\IFileSystem $fileSystem)
-	{
-		self::$_fileSystem = $fileSystem;
-	}
+    public static function SetFileSystem(\Booked\IFileSystem $fileSystem)
+    {
+        self::$_fileSystem = $fileSystem;
+    }
 
 }

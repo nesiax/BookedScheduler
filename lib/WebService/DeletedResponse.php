@@ -20,14 +20,14 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class DeletedResponse extends RestResponse
 {
-	public function __construct()
-	{
-		$this->message = 'The item was deleted';
-	}
+    public function __construct()
+    {
+        $this->message = 'The item was deleted';
+    }
 
-	public static function Example()
-	{
-		return new DeletedResponse();
-	}
+    public static function Example()
+    {
+        return new DeletedResponse();
+    }
 }
 

@@ -20,12 +20,12 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReportActions
 {
-	const Generate = 'generate';
-	const PrintReport = 'print';
-	const Csv = 'csv';
-	const Save = 'save';
-	const Email = 'email';
-	const Delete = 'delete';
-	const SaveColumns = 'saveColumns';
+    const Generate = 'generate';
+    const PrintReport = 'print';
+    const Csv = 'csv';
+    const Save = 'save';
+    const Email = 'email';
+    const Delete = 'delete';
+    const SaveColumns = 'saveColumns';
 }
 

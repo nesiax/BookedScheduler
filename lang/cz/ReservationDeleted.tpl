@@ -16,49 +16,49 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
-	Administrátorem byly smazány tyto rezervace:
-	<br/>
-	<br/>
-	
-	Uživatel: {$UserName}<br/>
-	Začátek: {formatdate date=$StartDate key=reservation_email}<br/>
-	Konec: {formatdate date=$EndDate key=reservation_email}<br/>
-	{if $ResourceNames|count > 1}
-	Zdroje:<br/>
-		{foreach from=$ResourceNames item=resourceName}
-			{$resourceName}<br/>
-		{/foreach}
-		{else}
+    Administrátorem byly smazány tyto rezervace:
+    <br/>
+    <br/>
+
+    Uživatel: {$UserName}<br/>
+    Začátek: {formatdate date=$StartDate key=reservation_email}<br/>
+    Konec: {formatdate date=$EndDate key=reservation_email}<br/>
+    {if $ResourceNames|count > 1}
+    Zdroje:<br/>
+        {foreach from=$ResourceNames item=resourceName}
+            {$resourceName}<br/>
+        {/foreach}
+        {else}
     Zdroj: {$ResourceName}<br/>
-	{/if}
+    {/if}
 
-	{if $ResourceImage}
-		<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
-	{/if}
+    {if $ResourceImage}
+        <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    {/if}
 
-	Nadpis: {$Title}<br/>
-	Popis: {$Description|nl2br}<br/>
+    Nadpis: {$Title}<br/>
+    Popis: {$Description|nl2br}<br/>
 {$DeleteReason|nl2br}<br/>
 
-	
-	
-	{if count($RepeatDates) gt 0}
-		<br/>
-		Došlo ke smazání všech těchto rezervovaných termínů:
-		<br/>
-	{/if}
-	
-	{foreach from=$RepeatDates item=date name=dates}
-		{formatdate date=$date}<br/>
-	{/foreach}
 
-	{if $Accessories|count > 0}
-		<br/>Příslušenství:<br/>
-		{foreach from=$Accessories item=accessory}
-			({$accessory->QuantityReserved}) {$accessory->Name}<br/>
-		{/foreach}
-	{/if}
 
-	<br/>
+    {if count($RepeatDates) gt 0}
         <br/>
-	<a href="{$ScriptUrl}">Přihlásit se do rezervačního systému</a>
+        Došlo ke smazání všech těchto rezervovaných termínů:
+        <br/>
+    {/if}
+
+    {foreach from=$RepeatDates item=date name=dates}
+        {formatdate date=$date}<br/>
+    {/foreach}
+
+    {if $Accessories|count > 0}
+        <br/>Příslušenství:<br/>
+        {foreach from=$Accessories item=accessory}
+            ({$accessory->QuantityReserved}) {$accessory->Name}<br/>
+        {/foreach}
+    {/if}
+
+    <br/>
+        <br/>
+    <a href="{$ScriptUrl}">Přihlásit se do rezervačního systému</a>

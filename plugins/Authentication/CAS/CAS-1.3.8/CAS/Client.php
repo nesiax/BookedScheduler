@@ -149,9 +149,9 @@ class CAS_Client
      */
     public function setHTMLHeader($header)
     {
-    	// Argument Validation
-    	if (gettype($header) != 'string')
-        	throw new CAS_TypeMismatchException($header, '$header', 'string');
+        // Argument Validation
+        if (gettype($header) != 'string')
+            throw new CAS_TypeMismatchException($header, '$header', 'string');
 
         $this->_output_header = $header;
     }
@@ -165,9 +165,9 @@ class CAS_Client
      */
     public function setHTMLFooter($footer)
     {
-    	// Argument Validation
-    	if (gettype($footer) != 'string')
-        	throw new CAS_TypeMismatchException($footer, '$footer', 'string');
+        // Argument Validation
+        if (gettype($footer) != 'string')
+            throw new CAS_TypeMismatchException($footer, '$footer', 'string');
 
         $this->_output_footer = $footer;
     }
@@ -200,9 +200,9 @@ class CAS_Client
      */
     public function setLang($lang)
     {
-    	// Argument Validation
-    	if (gettype($lang) != 'string')
-        	throw new CAS_TypeMismatchException($lang, '$lang', 'string');
+        // Argument Validation
+        if (gettype($lang) != 'string')
+            throw new CAS_TypeMismatchException($lang, '$lang', 'string');
 
         phpCAS::traceBegin();
         $obj = new $lang();
@@ -364,9 +364,9 @@ class CAS_Client
      */
     public function setServerLoginURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['login_url'] = $url;
     }
@@ -381,9 +381,9 @@ class CAS_Client
      */
     public function setServerServiceValidateURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['service_validate_url'] = $url;
     }
@@ -398,9 +398,9 @@ class CAS_Client
      */
     public function setServerProxyValidateURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['proxy_validate_url'] = $url;
     }
@@ -415,9 +415,9 @@ class CAS_Client
      */
     public function setServerSamlValidateURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['saml_validate_url'] = $url;
     }
@@ -556,9 +556,9 @@ class CAS_Client
      */
     public function setServerLogoutURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['logout_url'] = $url;
     }
@@ -907,19 +907,19 @@ class CAS_Client
         $server_uri,
         $changeSessionID = true
     ) {
-		// Argument validation
+        // Argument validation
         if (gettype($server_version) != 'string')
-        	throw new CAS_TypeMismatchException($server_version, '$server_version', 'string');
+            throw new CAS_TypeMismatchException($server_version, '$server_version', 'string');
         if (gettype($proxy) != 'boolean')
-        	throw new CAS_TypeMismatchException($proxy, '$proxy', 'boolean');
+            throw new CAS_TypeMismatchException($proxy, '$proxy', 'boolean');
         if (gettype($server_hostname) != 'string')
-        	throw new CAS_TypeMismatchException($server_hostname, '$server_hostname', 'string');
+            throw new CAS_TypeMismatchException($server_hostname, '$server_hostname', 'string');
         if (gettype($server_port) != 'integer')
-        	throw new CAS_TypeMismatchException($server_port, '$server_port', 'integer');
+            throw new CAS_TypeMismatchException($server_port, '$server_port', 'integer');
         if (gettype($server_uri) != 'string')
-        	throw new CAS_TypeMismatchException($server_uri, '$server_uri', 'string');
+            throw new CAS_TypeMismatchException($server_uri, '$server_uri', 'string');
         if (gettype($changeSessionID) != 'boolean')
-        	throw new CAS_TypeMismatchException($changeSessionID, '$changeSessionID', 'boolean');
+            throw new CAS_TypeMismatchException($changeSessionID, '$changeSessionID', 'boolean');
 
         phpCAS::traceBegin();
         // true : allow to change the session_id(), false session_id won't be
@@ -1008,7 +1008,7 @@ class CAS_Client
                 $this->_setCallbackModeUsingPost(false);
             }
 
-            
+
         }
 
         if ( $this->_isCallbackMode() ) {
@@ -1123,10 +1123,10 @@ class CAS_Client
      */
     public function getUser()
     {
-    	// Sequence validation
-    	$this->ensureAuthenticationCallSuccessful();
+        // Sequence validation
+        $this->ensureAuthenticationCallSuccessful();
 
-    	return $this->_getUser();
+        return $this->_getUser();
     }
 
     /**
@@ -1139,7 +1139,7 @@ class CAS_Client
      */
     private function _getUser()
     {
-    	// This is likely a duplicate check that could be removed....
+        // This is likely a duplicate check that could be removed....
         if ( empty($this->_user) ) {
             phpCAS::error(
                 'this method should be used only after '.__CLASS__
@@ -1177,9 +1177,9 @@ class CAS_Client
      */
     public function getAttributes()
     {
-    	// Sequence validation
-    	$this->ensureAuthenticationCallSuccessful();
-    	// This is likely a duplicate check that could be removed....
+        // Sequence validation
+        $this->ensureAuthenticationCallSuccessful();
+        // This is likely a duplicate check that could be removed....
         if ( empty($this->_user) ) {
             // if no user is set, there shouldn't be any attributes also...
             phpCAS::error(
@@ -1197,8 +1197,8 @@ class CAS_Client
      */
     public function hasAttributes()
     {
-    	// Sequence validation
-    	$this->ensureAuthenticationCallSuccessful();
+        // Sequence validation
+        $this->ensureAuthenticationCallSuccessful();
 
         return !empty($this->_attributes);
     }
@@ -1211,8 +1211,8 @@ class CAS_Client
      */
     public function hasAttribute($key)
     {
-    	// Sequence validation
-    	$this->ensureAuthenticationCallSuccessful();
+        // Sequence validation
+        $this->ensureAuthenticationCallSuccessful();
 
         return $this->_hasAttribute($key);
     }
@@ -1239,8 +1239,8 @@ class CAS_Client
      */
     public function getAttribute($key)
     {
-    	// Sequence validation
-    	$this->ensureAuthenticationCallSuccessful();
+        // Sequence validation
+        $this->ensureAuthenticationCallSuccessful();
 
         if ($this->_hasAttribute($key)) {
             return $this->_attributes[$key];
@@ -1317,8 +1317,8 @@ class CAS_Client
      */
     public function setCacheTimesForAuthRecheck($n)
     {
-    	if (gettype($n) != 'integer')
-        	throw new CAS_TypeMismatchException($n, '$n', 'string');
+        if (gettype($n) != 'integer')
+            throw new CAS_TypeMismatchException($n, '$n', 'string');
 
         $this->_cache_times_for_auth_recheck = $n;
     }
@@ -2410,11 +2410,11 @@ class CAS_Client
      */
     public function setCallbackURL($url)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_callback_url = $url;
     }
@@ -2550,7 +2550,7 @@ class CAS_Client
      */
     public function setPGTStorage($storage)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
 
         // check that the storage has not already been set
@@ -2586,18 +2586,18 @@ class CAS_Client
     public function setPGTStorageDb(
         $dsn_or_pdo, $username='', $password='', $table='', $driver_options=null
     ) {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
 
-    	// Argument validation
-    	if (!(is_object($dsn_or_pdo) && $dsn_or_pdo instanceof PDO) && !is_string($dsn_or_pdo))
-			throw new CAS_TypeMismatchException($dsn_or_pdo, '$dsn_or_pdo', 'string or PDO object');
-    	if (gettype($username) != 'string')
-        	throw new CAS_TypeMismatchException($username, '$username', 'string');
+        // Argument validation
+        if (!(is_object($dsn_or_pdo) && $dsn_or_pdo instanceof PDO) && !is_string($dsn_or_pdo))
+            throw new CAS_TypeMismatchException($dsn_or_pdo, '$dsn_or_pdo', 'string or PDO object');
+        if (gettype($username) != 'string')
+            throw new CAS_TypeMismatchException($username, '$username', 'string');
         if (gettype($password) != 'string')
-        	throw new CAS_TypeMismatchException($password, '$password', 'string');
+            throw new CAS_TypeMismatchException($password, '$password', 'string');
         if (gettype($table) != 'string')
-        	throw new CAS_TypeMismatchException($table, '$password', 'string');
+            throw new CAS_TypeMismatchException($table, '$password', 'string');
 
         // create the storage object
         $this->setPGTStorage(
@@ -2617,12 +2617,12 @@ class CAS_Client
      */
     public function setPGTStorageFile($path='')
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
 
-    	// Argument validation
-    	if (gettype($path) != 'string')
-        	throw new CAS_TypeMismatchException($path, '$path', 'string');
+        // Argument validation
+        if (gettype($path) != 'string')
+            throw new CAS_TypeMismatchException($path, '$path', 'string');
 
         // create the storage object
         $this->setPGTStorage(new CAS_PGTStorage_File($this, $path));
@@ -2704,9 +2704,9 @@ class CAS_Client
      */
     public function retrievePT($target_service,&$err_code,&$err_msg)
     {
-    	// Argument validation
-    	if (gettype($target_service) != 'string')
-        	throw new CAS_TypeMismatchException($target_service, '$target_service', 'string');
+        // Argument validation
+        if (gettype($target_service) != 'string')
+            throw new CAS_TypeMismatchException($target_service, '$target_service', 'string');
 
         phpCAS::traceBegin();
 
@@ -2926,13 +2926,13 @@ class CAS_Client
      */
     public function getProxiedService ($type)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
-    	$this->ensureAuthenticationCallSuccessful();
+        $this->ensureAuthenticationCallSuccessful();
 
-    	// Argument validation
-    	if (gettype($type) != 'string')
-        	throw new CAS_TypeMismatchException($type, '$type', 'string');
+        // Argument validation
+        if (gettype($type) != 'string')
+            throw new CAS_TypeMismatchException($type, '$type', 'string');
 
         switch ($type) {
         case PHPCAS_PROXIED_SERVICE_HTTP_GET:
@@ -2968,18 +2968,18 @@ class CAS_Client
      * @return void
      *
      * @throws CAS_ProxyTicketException If there is a proxy-ticket failure.
-     *		The code of the Exception will be one of:
-     *			PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
-     *			PHPCAS_SERVICE_PT_FAILURE
+     *        The code of the Exception will be one of:
+     *            PHPCAS_SERVICE_PT_NO_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_BAD_SERVER_RESPONSE
+     *            PHPCAS_SERVICE_PT_FAILURE
      * @throws CAS_ProxiedService_Exception If there is a failure getting the
      * url from the proxied service.
      */
     public function initializeProxiedService (CAS_ProxiedService $proxiedService)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
-    	$this->ensureAuthenticationCallSuccessful();
+        $this->ensureAuthenticationCallSuccessful();
 
         $url = $proxiedService->getServiceUrl();
         if (!is_string($url)) {
@@ -3012,13 +3012,13 @@ class CAS_Client
      */
     public function serviceWeb($url,&$err_code,&$output)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
-    	$this->ensureAuthenticationCallSuccessful();
+        $this->ensureAuthenticationCallSuccessful();
 
-    	// Argument validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         try {
             $service = $this->getProxiedService(PHPCAS_PROXIED_SERVICE_HTTP_GET);
@@ -3062,17 +3062,17 @@ class CAS_Client
      */
     public function serviceMail($url,$serviceUrl,$flags,&$err_code,&$err_msg,&$pt)
     {
-    	// Sequence validation
+        // Sequence validation
         $this->ensureIsProxy();
-    	$this->ensureAuthenticationCallSuccessful();
+        $this->ensureAuthenticationCallSuccessful();
 
-    	// Argument validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
         if (gettype($serviceUrl) != 'string')
-        	throw new CAS_TypeMismatchException($serviceUrl, '$serviceUrl', 'string');
+            throw new CAS_TypeMismatchException($serviceUrl, '$serviceUrl', 'string');
         if (gettype($flags) != 'integer')
-        	throw new CAS_TypeMismatchException($flags, '$flags', 'string');
+            throw new CAS_TypeMismatchException($flags, '$flags', 'string');
 
         try {
             $service = $this->getProxiedService(PHPCAS_PROXIED_SERVICE_IMAP);
@@ -3354,19 +3354,19 @@ class CAS_Client
 
         // "Jasig Style" Attributes:
         //
-        // 	<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
-        // 		<cas:authenticationSuccess>
-        // 			<cas:user>jsmith</cas:user>
-        // 			<cas:attributes>
-        // 				<cas:attraStyle>RubyCAS</cas:attraStyle>
-        // 				<cas:surname>Smith</cas:surname>
-        // 				<cas:givenName>John</cas:givenName>
-        // 				<cas:memberOf>CN=Staff,OU=Groups,DC=example,DC=edu</cas:memberOf>
-        // 				<cas:memberOf>CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu</cas:memberOf>
-        // 			</cas:attributes>
-        // 			<cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
-        // 		</cas:authenticationSuccess>
-        // 	</cas:serviceResponse>
+        //     <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+        //         <cas:authenticationSuccess>
+        //             <cas:user>jsmith</cas:user>
+        //             <cas:attributes>
+        //                 <cas:attraStyle>RubyCAS</cas:attraStyle>
+        //                 <cas:surname>Smith</cas:surname>
+        //                 <cas:givenName>John</cas:givenName>
+        //                 <cas:memberOf>CN=Staff,OU=Groups,DC=example,DC=edu</cas:memberOf>
+        //                 <cas:memberOf>CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu</cas:memberOf>
+        //             </cas:attributes>
+        //             <cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
+        //         </cas:authenticationSuccess>
+        //     </cas:serviceResponse>
         //
         if ($this->_casAttributeParserCallbackFunction !== null
             && is_callable($this->_casAttributeParserCallbackFunction)
@@ -3397,19 +3397,19 @@ class CAS_Client
         } else {
             // "RubyCAS Style" attributes
             //
-            // 	<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
-            // 		<cas:authenticationSuccess>
-            // 			<cas:user>jsmith</cas:user>
+            //     <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+            //         <cas:authenticationSuccess>
+            //             <cas:user>jsmith</cas:user>
             //
-            // 			<cas:attraStyle>RubyCAS</cas:attraStyle>
-            // 			<cas:surname>Smith</cas:surname>
-            // 			<cas:givenName>John</cas:givenName>
-            // 			<cas:memberOf>CN=Staff,OU=Groups,DC=example,DC=edu</cas:memberOf>
-            // 			<cas:memberOf>CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu</cas:memberOf>
+            //             <cas:attraStyle>RubyCAS</cas:attraStyle>
+            //             <cas:surname>Smith</cas:surname>
+            //             <cas:givenName>John</cas:givenName>
+            //             <cas:memberOf>CN=Staff,OU=Groups,DC=example,DC=edu</cas:memberOf>
+            //             <cas:memberOf>CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu</cas:memberOf>
             //
-            // 			<cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
-            // 		</cas:authenticationSuccess>
-            // 	</cas:serviceResponse>
+            //             <cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
+            //         </cas:authenticationSuccess>
+            //     </cas:serviceResponse>
             //
             phpCAS :: trace("Testing for rubycas style attributes");
             $childnodes = $success_elements->item(0)->childNodes;
@@ -3439,19 +3439,19 @@ class CAS_Client
         // http://jasig.275507.n4.nabble.com/CAS-attributes-and-how-they-appear-in-the-CAS-response-td264272.html
         // Note: This is a less widely used format, but in use by at least two institutions.
         //
-        // 	<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
-        // 		<cas:authenticationSuccess>
-        // 			<cas:user>jsmith</cas:user>
+        //     <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+        //         <cas:authenticationSuccess>
+        //             <cas:user>jsmith</cas:user>
         //
-        // 			<cas:attribute name='attraStyle' value='Name-Value' />
-        // 			<cas:attribute name='surname' value='Smith' />
-        // 			<cas:attribute name='givenName' value='John' />
-        // 			<cas:attribute name='memberOf' value='CN=Staff,OU=Groups,DC=example,DC=edu' />
-        // 			<cas:attribute name='memberOf' value='CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu' />
+        //             <cas:attribute name='attraStyle' value='Name-Value' />
+        //             <cas:attribute name='surname' value='Smith' />
+        //             <cas:attribute name='givenName' value='John' />
+        //             <cas:attribute name='memberOf' value='CN=Staff,OU=Groups,DC=example,DC=edu' />
+        //             <cas:attribute name='memberOf' value='CN=Spanish Department,OU=Departments,OU=Groups,DC=example,DC=edu' />
         //
-        // 			<cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
-        // 		</cas:authenticationSuccess>
-        // 	</cas:serviceResponse>
+        //             <cas:proxyGrantingTicket>PGTIOU-84678-8a9d2sfa23casd</cas:proxyGrantingTicket>
+        //         </cas:authenticationSuccess>
+        //     </cas:serviceResponse>
         //
         if (!count($extra_attributes)
             && $success_elements->item(0)->getElementsByTagName("attribute")->length != 0
@@ -3546,9 +3546,9 @@ class CAS_Client
      */
     public function setURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         $this->_url = $url;
     }
@@ -3569,8 +3569,8 @@ class CAS_Client
             $final_uri .= '://';
 
             $final_uri .= $this->_getClientUrl();
-            $request_uri	= explode('?', $_SERVER['REQUEST_URI'], 2);
-            $final_uri		.= $request_uri[0];
+            $request_uri    = explode('?', $_SERVER['REQUEST_URI'], 2);
+            $final_uri        .= $request_uri[0];
 
             if (isset($request_uri[1]) && $request_uri[1]) {
                 $query_string= $this->_removeParameterFromQueryString('ticket', $request_uri[1]);
@@ -3578,7 +3578,7 @@ class CAS_Client
                 // If the query string still has anything left,
                 // append it to the final URI
                 if ($query_string !== '') {
-                    $final_uri	.= "?$query_string";
+                    $final_uri    .= "?$query_string";
                 }
             }
 
@@ -3598,9 +3598,9 @@ class CAS_Client
      */
     public function setBaseURL($url)
     {
-    	// Argument Validation
-    	if (gettype($url) != 'string')
-        	throw new CAS_TypeMismatchException($url, '$url', 'string');
+        // Argument Validation
+        if (gettype($url) != 'string')
+            throw new CAS_TypeMismatchException($url, '$url', 'string');
 
         return $this->_server['base_url'] = $url;
     }
@@ -3678,7 +3678,7 @@ class CAS_Client
      */
     private function _removeParameterFromQueryString($parameterName, $queryString)
     {
-        $parameterName	= preg_quote($parameterName);
+        $parameterName    = preg_quote($parameterName);
         return preg_replace(
             "/&$parameterName(=[^&]*)?|^$parameterName(=[^&]*)?&?/",
             '', $queryString
@@ -3885,9 +3885,9 @@ class CAS_Client
      */
     public function addRebroadcastNode($rebroadcastNodeUrl)
     {
-    	// Argument validation
-    	if ( !(bool)preg_match("/^(http|https):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i", $rebroadcastNodeUrl))
-        	throw new CAS_TypeMismatchException($rebroadcastNodeUrl, '$rebroadcastNodeUrl', 'url');
+        // Argument validation
+        if ( !(bool)preg_match("/^(http|https):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i", $rebroadcastNodeUrl))
+            throw new CAS_TypeMismatchException($rebroadcastNodeUrl, '$rebroadcastNodeUrl', 'url');
 
         // Store the rebroadcast node and set flag
         $this->_rebroadcast = true;
@@ -3909,8 +3909,8 @@ class CAS_Client
      */
     public function addRebroadcastHeader($header)
     {
-    	if (gettype($header) != 'string')
-        	throw new CAS_TypeMismatchException($header, '$header', 'string');
+        if (gettype($header) != 'string')
+            throw new CAS_TypeMismatchException($header, '$header', 'string');
 
         $this->_rebroadcast_headers[] = $header;
     }

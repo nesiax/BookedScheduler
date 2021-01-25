@@ -27,15 +27,15 @@ $page->PageLoad();
 
 class DeleteReservationPageFactory
 {
-	public static function Create()
-	{
-		if (ServiceLocator::GetServer()->GetQuerystring(QueryStringKeys::RESPONSE_TYPE) == 'json')
-		{
-			return new ReservationDeleteJsonPage();
-		}
-		else
-		{
-			return new ReservationDeletePage();
-		}
-	}
+    public static function Create()
+    {
+        if (ServiceLocator::GetServer()->GetQuerystring(QueryStringKeys::RESPONSE_TYPE) == 'json')
+        {
+            return new ReservationDeleteJsonPage();
+        }
+        else
+        {
+            return new ReservationDeletePage();
+        }
+    }
 }

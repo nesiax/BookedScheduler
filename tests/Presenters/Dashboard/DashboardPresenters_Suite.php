@@ -22,9 +22,9 @@ require_once(ROOT_DIR . 'tests/AllTests.php');
 
 class DashboardPresenters_Suite
 {
-	public static function suite()
+    public static function suite()
     {
-    	return TestHelper::GetSuite('tests/Presenters/Dashboard');
+        return TestHelper::GetSuite('tests/Presenters/Dashboard');
     }
 }
 ?>

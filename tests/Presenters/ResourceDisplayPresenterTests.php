@@ -577,8 +577,8 @@ class TestResourceDisplayPage extends FakePageBase implements IResourceDisplayPa
         // TODO: Implement GetTermsOfServiceAcknowledgement() method.
     }
 
-	public function DisplayInstructions()
-	{
-		// TODO: Implement DisplayInstructions() method.
-	}
+    public function DisplayInstructions()
+    {
+        // TODO: Implement DisplayInstructions() method.
+    }
 }

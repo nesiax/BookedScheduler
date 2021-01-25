@@ -107,14 +107,14 @@ class UpgradeDbTask // extends Task
     private function ExecuteFile($fullUpgradeDir, $fileName)
     {
         $dblink = mysqli_connect($this->host, $this->username, $this->mysqlPassword, $this->database);
-		if (!$dblink)
-		{
-		    die('Could not connect: ' . mysqli_error($dblink));
-		}
+        if (!$dblink)
+        {
+            die('Could not connect: ' . mysqli_error($dblink));
+        }
 
-		mysqli_select_db($dblink, $this->database);
+        mysqli_select_db($dblink, $this->database);
 
-		mysqli_query($dblink, 'SET foreign_key_checks = 0;');
+        mysqli_query($dblink, 'SET foreign_key_checks = 0;');
 
         $path = "$fullUpgradeDir/$fileName";
         print("Executing $path\n");
@@ -137,7 +137,7 @@ class UpgradeDbTask // extends Task
             }
         }
 
-		mysqli_query($dblink, 'SET foreign_key_checks = 1;');
+        mysqli_query($dblink, 'SET foreign_key_checks = 1;');
     }
 
     private function  GetFullSql($file)

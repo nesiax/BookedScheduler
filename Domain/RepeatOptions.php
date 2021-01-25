@@ -721,8 +721,8 @@ class RepeatConfiguration
         if (!empty($terminationDateString)) {
             $this->TerminationDate = Date::FromDatabase($terminationDateString);
         } else {
-        	$this->TerminationDate = NullDate::Instance();
-		}
+            $this->TerminationDate = NullDate::Instance();
+        }
     }
 
     private function SetWeekdays($weekdays)

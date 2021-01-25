@@ -71,28 +71,28 @@ interface IReservationCreditsPage extends IRepeatOptionsComposite
 
 class ReservationCreditsPage extends Page implements IReservationCreditsPage
 {
-	/**
-	 * @var ReservationCreditsPresenter
-	 */
-	private $presenter;
+    /**
+     * @var ReservationCreditsPresenter
+     */
+    private $presenter;
 
-	public function __construct()
-	{
-		parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->presenter = new ReservationCreditsPresenter($this,
+        $this->presenter = new ReservationCreditsPresenter($this,
             new ReservationRepository(),
             new ScheduleRepository(),
             new ResourceRepository(),
             new PaymentRepository());
-	}
+    }
 
-	public function PageLoad()
-	{
+    public function PageLoad()
+    {
         $this->EnforceCSRFCheck();
-		$userSession = ServiceLocator::GetServer()->GetUserSession();
-		$this->presenter->PageLoad($userSession);
-	}
+        $userSession = ServiceLocator::GetServer()->GetUserSession();
+        $this->presenter->PageLoad($userSession);
+    }
 
     public function GetUserId()
     {

@@ -19,54 +19,54 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 <p><strong>Detalhes da reserva:</strong></p>
 
 <p>
-	<strong>Início:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
-	<strong>Fim:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
-	<strong>Título:</strong> {$Title}<br/>
-	<strong>Descrição:</strong> {$Description|nl2br}
+    <strong>Início:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
+    <strong>Fim:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
+    <strong>Título:</strong> {$Title}<br/>
+    <strong>Descrição:</strong> {$Description|nl2br}
     {if $Attributes|count > 0}
-	<br/>
+    <br/>
     {foreach from=$Attributes item=attribute}
-	<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
     {/foreach}
 {/if}
 </p>
 
 <p>
     {if $ResourceNames|count > 1}
-		<strong>Recursos ({$ResourceNames|count}):</strong>
-		<br/>
+        <strong>Recursos ({$ResourceNames|count}):</strong>
+        <br/>
         {foreach from=$ResourceNames item=resourceName}
             {$resourceName}
-			<br/>
+            <br/>
         {/foreach}
     {else}
-		<strong>Recurso:</strong>
+        <strong>Recurso:</strong>
         {$ResourceName}
-		<br/>
+        <br/>
     {/if}
 </p>
 
 {if $ResourceImage}
-	<div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 {if count($RepeatRanges) gt 0}
-	<br/>
-	<strong>Esta reserva ocorre nas seguintes datas ({$RepeatRanges|count}):</strong>
-	<br/>
+    <br/>
+    <strong>Esta reserva ocorre nas seguintes datas ({$RepeatRanges|count}):</strong>
+    <br/>
     {foreach from=$RepeatRanges item=date name=dates}
         {formatdate date=$date->GetBegin()}
         {if !$date->IsSameDate()} - {formatdate date=$date->GetEnd()}{/if}
-		<br/>
+        <br/>
     {/foreach}
 {/if}
 
 <p>
     {if !empty($CreatedBy)}
-		<strong>Removido por:</strong>
+        <strong>Removido por:</strong>
         {$CreatedBy}
-		<br/>
-		<strong>Motivo da exclusão: {$DeleteReason|nl2br}</strong>
+        <br/>
+        <strong>Motivo da exclusão: {$DeleteReason|nl2br}</strong>
     {/if}
 </p>
 

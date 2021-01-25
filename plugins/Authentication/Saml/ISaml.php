@@ -24,19 +24,19 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface ISaml
 {
-    	/**
-	 * @return bool If connection was successful
-	 */
-	public function Connect();
+        /**
+     * @return bool If connection was successful
+     */
+    public function Connect();
 
-	/**
-	 * @return bool If authentication was successful
-	 */
-	public function Authenticate();
+    /**
+     * @return bool If authentication was successful
+     */
+    public function Authenticate();
 
-	/**
-	 * @return SamlUser The details for the user
-	 */
-	public function GetSamlUser();
+    /**
+     * @return SamlUser The details for the user
+     */
+    public function GetSamlUser();
 }
 ?>

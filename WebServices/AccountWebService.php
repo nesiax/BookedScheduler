@@ -103,7 +103,7 @@ class AccountWebService
                 RestResponse::BAD_REQUEST_CODE);
         }
     }
-    
+
     /**
      * @name UpdateAccount
      * @description Updates an existing user account

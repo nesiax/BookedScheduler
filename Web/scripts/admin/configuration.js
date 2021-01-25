@@ -1,64 +1,64 @@
 function Configuration() {
-	var elements = {
-		form: $('#frmConfigSettings'),
-		configFileSelection: $('#cf'),
-		configFileForm: $('#frmConfigFile'),
+    var elements = {
+        form: $('#frmConfigSettings'),
+        configFileSelection: $('#cf'),
+        configFileForm: $('#frmConfigFile'),
         updateHomepageForm: $('#updateHomepageForm'),
         updateHomepageButton:$('#applyHomepage')
-	};
+    };
 
-	Configuration.prototype.init = function () {
+    Configuration.prototype.init = function () {
 
-		$(".save").click(function (e) {
-			e.preventDefault();
-			elements.form.submit();
-		});
-
-		elements.configFileSelection.change(function(e){
-			elements.configFileForm.submit();
-		});
-
-		elements.form.bind('onValidationFailed', onValidationFailed);
-
-		elements.updateHomepageButton.click(function(e){
-		    e.preventDefault();
-		    $('#homepage_id').val($("#default__homepage").val());
-		    elements.updateHomepageForm.submit();
+        $(".save").click(function (e) {
+            e.preventDefault();
+            elements.form.submit();
         });
 
-		ConfigureAsyncForm(elements.form, defaultSubmitCallback, successHandler, null, {onBeforeSubmit: onBeforeAddSubmit});
-		ConfigureAsyncForm(elements.updateHomepageForm, defaultSubmitCallback, function(){}, function(){});
-	};
+        elements.configFileSelection.change(function(e){
+            elements.configFileForm.submit();
+        });
 
-	var defaultSubmitCallback = function (form) {
-		return form.attr('action') + "?action=" + form.attr('ajaxAction') + "&cf=" + elements.configFileSelection.val();
-	};
+        elements.form.bind('onValidationFailed', onValidationFailed);
 
-	function onValidationFailed(event, data)
-	{
-		hideModal();
-	}
+        elements.updateHomepageButton.click(function(e){
+            e.preventDefault();
+            $('#homepage_id').val($("#default__homepage").val());
+            elements.updateHomepageForm.submit();
+        });
 
-	function successHandler(response)
-	{
-		hideModal();
-		$('#updatedMessage').show().delay('3000').fadeOut('slow');
-	}
+        ConfigureAsyncForm(elements.form, defaultSubmitCallback, successHandler, null, {onBeforeSubmit: onBeforeAddSubmit});
+        ConfigureAsyncForm(elements.updateHomepageForm, defaultSubmitCallback, function(){}, function(){});
+    };
 
-	function onBeforeAddSubmit(formData, jqForm, opts)
-	{
-		$('#updatedMessage').hide();
-		$.blockUI({message: $('#wait-box')});
+    var defaultSubmitCallback = function (form) {
+        return form.attr('action') + "?action=" + form.attr('ajaxAction') + "&cf=" + elements.configFileSelection.val();
+    };
 
-		return true;
-	}
+    function onValidationFailed(event, data)
+    {
+        hideModal();
+    }
 
-	function hideModal()
-	{
-		$.unblockUI();
+    function successHandler(response)
+    {
+        hideModal();
+        $('#updatedMessage').show().delay('3000').fadeOut('slow');
+    }
 
-		var top = $("#updatedMessage").scrollTop();
-		$('html, body').animate({scrollTop:top}, 'slow');
-	}
+    function onBeforeAddSubmit(formData, jqForm, opts)
+    {
+        $('#updatedMessage').hide();
+        $.blockUI({message: $('#wait-box')});
+
+        return true;
+    }
+
+    function hideModal()
+    {
+        $.unblockUI();
+
+        var top = $("#updatedMessage").scrollTop();
+        $('html, body').animate({scrollTop:top}, 'slow');
+    }
 
 }

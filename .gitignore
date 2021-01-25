@@ -24,3 +24,5 @@
 /vendor
 /.phpunit.result.cache
 /plugins/Authentication/Saml/Saml.config.php
+# emacs backup files
+*~

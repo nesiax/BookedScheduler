@@ -270,8 +270,8 @@ function Schedule(opts, resourceGroups) {
                         const endsAfter = res.EndDate > tableMax;
                         let startTime = startsBefore ? opts.midnightLabel : res.StartTime;
                         let endTime = endsAfter ? opts.midnightLabel : res.EndTime;
-                        const div = $(`<div 
-                                    class="${className} ${mine} ${past} ${participant} ${isPending} condensed-event" 
+                        const div = $(`<div
+                                    class="${className} ${mine} ${past} ${participant} ${isPending} condensed-event"
                                     style="${color}"
                                     data-resid="${res.ReferenceNumber}">
                                     <span>${startTime}-${endTime}</span>
@@ -371,8 +371,8 @@ function Schedule(opts, resourceGroups) {
 
                     let divHeight = opts.scheduleStyle === ScheduleTall ? height : 41;
                     const style = `left:${left}px; top:${top}px; width:${width}px; height:${divHeight}px;`;
-                    const div = $(`<div 
-                                    class="${className} ${mine} ${past} ${participant} ${isPending} event" 
+                    const div = $(`<div
+                                    class="${className} ${mine} ${past} ${participant} ${isPending} event"
                                     style="${style} ${color}"
                                     data-resid="${res.ReferenceNumber}"
                                     data-resourceid="${res.ResourceId}"
@@ -407,13 +407,13 @@ function Schedule(opts, resourceGroups) {
                             }
 
                             const style = `left:${bufferStartEnd.left}px; top:${bufferTop}px; width:${bufferStartEnd.width}px; height:${bufferHeight}px;`;
-                            const bufferDiv = $(`<div 
-					                                    class="${past} buffer" 
-					                                    style="${style}"
-					                                    data-resid="${res.ReferenceNumber}"
-					                                    data-resourceid="${res.ResourceId}"
-					                                    data-start="${startTd.data('min')}"
-					                                    data-end="${endTd.data('min')}">&nbsp;</div>`);
+                            const bufferDiv = $(`<div
+                                                        class="${past} buffer"
+                                                        style="${style}"
+                                                        data-resid="${res.ReferenceNumber}"
+                                                        data-resourceid="${res.ResourceId}"
+                                                        data-start="${startTd.data('min')}"
+                                                        data-end="${endTd.data('min')}">&nbsp;</div>`);
                             t.append(bufferDiv);
                         }
                     }
@@ -816,8 +816,8 @@ function Schedule(opts, resourceGroups) {
                 ajaxPost($('#moveReservationForm'), options.updateReservationUrl, null, function (updateResult) {
                     droppedCell.removeClass('dropped');
                     droppedCell.html('');
-					
-					if (updateResult.success) {
+
+                    if (updateResult.success) {
                         renderEvents(true);
                     } else {
                         renderingEvents = false;

@@ -16,52 +16,52 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
-<p>{$ParticipantDetails} 
+<p>{$ParticipantDetails}
     {if ($InvitationAction == InvitationAction::Decline || $InvitationAction == InvitationAction::CancelAll || $InvitationAction == InvitationAction::CancelInstance)}
-		declinou o seu convite de participação na reserva.
+        declinou o seu convite de participação na reserva.
     {elseif ($InvitationAction == InvitationAction::Join || $InvitationAction == InvitationAction::JoinAll)}
-		aceitou o seu convite.
+        aceitou o seu convite.
     {else}
-		aceitou o seu convite de participação na reserva.
+        aceitou o seu convite de participação na reserva.
     {/if}
 </p>
 <p><strong>Detalhes da reserva:</strong></p>
 
 <p>
-	<strong>Início:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
-	<strong>Fim:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
-	<strong>Title:</strong> {$Title}<br/>
-	<strong>Descrição:</strong> {$Description|nl2br}
+    <strong>Início:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
+    <strong>Fim:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
+    <strong>Title:</strong> {$Title}<br/>
+    <strong>Descrição:</strong> {$Description|nl2br}
     {if $Attributes|count > 0}
-	<br/>
+    <br/>
     {foreach from=$Attributes item=attribute}
-	<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
     {/foreach}
 {/if}
 </p>
 
 <p>
     {if $ResourceNames|count > 1}
-		<strong>Recursos ({$ResourceNames|count}):</strong>
-		<br/>
+        <strong>Recursos ({$ResourceNames|count}):</strong>
+        <br/>
         {foreach from=$ResourceNames item=resourceName}
             {$resourceName}
-			<br/>
+            <br/>
         {/foreach}
     {else}
-		<strong>Recurso:</strong>
+        <strong>Recurso:</strong>
         {$ResourceName}
-		<br/>
+        <br/>
     {/if}
 </p>
 
 {if $ResourceImage}
-	<div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 <p><strong>Número de referência:</strong> {$ReferenceNumber}</p>
 
 <p>
-	<a href="{$ScriptUrl}/{$ReservationUrl}">Ver esta reserva</a> |
-	<a href="{$ScriptUrl}">Entrar em {$AppTitle}</a>
+    <a href="{$ScriptUrl}/{$ReservationUrl}">Ver esta reserva</a> |
+    <a href="{$ScriptUrl}">Entrar em {$AppTitle}</a>
 </p>

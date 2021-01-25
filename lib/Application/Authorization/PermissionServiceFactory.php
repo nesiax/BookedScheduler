@@ -16,19 +16,19 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IPermissionServiceFactory
 {
-	/**
-	 * @return IPermissionService
-	 */
-	function GetPermissionService();
+    /**
+     * @return IPermissionService
+     */
+    function GetPermissionService();
 }
 
 class PermissionServiceFactory implements IPermissionServiceFactory
 {
-	/**
-	 * @return IPermissionService
-	 */
-	public function GetPermissionService()
-	{
-		return PluginManager::Instance()->LoadPermission();
-	}
+    /**
+     * @return IPermissionService
+     */
+    public function GetPermissionService()
+    {
+        return PluginManager::Instance()->LoadPermission();
+    }
 }

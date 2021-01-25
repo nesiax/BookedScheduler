@@ -36,8 +36,8 @@ class ParticipationNotificationTests extends TestBase
         $this->participationNotification = new ParticipationNotification($this->userRepository);
         $this->fakeConfig->SetSectionKey(ConfigSection::RESERVATION, ConfigKeys::RESERVATION_PREVENT_PARTICIPATION, 'false');
     }
-    
-    public function testWhenOwnerWantsEmails() 
+
+    public function testWhenOwnerWantsEmails()
     {
         $user = new FakeUser();
         $user->_WantsEmail = true;
@@ -47,7 +47,7 @@ class ParticipationNotificationTests extends TestBase
 
         $this->assertInstanceOf('ReservationParticipationActivityEmail', $this->fakeEmailService->_LastMessage);
     }
-    
+
     public function testWhenOwnerDoesNotWantEmails()
     {
         $user = new FakeUser();

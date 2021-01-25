@@ -16,16 +16,16 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class RequiredValidator extends ValidatorBase implements IValidator
 {
-	private $value;
+    private $value;
 
-	public function __construct($value)
-	{
-		$this->value = $value;
-	}
+    public function __construct($value)
+    {
+        $this->value = $value;
+    }
 
-	public function Validate()
-	{
-		$trimmed = trim($this->value);
-		$this->isValid = !empty($trimmed);
-	}
+    public function Validate()
+    {
+        $trimmed = trim($this->value);
+        $this->isValid = !empty($trimmed);
+    }
 }

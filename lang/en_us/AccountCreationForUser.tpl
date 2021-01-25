@@ -26,7 +26,7 @@ Organization: {$Organization}<br/>
 Position: {$Position}<br/>
 Password: {$Password}</p>
 {if !empty($CreatedBy)}
-	Created by: {$CreatedBy}
+    Created by: {$CreatedBy}
 {/if}
 
 <a href="{$ScriptUrl}">Log In to {$AppTitle}</a>

@@ -71,4 +71,3 @@ Opis: {$Description|nl2br}<br/>
 <br/>
 <br/>
 <a href="{$ScriptUrl}">Prijava v program Booked Scheduler</a>
-	

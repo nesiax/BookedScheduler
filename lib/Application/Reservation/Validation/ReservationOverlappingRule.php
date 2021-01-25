@@ -26,15 +26,15 @@ class ReservationOverlappingRule implements IReservationValidationRule
         $this->timezone = $timezone;
     }
 
-	/**
-	 * @param ReservationSeries $reservationSeries
-	 * @param $retryParameters
-	 * @return ReservationRuleResult
-	 * @throws Exception
-	 */
-	public function Validate($reservationSeries, $retryParameters)
-	{
-		$instances = $reservationSeries->SortedInstances();
+    /**
+     * @param ReservationSeries $reservationSeries
+     * @param $retryParameters
+     * @return ReservationRuleResult
+     * @throws Exception
+     */
+    public function Validate($reservationSeries, $retryParameters)
+    {
+        $instances = $reservationSeries->SortedInstances();
         $repeat = $reservationSeries->RepeatOptions();
 
         $overlap = array();
@@ -72,8 +72,8 @@ class ReservationOverlappingRule implements IReservationValidationRule
             );
         }
 
-		return new ReservationRuleResult();
-	}
+        return new ReservationRuleResult();
+    }
 
     /**
      * @param array|DateRange[] $overlaps

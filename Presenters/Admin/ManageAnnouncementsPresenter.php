@@ -99,8 +99,8 @@ class ManageAnnouncementsPresenter extends ActionPresenter
     {
         $user = ServiceLocator::GetServer()->GetUserSession();
         $text = $this->page->GetText();
-		$text = str_replace('&lt;script&gt;', '', $text);
-		$text = str_replace('&lt;/script&gt;', '', $text);
+        $text = str_replace('&lt;script&gt;', '', $text);
+        $text = str_replace('&lt;/script&gt;', '', $text);
         $start = Date::Parse($this->page->GetStart(), $user->Timezone);
         $end = Date::Parse($this->page->GetEnd(), $user->Timezone);
         $priority = $this->page->GetPriority();
@@ -222,9 +222,9 @@ class ManageAnnouncementsPresenter extends ActionPresenter
         $usersToSendTo = array();
         $validUsers = array();
 
-		$groupIds = $announcement->GroupIds();
-		$resourceIds = $announcement->ResourceIds();
-		if (empty($groupIds) && empty($resourceIds)) {
+        $groupIds = $announcement->GroupIds();
+        $resourceIds = $announcement->ResourceIds();
+        if (empty($groupIds) && empty($resourceIds)) {
             $userList = $this->userViewRepository->GetList(null, null, null, null, null, AccountStatus::ACTIVE)->Results();
             foreach ($userList as $user) {
                 $allUsers[$user->Id] = $user;
@@ -252,7 +252,7 @@ class ManageAnnouncementsPresenter extends ActionPresenter
                 }
             }
 
-			$usersToSendTo = array_unique(array_merge($groupUserIds, $resourceUserIds));
+            $usersToSendTo = array_unique(array_merge($groupUserIds, $resourceUserIds));
 
             foreach ($usersToSendTo as $userId)
             {

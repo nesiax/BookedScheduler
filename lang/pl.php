@@ -29,7 +29,7 @@ class pl extends en_gb
         parent::__construct();
     }
 
-	/**
+    /**
      * @return array
      */
     protected function _LoadStrings()
@@ -363,46 +363,46 @@ class pl extends en_gb
         $strings['AdditionalAttributes'] = 'Atrybuty dodatkowe';
         $strings['True'] = 'Prawda';
         $strings['False'] = 'Fałsz';
-		$strings['ForgotPasswordEmailSent'] = 'Na podany adres został wysłany email z instrukcjami zresetowania hasła';
-		$strings['ActivationEmailSent'] = 'Niedługo otrzymasz emaila aktywacyjnego.';
-		$strings['AccountActivationError'] = 'Przepraszamy, nie możemy aktywować Twojego konta.';
-		$strings['Attachments'] = 'Załączniki';
-		$strings['AttachFile'] = 'Załącz plik';
-		$strings['Maximum'] = 'max';
-		$strings['NoScheduleAdministratorLabel'] = 'Brak administratora harmonogramu';
-		$strings['ScheduleAdministrator'] = 'Administrator harmonogramu';
-		$strings['Total'] = 'Razem';
-		$strings['QuantityReserved'] = 'Ilość zarezerwowana';
-		$strings['AllAccessories'] = 'Wszystkie akcesoria';
-		$strings['GetReport'] = 'Generuj raport';
-		$strings['NoResultsFound'] = 'Nie znaleziono pasujących wyników';
-		$strings['SaveThisReport'] = 'Zapisz ten raport';
-		$strings['ReportSaved'] = 'Raport zapisany!';
-		$strings['EmailReport'] = 'Wyślij raport mailem';
-		$strings['ReportSent'] = 'Raport wysłany!';
-		$strings['RunReport'] = 'Uruchom raport';
-		$strings['NoSavedReports'] = 'Nie masz zapisanych raportów.';
-		$strings['CurrentWeek'] = 'Bieżący tydzień';
-		$strings['CurrentMonth'] = 'Bieżący miesiąc';
-		$strings['AllTime'] = 'Cały czas';
-		$strings['FilterBy'] = 'Filtruj po';
-		$strings['Select'] = 'Zaznacz';
-		$strings['List'] = 'Lista';
-		$strings['TotalTime'] = 'Łączny czas';
-		$strings['Count'] = 'Liczba';
-		$strings['Usage'] = 'Użycie';
-		$strings['AggregateBy'] = 'Grupuj po';
-		$strings['Range'] = 'Zakres';
-		$strings['Choose'] = 'Wybierz';
-		$strings['All'] = 'Wszystko';
-		$strings['ViewAsChart'] = 'Zobacz jako wykres';
-		$strings['ReservedResources'] = 'Zarezerwowane zasoby';
-		$strings['ReservedAccessories'] = 'Zarezerwowane akcesoria';
-		$strings['ResourceUsageTimeBooked'] = 'Użycie zasobów - zarezerwowany czas';
-		$strings['ResourceUsageReservationCount'] = 'Użycie zasobów - liczba rezerwacji';
-		$strings['Top20UsersTimeBooked'] = 'Top 20 użytkowników - zarezerwowany czas';
-		$strings['Top20UsersReservationCount'] = 'Top 20 użytkowników - liczba rezerwacji';
-		// End Strings
+        $strings['ForgotPasswordEmailSent'] = 'Na podany adres został wysłany email z instrukcjami zresetowania hasła';
+        $strings['ActivationEmailSent'] = 'Niedługo otrzymasz emaila aktywacyjnego.';
+        $strings['AccountActivationError'] = 'Przepraszamy, nie możemy aktywować Twojego konta.';
+        $strings['Attachments'] = 'Załączniki';
+        $strings['AttachFile'] = 'Załącz plik';
+        $strings['Maximum'] = 'max';
+        $strings['NoScheduleAdministratorLabel'] = 'Brak administratora harmonogramu';
+        $strings['ScheduleAdministrator'] = 'Administrator harmonogramu';
+        $strings['Total'] = 'Razem';
+        $strings['QuantityReserved'] = 'Ilość zarezerwowana';
+        $strings['AllAccessories'] = 'Wszystkie akcesoria';
+        $strings['GetReport'] = 'Generuj raport';
+        $strings['NoResultsFound'] = 'Nie znaleziono pasujących wyników';
+        $strings['SaveThisReport'] = 'Zapisz ten raport';
+        $strings['ReportSaved'] = 'Raport zapisany!';
+        $strings['EmailReport'] = 'Wyślij raport mailem';
+        $strings['ReportSent'] = 'Raport wysłany!';
+        $strings['RunReport'] = 'Uruchom raport';
+        $strings['NoSavedReports'] = 'Nie masz zapisanych raportów.';
+        $strings['CurrentWeek'] = 'Bieżący tydzień';
+        $strings['CurrentMonth'] = 'Bieżący miesiąc';
+        $strings['AllTime'] = 'Cały czas';
+        $strings['FilterBy'] = 'Filtruj po';
+        $strings['Select'] = 'Zaznacz';
+        $strings['List'] = 'Lista';
+        $strings['TotalTime'] = 'Łączny czas';
+        $strings['Count'] = 'Liczba';
+        $strings['Usage'] = 'Użycie';
+        $strings['AggregateBy'] = 'Grupuj po';
+        $strings['Range'] = 'Zakres';
+        $strings['Choose'] = 'Wybierz';
+        $strings['All'] = 'Wszystko';
+        $strings['ViewAsChart'] = 'Zobacz jako wykres';
+        $strings['ReservedResources'] = 'Zarezerwowane zasoby';
+        $strings['ReservedAccessories'] = 'Zarezerwowane akcesoria';
+        $strings['ResourceUsageTimeBooked'] = 'Użycie zasobów - zarezerwowany czas';
+        $strings['ResourceUsageReservationCount'] = 'Użycie zasobów - liczba rezerwacji';
+        $strings['Top20UsersTimeBooked'] = 'Top 20 użytkowników - zarezerwowany czas';
+        $strings['Top20UsersReservationCount'] = 'Top 20 użytkowników - liczba rezerwacji';
+        // End Strings
 
         // Errors
         $strings['LoginError'] = 'Nie możemy odnaleźć twojej nazwy użytkownika lub hasła';
@@ -443,8 +443,8 @@ class pl extends en_gb
         $strings['ServerSettings'] = 'Ustawienia serwera';
         $strings['Dashboard'] = 'Strona główna';
         $strings['Help'] = 'Pomoc';
-		$strings['Administration'] = 'Administracja';
-		$strings['About'] = 'O...';
+        $strings['Administration'] = 'Administracja';
+        $strings['About'] = 'O...';
         $strings['Bookings'] = 'Terminarze';
         $strings['Schedule'] = 'Harmonogram';
         $strings['Reservations'] = 'Rezerwacje';
@@ -468,14 +468,14 @@ class pl extends en_gb
         $strings['ResourceReservations'] = 'Rezerwacje zasobów';
         $strings['Customization'] = 'Dostosowywanie';
         $strings['Attributes'] = 'Atrybuty';
-		$strings['AccountActivation'] = 'Aktywacja konta';
-		$strings['ScheduleReservations'] = 'Zaplanuj rezerwacje';
-		$strings['Reports'] = 'Raporty';
-		$strings['GenerateReport'] = 'Utwórz nowy raport';
-		$strings['MySavedReports'] = 'Moje zapisane raporty';
-		$strings['CommonReports'] = 'Wspólne raporty';
-		$strings['ViewDay'] = 'Podgląd dnia';
-		$strings['Group'] = 'Grupa';
+        $strings['AccountActivation'] = 'Aktywacja konta';
+        $strings['ScheduleReservations'] = 'Zaplanuj rezerwacje';
+        $strings['Reports'] = 'Raporty';
+        $strings['GenerateReport'] = 'Utwórz nowy raport';
+        $strings['MySavedReports'] = 'Moje zapisane raporty';
+        $strings['CommonReports'] = 'Wspólne raporty';
+        $strings['ViewDay'] = 'Podgląd dnia';
+        $strings['Group'] = 'Grupa';
         // End Page Titles
 
         // Day representations
@@ -494,7 +494,7 @@ class pl extends en_gb
         $strings['DayThursdayAbbr'] = 'Czw';
         $strings['DayFridayAbbr'] = 'Pią';
         $strings['DaySaturdayAbbr'] = 'Sob';
-		// End Day representations
+        // End Day representations
 
         // Email Subjects
         $strings['ReservationApprovedSubject'] = 'Twoja rezerwacja została zatwierdzona';
@@ -509,15 +509,15 @@ class pl extends en_gb
         $strings['InviteeAddedSubject'] = 'Zaproszenie do uczestnictwa';
         $strings['ResetPassword'] = 'Zmiana hasła';
         $strings['ActivateYourAccount'] = 'Proszę aktywować Swoje konto';
-		$strings['ReportSubject'] = 'Twój żądany raport (%s)';
+        $strings['ReportSubject'] = 'Twój żądany raport (%s)';
         // End Email Subjects
 
         $this->Strings = $strings;
 
-		return $this->Strings;
+        return $this->Strings;
     }
 
-	/**
+    /**
      * @return array
      */
     protected function _LoadDays()
@@ -540,10 +540,10 @@ class pl extends en_gb
 
         $this->Days = $days;
 
-		return $this->Days;
+        return $this->Days;
     }
 
-	/**
+    /**
      * @return array
      */
     protected function _LoadMonths()
@@ -562,17 +562,17 @@ class pl extends en_gb
 
         $this->Months = $months;
 
-		return $this->Months;
+        return $this->Months;
     }
 
-	/**
+    /**
      * @return array
      */
     protected function _LoadLetters()
     {
         $this->Letters = array('A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ż', 'Ź');
 
-		return $this->Letters;
+        return $this->Letters;
     }
 
     protected function _GetHtmlLangCode()

@@ -30,5 +30,5 @@ Area: {$Organization}<br />
 Posizione: {$Position}</p>
 
 {if !empty($CreatedBy)}
-	Creato da: {$CreatedBy}
+    Creato da: {$CreatedBy}
 {/if}

@@ -22,7 +22,7 @@ define('ROOT_DIR', '../');
 
 if (!file_exists(ROOT_DIR . 'config/config.php'))
 {
-	die('Missing config/config.php. Please refer to the installation instructions.');
+    die('Missing config/config.php. Please refer to the installation instructions.');
 }
 
 require_once(ROOT_DIR . 'Pages/LoginPage.php');

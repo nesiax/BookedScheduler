@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 
-	
+
 Tu je Vaše dočasné heslo pre Rezervácie online: {$TemporaryPassword}
 
 <br/>
@@ -25,4 +25,4 @@ Tu je Vaše dočasné heslo pre Rezervácie online: {$TemporaryPassword}
 Vaše staré heslo už ďalej nebude funkčné.
 
 Prosíme Vás <a href="{$ScriptUrl}">prihláste sa</a> a zmeňte si Vaše heslo čo najskôr.
-	
+

@@ -24,7 +24,7 @@ class GuestAddedEmail extends ReservationEmailMessage
     protected $guestEmail;
 
     public function __construct(User $reservationOwner, $guestEmail, ReservationSeries $reservationSeries, IAttributeRepository $attributeRepository, IUserRepository $userRepository)
-	{
+    {
         parent::__construct($reservationOwner, $reservationSeries, $reservationOwner->Language(), $attributeRepository, $userRepository);
 
         $this->reservationOwner = $reservationOwner;
@@ -65,15 +65,15 @@ class GuestAddedEmail extends ReservationEmailMessage
 
 class GuestUpdatedEmail extends GuestAddedEmail
 {
-	public function Subject()
-	{
-		return $this->Translate('ParticipantUpdatedSubjectWithResource', array($this->reservationOwner->FullName(), $this->primaryResource->GetName()));
-	}
+    public function Subject()
+    {
+        return $this->Translate('ParticipantUpdatedSubjectWithResource', array($this->reservationOwner->FullName(), $this->primaryResource->GetName()));
+    }
 
-	public function PopulateTemplate()
-	{
-		parent::PopulateTemplate();
-		$this->Set("Deleted", false);
-		$this->Set("Updated", true);
-	}
+    public function PopulateTemplate()
+    {
+        parent::PopulateTemplate();
+        $this->Set("Deleted", false);
+        $this->Set("Updated", true);
+    }
 }

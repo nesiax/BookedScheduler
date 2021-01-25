@@ -30,10 +30,10 @@ $result = ServiceLocator::GetDatabase()->Query($command);
 
 while ($row = $result->GetRow())
 {
-	foreach ($row as $name => $val)
-	{
-		echo "$name = $val, ";
-	}
-	echo PHP_EOL;
+    foreach ($row as $name => $val)
+    {
+        echo "$name = $val, ";
+    }
+    echo PHP_EOL;
 }
 ?>

@@ -18,8 +18,8 @@ require_once(ROOT_DIR . 'lib/Email/Messages/ReservationCreatedEmailAdmin.php');
 
 class ReservationUpdatedEmailAdmin extends ReservationCreatedEmailAdmin
 {
-	public function Subject()
-	{
+    public function Subject()
+    {
         return $this->Translate('ReservationUpdatedAdminSubjectWithResource', array($this->resource->GetName()));
-	}
+    }
 }

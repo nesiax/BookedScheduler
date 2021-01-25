@@ -1,4 +1,4 @@
-﻿{*
+{*
 Copyright 2011-2020 Nick Korbel, Paul Menchini
 
 This file is part of Booked Scheduler.

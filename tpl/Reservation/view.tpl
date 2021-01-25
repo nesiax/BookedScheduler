@@ -268,7 +268,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                                 <button type="button" class="btnPrint btn btn-default">
                                     <span class="fa fa-print"></span>
                                     {translate key='Print'}</button>
-								<button type="button" class="btnPDF btn btn-default">
+                                <button type="button" class="btnPDF btn btn-default">
                                     <span class="fa fa-file-pdf-o"></span>
                                     PDF</button>
                             {/block}
@@ -279,7 +279,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                                                 class="fa fa-sign-in"></i> {translate key=CheckIn}<span
                                                 class="autoReleaseButtonMessage"
                                                 data-autorelease-minutes="{$AutoReleaseMinutes}"> - {translate key=ReleasedIn}
-										<span class="autoReleaseMinutes"></span> {translate key=minutes}</span></button>
+                                        <span class="autoReleaseMinutes"></span> {translate key=minutes}</span></button>
                                 {/if}
                                 {if $CheckOutRequired}
                                     <button type="button" class="btn btn-warning btnCheckout"><i
@@ -416,11 +416,11 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
             $(this).ajaxSubmit(ajaxOptions);
             return false;
         });
-		
-		// jsPDF
-		{include file="Reservation/pdf.tpl"}
-		//
-		
+
+        // jsPDF
+        {include file="Reservation/pdf.tpl"}
+        //
+
         $.blockUI.defaults.css.width = '60%';
         $.blockUI.defaults.css.left = '20%';
     });

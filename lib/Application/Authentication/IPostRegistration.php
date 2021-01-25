@@ -16,5 +16,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IPostRegistration
 {
-	public function HandleSelfRegistration(User $user, IRegistrationPage $page, ILoginContext $loginContext);
+    public function HandleSelfRegistration(User $user, IRegistrationPage $page, ILoginContext $loginContext);
 }

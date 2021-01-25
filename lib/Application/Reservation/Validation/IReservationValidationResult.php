@@ -16,35 +16,35 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationValidationResult
 {
-	/**
-	 * @return bool
-	 */
-	public function CanBeSaved();
+    /**
+     * @return bool
+     */
+    public function CanBeSaved();
 
-	/**
-	 * @return string[]
-	 */
-	public function GetErrors();
+    /**
+     * @return string[]
+     */
+    public function GetErrors();
 
-	/**
-	 * @return string[]
-	 */
-	public function GetWarnings();
+    /**
+     * @return string[]
+     */
+    public function GetWarnings();
 
-	/**
-	 * @return bool
-	 */
-	public function CanBeRetried();
+    /**
+     * @return bool
+     */
+    public function CanBeRetried();
 
-	/**
-	 * @return ReservationRetryParameter[]
-	 */
-	public function GetRetryParameters();
+    /**
+     * @return ReservationRetryParameter[]
+     */
+    public function GetRetryParameters();
 
-	/**
-	 * @return string[]
-	 */
-	public function GetRetryMessages();
+    /**
+     * @return string[]
+     */
+    public function GetRetryMessages();
 
     /**
      * @return bool

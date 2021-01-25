@@ -20,7 +20,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IPage {
 
-	public function PageLoad();
+    public function PageLoad();
 
     public function Redirect($url);
 

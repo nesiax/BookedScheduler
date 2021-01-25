@@ -252,10 +252,10 @@ class ReservationViewRepositoryTests extends TestBase
                 $resourceCheckIn1, $resourceAutoRelease1),
             new ReservationResourceView($resourceId2, $resourceName2, null, $scheduleId, $scheduleAdminGroupId, ResourceStatus::AVAILABLE, false, null),
         );
-		foreach($expectedView->Resources as $r)
-		{
-			$r->SetColor('color');
-		}
+        foreach($expectedView->Resources as $r)
+        {
+            $r->SetColor('color');
+        }
 
         $expectedView->Accessories = array(
             new ReservationAccessoryView($accessory1, $quantity1, $accessoryName1, $accessoryQuantity1),
@@ -286,13 +286,13 @@ class ReservationViewRepositoryTests extends TestBase
     {
         $view = new ReservationView();
         $view->Resources = array(new ReservationResourceView(1, 1, 1, 1, 1, 1, true, 10), new ReservationResourceView(1, 1, 1, 1, 1, 1, false, null));
-        
+
         $this->assertTrue($view->IsCheckinEnabled());
     }
 
     public function testIsCheckinAvailableWithin5MinutesOfStart()
     {
-		$this->fakeConfig->SetSectionKey(ConfigSection::RESERVATION, ConfigKeys::RESERVATION_CHECKIN_MINUTES, 5);
+        $this->fakeConfig->SetSectionKey(ConfigSection::RESERVATION, ConfigKeys::RESERVATION_CHECKIN_MINUTES, 5);
 
         $view = new ReservationView();
         $view->StartDate = Date::Now()->AddMinutes(4);
@@ -300,7 +300,7 @@ class ReservationViewRepositoryTests extends TestBase
 
         $this->assertTrue($view->IsCheckinAvailable());
     }
-    
+
     public function testIsCheckOutAvailableIfNotCheckedOut()
     {
         $view = new ReservationView();
@@ -473,7 +473,7 @@ class ReservationViewRepositoryTests extends TestBase
 
     public function testGetsCorrectReservationColor()
     {
-		$this->fakeConfig->SetSectionKey(ConfigSection::SCHEDULE, ConfigKeys::SCHEDULE_PER_USER_COLORS, true);
+        $this->fakeConfig->SetSectionKey(ConfigSection::SCHEDULE, ConfigKeys::SCHEDULE_PER_USER_COLORS, true);
         $preferences = UserPreferences::Parse(UserPreferences::RESERVATION_COLOR . '=000000');
         $reservationItemView = new ReservationItemView();
         $reservationItemView->ResourceColor = 'ffffff';

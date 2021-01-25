@@ -25,13 +25,13 @@ Szerzői jog tulajdonos: 2011-2020 Nick Korbel
 
 Ez a fájl a Booked Scheduler része.
 
-Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz 
+Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz
 bármely 3 változata vagy (belátásod alapjánszerint) későbbi változatok alapján,
-amelyeket a Free Software Foundation, adott ki. 
+amelyeket a Free Software Foundation, adott ki.
 
 Booked Scheduler abban a reményben kerül terjesztésre, hogy hasznos lesz,
 ém MINDEN GARANCIA NÉLKÜL; még a KERESKEDELMI vagy GYAKORLATI FELHASZNÁLÁS
-hallgatólagos garanciája nélkül.  További információt a 
+hallgatólagos garanciája nélkül.  További információt a
 GNU Általános Nyilvános Licenszben talál.
 
 A Booked Scheduler mellett meg kellett kapja a GNU Általános Nyilvános Licensz egy példányát is.

@@ -18,12 +18,12 @@
  */
 
 $('.searchclear').click(function(e) {
-	e.preventDefault();
-	e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
-	var ref = $(e.target).attr('ref');
-	var refs = ref.split(',');
-	_.each(refs, function(ref) {
-		$('#' + ref).val('');
-	});
+    var ref = $(e.target).attr('ref');
+    var refs = ref.split(',');
+    _.each(refs, function(ref) {
+        $('#' + ref).val('');
+    });
 });

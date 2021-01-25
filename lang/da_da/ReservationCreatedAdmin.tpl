@@ -24,25 +24,25 @@ Oplysninger om reservation:
 
 Bruger: {$UserName}<br/>
 {if !empty($CreatedBy)}
-	Oprettet af: {$CreatedBy}
-	<br/>
+    Oprettet af: {$CreatedBy}
+    <br/>
 {/if}
 Begynder: {formatdate date=$StartDate key=reservation_email}<br/>
 Slutter: {formatdate date=$EndDate key=reservation_email}<br/>
 {if $ResourceNames|count > 1}
-	Faciliteter:
-	<br/>
-	{foreach from=$ResourceNames item=resourceName}
-		{$resourceName}
-		<br/>
-	{/foreach}
+    Faciliteter:
+    <br/>
+    {foreach from=$ResourceNames item=resourceName}
+        {$resourceName}
+        <br/>
+    {/foreach}
 {else}
-	Facilitet: {$ResourceName}
-	<br/>
+    Facilitet: {$ResourceName}
+    <br/>
 {/if}
 
 {if $ResourceImage}
-	<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 Overskrift: {$Title}<br/>
@@ -93,34 +93,34 @@ Beskrivelse: {$Description|nl2br}
 {/if}
 
 {if $Accessories|count > 0}
-	<br/>
-	Udstyr:
-	<br/>
-	{foreach from=$Accessories item=accessory}
-		({$accessory->QuantityReserved}) {$accessory->Name}
-		<br/>
-	{/foreach}
+    <br/>
+    Udstyr:
+    <br/>
+    {foreach from=$Accessories item=accessory}
+        ({$accessory->QuantityReserved}) {$accessory->Name}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $Attributes|count > 0}
-	<br/>
-	{foreach from=$Attributes item=attribute}
-		<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	{/foreach}
+    <br/>
+    {foreach from=$Attributes item=attribute}
+        <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    {/foreach}
 {/if}
 
 {if $RequiresApproval}
-	<br/>
-	Mindst én af reservationerne skal godkendes. Husk at godkende eller afvise anmodningen.
+    <br/>
+    Mindst én af reservationerne skal godkendes. Husk at godkende eller afvise anmodningen.
 {/if}
 
 {if $CheckInEnabled}
-	<br/>
+    <br/>
 
   For mindst én af reservationerne, er det påkrævet, at brugeren tjekker ind og ud.
-	{if $AutoReleaseMinutes != null}
-		Reservationen annulleres, hvis brugeren ikke foretager tjek ind, senest {$AutoReleaseMinutes} minutter efter det planlagte starttidspunkt.
-	{/if}
+    {if $AutoReleaseMinutes != null}
+        Reservationen annulleres, hvis brugeren ikke foretager tjek ind, senest {$AutoReleaseMinutes} minutter efter det planlagte starttidspunkt.
+    {/if}
 {/if}
 
 <br/>

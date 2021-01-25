@@ -24,23 +24,23 @@ class AnonymousResourceExcludedRule implements IReservationValidationRule
      * @var IReservationValidationRule
      */
     private $rule;
-	/**
-	 * @var UserSession
-	 */
-	private $session;
+    /**
+     * @var UserSession
+     */
+    private $session;
 
-	public function __construct(IReservationValidationRule $baseRule, UserSession $session)
+    public function __construct(IReservationValidationRule $baseRule, UserSession $session)
     {
         $this->rule = $baseRule;
-		$this->session = $session;
-	}
+        $this->session = $session;
+    }
 
     public function Validate($reservationSeries, $retryParameters)
     {
-    	if ($this->session->IsLoggedIn())
-		{
-			return new ReservationRuleResult(true);
-		}
+        if ($this->session->IsLoggedIn())
+        {
+            return new ReservationRuleResult(true);
+        }
 
         foreach ($reservationSeries->AllResources() as $resource)
         {
@@ -50,6 +50,6 @@ class AnonymousResourceExcludedRule implements IReservationValidationRule
             }
         }
 
-		return new ReservationRuleResult(false);
+        return new ReservationRuleResult(false);
     }
 }

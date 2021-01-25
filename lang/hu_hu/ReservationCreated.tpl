@@ -25,13 +25,13 @@ Szerzői jog tulajdonos: 2011-2020 Nick Korbel
 
 Ez a fájl a Booked Scheduler része.
 
-Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz 
+Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz
 bármely 3 változata vagy (belátásod alapjánszerint) későbbi változatok alapján,
-amelyeket a Free Software Foundation, adott ki. 
+amelyeket a Free Software Foundation, adott ki.
 
 Booked Scheduler abban a reményben kerül terjesztésre, hogy hasznos lesz,
 ém MINDEN GARANCIA NÉLKÜL; még a KERESKEDELMI vagy GYAKORLATI FELHASZNÁLÁS
-hallgatólagos garanciája nélkül.  További információt a 
+hallgatólagos garanciája nélkül.  További információt a
 GNU Általános Nyilvános Licenszben talál.
 
 A Booked Scheduler mellett meg kellett kapja a GNU Általános Nyilvános Licensz egy példányát is.
@@ -44,34 +44,34 @@ A foglalás részletei:
 Kezdés: {formatdate date=$StartDate key=reservation_email}<br/>
 Befejezés: {formatdate date=$EndDate key=reservation_email}<br/>
 {if $ResourceNames|count > 1}
-	Elemek:
-	<br/>
-	{foreach from=$ResourceNames item=resourceName}
-		{$resourceName}
-		<br/>
-	{/foreach}
+    Elemek:
+    <br/>
+    {foreach from=$ResourceNames item=resourceName}
+        {$resourceName}
+        <br/>
+    {/foreach}
 {else}
-	Elem: {$ResourceName}
-	<br/>
+    Elem: {$ResourceName}
+    <br/>
 {/if}
 
 {if $ResourceImage}
-	<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 Megnevezés: {$Title}<br/>
 Leírás: {$Description|nl2br}
 
 {if count($RepeatRanges) gt 0}
-	<br/>
-	Foglalása az alábbi dátumokra esik:
-	<br/>
+    <br/>
+    Foglalása az alábbi dátumokra esik:
+    <br/>
 {/if}
 
 {foreach from=$RepeatRanges item=date name=dates}
-	{formatdate date=$date->GetBegin()}
+    {formatdate date=$date->GetBegin()}
     {if !$date->IsSameDate()} - {formatdate date=$date->GetEnd()}{/if}
-	<br/>
+    <br/>
 {/foreach}
 
 {if $Participants|count >0}
@@ -107,13 +107,13 @@ Leírás: {$Description|nl2br}
 {/if}
 
 {if $Accessories|count > 0}
-	<br/>
-	Kiegészítők:
-	<br/>
-	{foreach from=$Accessories item=accessory}
-		({$accessory->QuantityReserved}) {$accessory->Name}
-		<br/>
-	{/foreach}
+    <br/>
+    Kiegészítők:
+    <br/>
+    {foreach from=$Accessories item=accessory}
+        ({$accessory->QuantityReserved}) {$accessory->Name}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $CreditsCurrent > 0}
@@ -125,34 +125,34 @@ Leírás: {$Description|nl2br}
 {/if}
 
 {if $Attributes|count > 0}
-	<br/>
-	{foreach from=$Attributes item=attribute}
-		<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	{/foreach}
+    <br/>
+    {foreach from=$Attributes item=attribute}
+        <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    {/foreach}
 {/if}
 
 {if $RequiresApproval}
-	<br/>
-	A foglalások legalább egyike engedélyezést igényel. A fogalás függőben marad jóváhagyásig.
+    <br/>
+    A foglalások legalább egyike engedélyezést igényel. A fogalás függőben marad jóváhagyásig.
 {/if}
 
 {if $CheckInEnabled}
-	<br/>
-	A bejegyzett foglalások legalább egyike be és kijelentkezést igényel.
-	{if $AutoReleaseMinutes != null}
-		Ez a foglalás törlésre kerül, amennyiben nem jelentkezik be {$AutoReleaseMinutes} perccel az ütemezett kezdés után.
-	{/if}
+    <br/>
+    A bejegyzett foglalások legalább egyike be és kijelentkezést igényel.
+    {if $AutoReleaseMinutes != null}
+        Ez a foglalás törlésre kerül, amennyiben nem jelentkezik be {$AutoReleaseMinutes} perccel az ütemezett kezdés után.
+    {/if}
 {/if}
 
 {if !empty($ApprovedBy)}
-	<br/>
-	Jóváhagyta: {$ApprovedBy}
+    <br/>
+    Jóváhagyta: {$ApprovedBy}
 {/if}
 
 
 {if !empty($CreatedBy)}
-	<br/>
-	Létrehozta: {$CreatedBy}
+    <br/>
+    Létrehozta: {$CreatedBy}
 {/if}
 
 <br/>

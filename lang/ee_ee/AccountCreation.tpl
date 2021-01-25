@@ -25,5 +25,5 @@ Telefon: {$Phone}<br/>
 Töökoht: {$Organization}<br/>
 Amet: {$Position}</p>
 {if !empty($CreatedBy)}
-	Created by: {$CreatedBy}
+    Created by: {$CreatedBy}
 {/if}

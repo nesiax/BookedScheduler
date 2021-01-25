@@ -16,8 +16,8 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class IntConverter implements IConvert
 {
-	public function Convert($value)
-	{
-		return intval($value);
-	}
+    public function Convert($value)
+    {
+        return intval($value);
+    }
 }

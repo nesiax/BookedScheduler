@@ -20,7 +20,7 @@
 //$serverTimezone = ini_get('date.timezone');
 //if (empty($serverTimezone))
 //{
-//	Log::Debug('The server timezone is not set properly in your php.ini file. It is highly recommended that this value is set.');
+//    Log::Debug('The server timezone is not set properly in your php.ini file. It is highly recommended that this value is set.');
 //}
 
 class Date
@@ -129,7 +129,7 @@ class Date
 
                 $parsed = date_parse($dateString);
 
-                $d = Date::Create($parsed['year'], $parsed['month'], $parsed['day'], $parsed['hour'] + $hourAdjustment, $parsed['minute'] + $minuteAdjustment,						  $parsed['second'], 'UTC');
+                $d = Date::Create($parsed['year'], $parsed['month'], $parsed['day'], $parsed['hour'] + $hourAdjustment, $parsed['minute'] + $minuteAdjustment,                          $parsed['second'], 'UTC');
          */
 
         $dt = new DateTime($dateString);
@@ -208,11 +208,11 @@ class Date
      */
     public function ToIso()
     {
-//		$offset = $this->date->getOffset();
-//		$hours = intval(intval($offset) / 3600);
-//		$minutes  = intval(($offset / 60) % 60);
-//		printf("offset = %d%d", $hours, $minutes);
-//		//die(' off '  .$offset . ' tz ' . $this->date->getTimezone()->getOffset());
+//        $offset = $this->date->getOffset();
+//        $hours = intval(intval($offset) / 3600);
+//        $minutes  = intval(($offset / 60) % 60);
+//        printf("offset = %d%d", $hours, $minutes);
+//        //die(' off '  .$offset . ' tz ' . $this->date->getTimezone()->getOffset());
         return $this->Format(DateTime::ISO8601);
     }
 

@@ -16,50 +16,50 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
-	Резервационна информация:
-	<br/>
-	<br/>
+    Резервационна информация:
+    <br/>
+    <br/>
 
-	Потребител: {$UserName}
-	Начало: {formatdate date=$StartDate key=reservation_email}<br/>
-	Край: {formatdate date=$EndDate key=reservation_email}<br/>
-	{if $ResourceNames|count > 1}
-		Ресурси:<br/>
-		{foreach from=$ResourceNames item=resourceName}
-			{$resourceName}<br/>
-		{/foreach}
-		{else}
-		Ресурс: {$ResourceName}<br/>
-	{/if}
+    Потребител: {$UserName}
+    Начало: {formatdate date=$StartDate key=reservation_email}<br/>
+    Край: {formatdate date=$EndDate key=reservation_email}<br/>
+    {if $ResourceNames|count > 1}
+        Ресурси:<br/>
+        {foreach from=$ResourceNames item=resourceName}
+            {$resourceName}<br/>
+        {/foreach}
+        {else}
+        Ресурс: {$ResourceName}<br/>
+    {/if}
 
-	{if $ResourceImage}
-		<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
-	{/if}
+    {if $ResourceImage}
+        <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    {/if}
 
-	Заглавие: {$Title}<br/>
-	Описание: {$Description}<br/>
+    Заглавие: {$Title}<br/>
+    Описание: {$Description}<br/>
 
-	{if count($RepeatDates) gt 0}
-		<br/>
-		Резервацията се отнася за следните дати::
-		<br/>
-	{/if}
+    {if count($RepeatDates) gt 0}
+        <br/>
+        Резервацията се отнася за следните дати::
+        <br/>
+    {/if}
 
-	{foreach from=$RepeatDates item=date name=dates}
-		{formatdate date=$date}<br/>
-	{/foreach}
+    {foreach from=$RepeatDates item=date name=dates}
+        {formatdate date=$date}<br/>
+    {/foreach}
 
-	{if $Accessories|count > 0}
-		<br/>Аксесоари:<br/>
-		{foreach from=$Accessories item=accessory}
-			({$accessory->QuantityReserved}) {$accessory->Name}<br/>
-		{/foreach}
-	{/if}
+    {if $Accessories|count > 0}
+        <br/>Аксесоари:<br/>
+        {foreach from=$Accessories item=accessory}
+            ({$accessory->QuantityReserved}) {$accessory->Name}<br/>
+        {/foreach}
+    {/if}
 
-	{if $RequiresApproval}
-		<br/>
-		Един или повече от ресурсите изискват одобрение преди употреба.  Моля, убедете се, че тази заявка за резервация е одобрена или отхвърлена.
-	{/if}
+    {if $RequiresApproval}
+        <br/>
+        Един или повече от ресурсите изискват одобрение преди употреба.  Моля, убедете се, че тази заявка за резервация е одобрена или отхвърлена.
+    {/if}
 
-	<br/>
-	<a href="{$ScriptUrl}/{$ReservationUrl}">Разгледай тази резервация</a> | <a href="{$ScriptUrl}">Влизане в Booked Scheduler</a>
+    <br/>
+    <a href="{$ScriptUrl}/{$ReservationUrl}">Разгледай тази резервация</a> | <a href="{$ScriptUrl}">Влизане в Booked Scheduler</a>

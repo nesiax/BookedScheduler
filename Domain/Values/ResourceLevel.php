@@ -20,6 +20,6 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ResourceLevel
 {
-	const Primary = 1;
-	const Additional = 2;
+    const Primary = 1;
+    const Additional = 2;
 }

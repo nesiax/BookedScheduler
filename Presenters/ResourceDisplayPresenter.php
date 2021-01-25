@@ -126,8 +126,8 @@ class ResourceDisplayPresenter extends ActionPresenter
             $this->page->DisplayResourceShell();
         }
         else {
-        	$this->page->DisplayInstructions();
-		}
+            $this->page->DisplayInstructions();
+        }
     }
 
     public function Login()

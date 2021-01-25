@@ -33,77 +33,77 @@ class ReservationStartTimeRuleTests extends TestBase
      */
     private $layout;
 
-	public function setUp(): void
-	{
-		parent::setup();
+    public function setUp(): void
+    {
+        parent::setup();
         $this->scheduleRepository = $this->createMock('IScheduleRepository');
         $this->layout = $this->createMock('IScheduleLayout');
 
         $this->fakeConfig->SetSectionKey(ConfigSection::RESERVATION, ConfigKeys::RESERVATION_START_TIME_CONSTRAINT, ReservationStartTimeConstraint::FUTURE);
-	}
+    }
 
-	public function teardown(): void
-	{
-		parent::teardown();
-	}
+    public function teardown(): void
+    {
+        parent::teardown();
+    }
 
-	public function testRuleIsValidStartTimeIsNow()
-	{
-		$start = Date::Now();
-		$end = Date::Now()->AddDays(1);
+    public function testRuleIsValidStartTimeIsNow()
+    {
+        $start = Date::Now();
+        $end = Date::Now()->AddDays(1);
 
-		$reservation = new TestReservationSeries();
-		$reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
+        $reservation = new TestReservationSeries();
+        $reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
 
-		$rule = new ReservationStartTimeRule($this->scheduleRepository);
-		$result = $rule->Validate($reservation, null);
+        $rule = new ReservationStartTimeRule($this->scheduleRepository);
+        $result = $rule->Validate($reservation, null);
 
-		$this->assertTrue($result->IsValid());
-	}
+        $this->assertTrue($result->IsValid());
+    }
 
-	public function testRuleIsValidIfStartTimeIsInFuture()
-	{
-		$start = Date::Now()->AddDays(1);
-		$end = Date::Now()->AddDays(2);
+    public function testRuleIsValidIfStartTimeIsInFuture()
+    {
+        $start = Date::Now()->AddDays(1);
+        $end = Date::Now()->AddDays(2);
 
-		$reservation = new TestReservationSeries();
-		$reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
+        $reservation = new TestReservationSeries();
+        $reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
 
-		$rule = new ReservationStartTimeRule($this->scheduleRepository);
-		$result = $rule->Validate($reservation, null);
+        $rule = new ReservationStartTimeRule($this->scheduleRepository);
+        $result = $rule->Validate($reservation, null);
 
-		$this->assertTrue($result->IsValid());
-	}
+        $this->assertTrue($result->IsValid());
+    }
 
-	public function testRuleIsInvalidIfStartIsInPast()
-	{
-		$start = Date::Now()->AddDays(-2);
-		$end = Date::Now()->AddDays(-1);
+    public function testRuleIsInvalidIfStartIsInPast()
+    {
+        $start = Date::Now()->AddDays(-2);
+        $end = Date::Now()->AddDays(-1);
 
-		$reservation = new TestReservationSeries();
-		$reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
+        $reservation = new TestReservationSeries();
+        $reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
 
-		$rule = new ReservationStartTimeRule($this->scheduleRepository);
-		$result = $rule->Validate($reservation, null);
+        $rule = new ReservationStartTimeRule($this->scheduleRepository);
+        $result = $rule->Validate($reservation, null);
 
-		$this->assertFalse($result->IsValid());
-	}
+        $this->assertFalse($result->IsValid());
+    }
 
-	public function testRuleIsInvalidIfStartTimeIsInPast()
-	{
-		$now = Date::Parse('2011-04-04 12:13:15', 'UTC');
-		Date::_SetNow($now);
-		$start = Date::Parse('2011-04-04 12:13:14', 'UTC');
-		$end = $start->AddDays(5);
+    public function testRuleIsInvalidIfStartTimeIsInPast()
+    {
+        $now = Date::Parse('2011-04-04 12:13:15', 'UTC');
+        Date::_SetNow($now);
+        $start = Date::Parse('2011-04-04 12:13:14', 'UTC');
+        $end = $start->AddDays(5);
 
-		$reservation = new TestReservationSeries();
-		$reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
+        $reservation = new TestReservationSeries();
+        $reservation->WithCurrentInstance(new TestReservation('1', new DateRange($start, $end)));
 
-		$rule = new ReservationStartTimeRule($this->scheduleRepository);
-		$result = $rule->Validate($reservation, null);
+        $rule = new ReservationStartTimeRule($this->scheduleRepository);
+        $result = $rule->Validate($reservation, null);
 
-		$this->assertFalse($result->IsValid());
-	}
+        $this->assertFalse($result->IsValid());
+    }
 
     public function testWhenAllowedToWorkWithCurrentSlot()
     {
@@ -191,7 +191,7 @@ class ReservationStartTimeRuleTests extends TestBase
         $rule = new ReservationStartTimeRule($this->scheduleRepository);
         $result = $rule->Validate($reservation, null);
 
-       	$this->assertTrue($result->IsValid());
+           $this->assertTrue($result->IsValid());
     }
 }
 

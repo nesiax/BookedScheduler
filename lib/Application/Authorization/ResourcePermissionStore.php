@@ -40,33 +40,33 @@ interface IResourcePermissionStore
 
 class ResourcePermissionStore implements IResourcePermissionStore
 {
-	/**
-	 * @var IScheduleUserRepository
-	 */
-	private $_scheduleUserRepository;
+    /**
+     * @var IScheduleUserRepository
+     */
+    private $_scheduleUserRepository;
 
-	/**
-	 * @param IScheduleUserRepository $scheduleUserRepository
-	 */
-	public function __construct(IScheduleUserRepository $scheduleUserRepository)
-	{
-		$this->_scheduleUserRepository = $scheduleUserRepository;
-	}
+    /**
+     * @param IScheduleUserRepository $scheduleUserRepository
+     */
+    public function __construct(IScheduleUserRepository $scheduleUserRepository)
+    {
+        $this->_scheduleUserRepository = $scheduleUserRepository;
+    }
 
-	public function GetAllResources($userId)
-	{
-		$permittedResourceIds = array();
+    public function GetAllResources($userId)
+    {
+        $permittedResourceIds = array();
 
-		$user = $this->_scheduleUserRepository->GetUser($userId);
+        $user = $this->_scheduleUserRepository->GetUser($userId);
 
-		$resources = $user->GetAllResources();
-		foreach ($resources as $resource)
-		{
-			$permittedResourceIds[] = $resource->Id();
-		}
+        $resources = $user->GetAllResources();
+        foreach ($resources as $resource)
+        {
+            $permittedResourceIds[] = $resource->Id();
+        }
 
-		return $permittedResourceIds;
-	}
+        return $permittedResourceIds;
+    }
 
     public function GetBookableResources($userId)
     {

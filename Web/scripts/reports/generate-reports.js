@@ -80,11 +80,11 @@ function GenerateReports(reportOptions) {
         });
 
         $('#saveReportForm').submit(function (e) {
-        	handleSave(e);
+            handleSave(e);
         });
 
         $('#btnSaveReport').click(function (e) {
-        	handleSave(e);
+            handleSave(e);
         });
     };
 
@@ -107,14 +107,14 @@ function GenerateReports(reportOptions) {
 
 
     var handleSave = function (e) {
-    	e.preventDefault();
-    	var before = function () {
-    	};
+        e.preventDefault();
+        var before = function () {
+        };
 
-    	var after = function (data) {
-    		elements.saveDialog.modal('hide');
-    		$('#saveMessage').show().delay(3000).fadeOut(1000);
-    	};
+        var after = function (data) {
+            elements.saveDialog.modal('hide');
+            $('#saveMessage').show().delay(3000).fadeOut(1000);
+        };
 
         ajaxPost($('#customReportInput, #saveReportForm'), opts.saveUrl, before, after);
     };

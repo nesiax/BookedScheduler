@@ -1,4 +1,4 @@
-﻿{*
+{*
 Copyright 2012-2020 Nick Korbel
 
 This file is part of Booked Scheduler.

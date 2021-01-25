@@ -16,9 +16,9 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationPersistenceFactory
 {
-	/**
-	 * @param ReservationAction $reservationAction
-	 * @return IReservationPersistenceService
-	 */
-	function Create($reservationAction);
+    /**
+     * @param ReservationAction $reservationAction
+     * @return IReservationPersistenceService
+     */
+    function Create($reservationAction);
 }

@@ -16,8 +16,8 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReportData
 {
-	/**
-	 * @return array
-	 */
-	public function Rows();
+    /**
+     * @return array
+     */
+    public function Rows();
 }

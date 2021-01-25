@@ -23,28 +23,28 @@ require_once(ROOT_DIR . 'WebServices/Requests/CustomAttributes/AttributeValueReq
 
 abstract class UserRequestBase extends JsonRequest
 {
-	public $firstName;
-	public $lastName;
-	public $emailAddress;
-	public $userName;
-	public $timezone;
-	public $phone;
-	public $organization;
-	public $position;
-	/** @var array|AttributeValueRequest[] */
-	public $customAttributes = array();
-	/** @var array|int[] */
-	public $groups = array();
+    public $firstName;
+    public $lastName;
+    public $emailAddress;
+    public $userName;
+    public $timezone;
+    public $phone;
+    public $organization;
+    public $position;
+    /** @var array|AttributeValueRequest[] */
+    public $customAttributes = array();
+    /** @var array|int[] */
+    public $groups = array();
 
-	/**
-	 * @return array|AttributeValueRequest[]
-	 */
-	public function GetCustomAttributes()
-	{
-		if (!empty($this->customAttributes))
-		{
-			return $this->customAttributes;
-		}
-		return array();
-	}
+    /**
+     * @return array|AttributeValueRequest[]
+     */
+    public function GetCustomAttributes()
+    {
+        if (!empty($this->customAttributes))
+        {
+            return $this->customAttributes;
+        }
+        return array();
+    }
 }

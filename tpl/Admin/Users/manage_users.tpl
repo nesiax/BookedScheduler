@@ -126,7 +126,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
                 {if $CreditsEnabled}
                     <td class="align-right">
-						<span class="propertyValue inlineUpdate changeCredits"
+                        <span class="propertyValue inlineUpdate changeCredits"
                               data-type="number" data-pk="{$id}" data-value="{$user->CurrentCreditCount}"
                               data-name="{FormKeys::CREDITS}">{$user->CurrentCreditCount}</span>
                         <a href="credit_log.php?{QueryStringKeys::USER_ID}={$id}" title="{translate key=CreditHistory}">
@@ -199,8 +199,8 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
             {if $attributes|count > 0}
                 <tr data-userId="{$id}">
                     <td colspan="{$colCount}" class="{$rowCss} customAttributes" userId="{$id}">
-		        {assign var=changeAttributeAction value=ManageUsersActions::ChangeAttribute}
-		        {assign var=attributeUrl value="`$smarty.server.SCRIPT_NAME`?action=`$changeAttributeAction`"}
+                {assign var=changeAttributeAction value=ManageUsersActions::ChangeAttribute}
+                {assign var=attributeUrl value="`$smarty.server.SCRIPT_NAME`?action=`$changeAttributeAction`"}
                         {foreach from=$AttributeList item=attribute}
                             {include file='Admin/InlineAttributeEdit.tpl' url=$attributeUrl id=$id attribute=$attribute value=$user->GetAttributeValue($attribute->Id())}
                         {/foreach}

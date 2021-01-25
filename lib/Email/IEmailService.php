@@ -16,8 +16,8 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IEmailService
 {
-	/**
-	 * @param IEmailMessage $emailMessage
-	 */
-	function Send(IEmailMessage $emailMessage);
+    /**
+     * @param IEmailMessage $emailMessage
+     */
+    function Send(IEmailMessage $emailMessage);
 }

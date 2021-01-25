@@ -16,10 +16,10 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationNotificationFactory
 {
-	/**
-	 * @param ReservationAction $reservationAction
-	 * @param UserSession $userSession
-	 * @return IReservationNotificationService
-	 */
-	function Create($reservationAction, $userSession);
+    /**
+     * @param ReservationAction $reservationAction
+     * @param UserSession $userSession
+     * @return IReservationNotificationService
+     */
+    function Create($reservationAction, $userSession);
 }

@@ -16,17 +16,17 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReservationDateTimeRule implements IReservationValidationRule
 {
-	/**
-	 * @param ReservationSeries $reservationSeries
-	 * @param $retryParameters
-	 * @return ReservationRuleResult
-	 * @throws Exception
-	 */
-	public function Validate($reservationSeries, $retryParameters)
-	{
-		$currentInstance = $reservationSeries->CurrentInstance();
+    /**
+     * @param ReservationSeries $reservationSeries
+     * @param $retryParameters
+     * @return ReservationRuleResult
+     * @throws Exception
+     */
+    public function Validate($reservationSeries, $retryParameters)
+    {
+        $currentInstance = $reservationSeries->CurrentInstance();
 
-		$startIsBeforeEnd = $currentInstance->StartDate()->LessThan($currentInstance->EndDate());
-		return new ReservationRuleResult($startIsBeforeEnd, Resources::GetInstance()->GetString('StartDateBeforeEndDateRule'));
-	}
+        $startIsBeforeEnd = $currentInstance->StartDate()->LessThan($currentInstance->EndDate());
+        return new ReservationRuleResult($startIsBeforeEnd, Resources::GetInstance()->GetString('StartDateBeforeEndDateRule'));
+    }
 }

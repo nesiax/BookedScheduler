@@ -136,7 +136,7 @@ interface IResourceDisplayPage extends IPage, IActionPage
      */
     public function GetTermsOfServiceAcknowledgement();
 
-	public function DisplayInstructions();
+    public function DisplayInstructions();
 }
 
 class ResourceDisplayPage extends ActionPage implements IResourceDisplayPage, IRequestedResourcePage
@@ -167,7 +167,7 @@ class ResourceDisplayPage extends ActionPage implements IResourceDisplayPage, IR
             new TermsOfServiceRepository());
 
         $this->Set('AllowAutocomplete', Configuration::Instance()->GetSectionKey(ConfigSection::TABLET_VIEW, ConfigKeys::TABLET_VIEW_AUTOCOMPLETE, new BooleanConverter()));
-		$this->Set('ShouldLogout', false);
+        $this->Set('ShouldLogout', false);
     }
 
     public function ProcessAction()
@@ -340,8 +340,8 @@ class ResourceDisplayPage extends ActionPage implements IResourceDisplayPage, IR
         return $this->GetCheckbox(FormKeys::TOS_ACKNOWLEDGEMENT);
     }
 
-	public function DisplayInstructions()
-	{
-		$this->Display('ResourceDisplay/resource-display-instructions.tpl');
-	}
+    public function DisplayInstructions()
+    {
+        $this->Display('ResourceDisplay/resource-display-instructions.tpl');
+    }
 }

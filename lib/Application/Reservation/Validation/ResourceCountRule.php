@@ -20,22 +20,22 @@
 
 class ResourceCountRule implements IReservationValidationRule
 {
-	/**
-	 * @var IScheduleRepository
-	 */
-	private $scheduleRepository;
+    /**
+     * @var IScheduleRepository
+     */
+    private $scheduleRepository;
 
-	/**
-	 * @param $scheduleRepository IScheduleRepository
-	 */
-	public function __construct($scheduleRepository)
-	{
-		$this->scheduleRepository = $scheduleRepository;
-	}
-	
+    /**
+     * @param $scheduleRepository IScheduleRepository
+     */
+    public function __construct($scheduleRepository)
+    {
+        $this->scheduleRepository = $scheduleRepository;
+    }
+
     public function Validate($reservationSeries, $retryParameters)
     {
-    	$schedule = $this->scheduleRepository->LoadById($reservationSeries->ScheduleId());
+        $schedule = $this->scheduleRepository->LoadById($reservationSeries->ScheduleId());
         $maximum = $schedule->GetMaxResourcesPerReservation();
         if (!empty($maximum))
         {

@@ -116,10 +116,10 @@ class ResourceRequest extends JsonRequest
      * @var int|null
      */
     public $peakCreditsPerSlot;
-	/**
-	 * @var int|null
-	 */
-	public $maxConcurrentReservations;
+    /**
+     * @var int|null
+     */
+    public $maxConcurrentReservations;
 
     /**
      * @return ExampleResourceRequest

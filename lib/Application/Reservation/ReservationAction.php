@@ -16,11 +16,11 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReservationAction
 {
-	const Create = 'create';
-	const Delete = 'delete';
-	const Update = 'update';
-	const Approve = 'approve';
-	const Checkin = 'checkin';
-	const Checkout = 'checkout';
-	const WaitList = 'waitlist';
+    const Create = 'create';
+    const Delete = 'delete';
+    const Update = 'update';
+    const Approve = 'approve';
+    const Checkin = 'checkin';
+    const Checkout = 'checkout';
+    const WaitList = 'waitlist';
 }

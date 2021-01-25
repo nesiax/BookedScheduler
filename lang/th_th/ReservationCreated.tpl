@@ -23,75 +23,75 @@ Reservation Details:
 Starting: {formatdate date=$StartDate key=reservation_email}<br/>
 Ending: {formatdate date=$EndDate key=reservation_email}<br/>
 {if $ResourceNames|count > 1}
-	Resources:
-	<br/>
-	{foreach from=$ResourceNames item=resourceName}
-		{$resourceName}
-		<br/>
-	{/foreach}
+    Resources:
+    <br/>
+    {foreach from=$ResourceNames item=resourceName}
+        {$resourceName}
+        <br/>
+    {/foreach}
 {else}
-	Resource: {$ResourceName}
-	<br/>
+    Resource: {$ResourceName}
+    <br/>
 {/if}
 
 {if $ResourceImage}
-	<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 Title: {$Title}<br/>
 Description: {$Description|nl2br}
 
 {if count($RepeatRanges) gt 0}
-	<br/>
-	The reservation occurs on the following dates:
-	<br/>
+    <br/>
+    The reservation occurs on the following dates:
+    <br/>
 {/if}
 
 {foreach from=$RepeatRanges item=date name=dates}
-	{formatdate date=$date->GetBegin()}
+    {formatdate date=$date->GetBegin()}
     {if !$date->IsSameDate()} - {formatdate date=$date->GetEnd()}{/if}
-	<br/>
+    <br/>
 {/foreach}
 
 {if $Accessories|count > 0}
-	<br/>
-	Accessories:
-	<br/>
-	{foreach from=$Accessories item=accessory}
-		({$accessory->QuantityReserved}) {$accessory->Name}
-		<br/>
-	{/foreach}
+    <br/>
+    Accessories:
+    <br/>
+    {foreach from=$Accessories item=accessory}
+        ({$accessory->QuantityReserved}) {$accessory->Name}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $Attributes|count > 0}
-	<br/>
-	{foreach from=$Attributes item=attribute}
-		<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	{/foreach}
+    <br/>
+    {foreach from=$Attributes item=attribute}
+        <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    {/foreach}
 {/if}
 
 {if $RequiresApproval}
-	<br/>
-	At least one of the resources reserved requires approval before usage. This reservation will be pending until it is approved.
+    <br/>
+    At least one of the resources reserved requires approval before usage. This reservation will be pending until it is approved.
 {/if}
 
 {if $CheckInEnabled}
-	<br/>
-	At least one of the resources reserved requires you to check in and out of your reservation.
-	{if $AutoReleaseMinutes != null}
-		This reservation will be cancelled unless you check in within {$AutoReleaseMinutes} minutes after the scheduled start time.
-	{/if}
+    <br/>
+    At least one of the resources reserved requires you to check in and out of your reservation.
+    {if $AutoReleaseMinutes != null}
+        This reservation will be cancelled unless you check in within {$AutoReleaseMinutes} minutes after the scheduled start time.
+    {/if}
 {/if}
 
 {if !empty($ApprovedBy)}
-	<br/>
-	Approved by: {$ApprovedBy}
+    <br/>
+    Approved by: {$ApprovedBy}
 {/if}
 
 
 {if !empty($CreatedBy)}
-	<br/>
-	Created by: {$CreatedBy}
+    <br/>
+    Created by: {$CreatedBy}
 {/if}
 
 <br/>

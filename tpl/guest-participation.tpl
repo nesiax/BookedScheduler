@@ -19,19 +19,19 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {include file='globalheader.tpl' cssFiles='css/participation.css'}
 
 {if $IsMissingInformation}
-	<div class="error">This invitation is incorrect or does not exist</div>
+    <div class="error">This invitation is incorrect or does not exist</div>
 {/if}
 
 {if $InvitationAccepted ||  $InvitationDeclined}
-	<div class="success">Thanks, we've recorded your response
-		{if $IsGuest || $AllowRegistration}
-			<div><a href="{Pages::REGISTRATION}">{translate key=CreateAnAccount}</a></div>
-		{/if}
-	</div>
+    <div class="success">Thanks, we've recorded your response
+        {if $IsGuest || $AllowRegistration}
+            <div><a href="{Pages::REGISTRATION}">{translate key=CreateAnAccount}</a></div>
+        {/if}
+    </div>
 {/if}
 
 {if $CapacityReached}
-	<div class="error">{$CapacityErrorMessage}</div>
+    <div class="error">{$CapacityErrorMessage}</div>
 {/if}
 {include file="javascript-includes.tpl"}
 {include file='globalfooter.tpl'}

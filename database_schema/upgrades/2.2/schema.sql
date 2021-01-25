@@ -36,8 +36,8 @@ CREATE TABLE `account_activation` (
   INDEX (`activation_code`),
   UNIQUE KEY (`activation_code`),
   FOREIGN KEY (`user_id`)
-	REFERENCES `users`(`user_id`)
-	ON DELETE CASCADE
+    REFERENCES `users`(`user_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 DROP TABLE IF EXISTS `reservation_files`;
@@ -50,6 +50,6 @@ CREATE TABLE IF NOT EXISTS `reservation_files` (
   `file_extension` varchar(10) NOT NULL,
   PRIMARY KEY  (`file_id`),
   FOREIGN KEY (`series_id`)
-  	REFERENCES `reservation_series`(`series_id`)
-  	ON DELETE CASCADE
+      REFERENCES `reservation_series`(`series_id`)
+      ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;

@@ -102,17 +102,17 @@ class ScheduleLayoutTests extends TestBase
         $this->assertEquals($slot2, $slots[1]);
         $this->assertEquals($slot3, $slots[2]);
         $this->assertEquals($lastSlot, $slots[3]);
-//		$this->assertEquals(new Time(0, 0, 0, $userTz), $slots[0]->Begin());
-//		$this->assertEquals($t1s->ToTimezone($userTz)->GetTime(), $slots[0]->End());
+//        $this->assertEquals(new Time(0, 0, 0, $userTz), $slots[0]->Begin());
+//        $this->assertEquals($t1s->ToTimezone($userTz)->GetTime(), $slots[0]->End());
 //
-//		$this->assertEquals($t1s->ToTimezone($userTz)->GetTime(), $slots[1]->Begin(), $slots[1]->Begin()->ToString());
-//		$this->assertEquals($t1e->ToTimezone($userTz)->GetTime(), $slots[1]->End(), $slots[1]->End()->ToString());
+//        $this->assertEquals($t1s->ToTimezone($userTz)->GetTime(), $slots[1]->Begin(), $slots[1]->Begin()->ToString());
+//        $this->assertEquals($t1e->ToTimezone($userTz)->GetTime(), $slots[1]->End(), $slots[1]->End()->ToString());
 //
-//		$this->assertEquals($t1e->ToTimezone($userTz)->GetTime(), $slots[2]->Begin());
-//		$this->assertEquals($t2e->ToTimezone($userTz)->GetTime(), $slots[2]->End());
+//        $this->assertEquals($t1e->ToTimezone($userTz)->GetTime(), $slots[2]->Begin());
+//        $this->assertEquals($t2e->ToTimezone($userTz)->GetTime(), $slots[2]->End());
 //
-//		$this->assertEquals($t2e->ToTimezone($userTz)->GetTime(), $slots[3]->Begin());
-//		$this->assertEquals(new Time(0, 0, 0, $userTz), $slots[3]->End());
+//        $this->assertEquals($t2e->ToTimezone($userTz)->GetTime(), $slots[3]->Begin());
+//        $this->assertEquals(new Time(0, 0, 0, $userTz), $slots[3]->End());
     }
 
     public function testCreatesScheduleLayoutInProperOrder()

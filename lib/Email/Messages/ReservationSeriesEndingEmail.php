@@ -21,7 +21,7 @@ class ReservationSeriesEndingEmail extends EmailMessage
     /**
      * @var string
      */
-	private $email;
+    private $email;
 
     /**
      * @var ExistingReservationSeries
@@ -39,26 +39,26 @@ class ReservationSeriesEndingEmail extends EmailMessage
     private $currentInstance;
 
     public function __construct(ExistingReservationSeries $reservationSeries, $language, $timezone, $email)
-	{
-		parent::__construct($language);
+    {
+        parent::__construct($language);
 
-		$this->reservationSeries = $reservationSeries;
-		$this->timezone = $timezone;
-		$this->email = $email;
-		$this->currentInstance = $this->reservationSeries->CurrentInstance();
+        $this->reservationSeries = $reservationSeries;
+        $this->timezone = $timezone;
+        $this->email = $email;
+        $this->currentInstance = $this->reservationSeries->CurrentInstance();
     }
 
-	public function To()
-	{
-		return array(new EmailAddress($this->email));
-	}
+    public function To()
+    {
+        return array(new EmailAddress($this->email));
+    }
 
-	public function Subject()
-	{
-		return $this->Translate('ReservationSeriesEndingSubject', array(
-		    $this->reservationSeries->Resource()->GetName(),
+    public function Subject()
+    {
+        return $this->Translate('ReservationSeriesEndingSubject', array(
+            $this->reservationSeries->Resource()->GetName(),
             $this->currentInstance->StartDate()->ToTimezone($this->timezone)->Format(Resources::GetInstance()->GetDateFormat('general_date'))));
-	}
+    }
 
     public function Body()
     {

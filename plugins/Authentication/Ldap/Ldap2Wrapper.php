@@ -87,11 +87,11 @@ class Ldap2Wrapper
             Log::Debug('Authentication was successful');
 
             if (!$populated)
-			{
-				// PopulateUser should be split into two functions: one for the anonymous bind that takes the pieces from the config
-				// and another one that has to be run after that the user authenticated with his own dn
-				return $this->PopulateUser($username, $filter, $password);
-			}
+            {
+                // PopulateUser should be split into two functions: one for the anonymous bind that takes the pieces from the config
+                // and another one that has to be run after that the user authenticated with his own dn
+                return $this->PopulateUser($username, $filter, $password);
+            }
             return $populated;
         }
 

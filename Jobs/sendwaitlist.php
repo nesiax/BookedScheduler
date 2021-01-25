@@ -46,8 +46,8 @@ try
     }
 
     $reservationViewRepository = new ReservationViewRepository();
-	$resourceRepository = new ResourceRepository();
-	$waitlistRepository = new ReservationWaitlistRepository();
+    $resourceRepository = new ResourceRepository();
+    $waitlistRepository = new ReservationWaitlistRepository();
     $userRepository = new UserRepository();
 
     $waitlistRequests = $waitlistRepository->GetAll();
@@ -80,7 +80,7 @@ try
     }
 } catch (Exception $ex)
 {
-	Log::Error('Error running sendwaitlist.php: %s', $ex);
+    Log::Error('Error running sendwaitlist.php: %s', $ex);
 }
 
 Log::Debug('Finished running sendwaitlist.php');

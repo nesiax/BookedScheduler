@@ -17,8 +17,8 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 
-	
+
 Vaša správa z rezervačného systému je v prílohe tohoto emailu.<br/>
 
 <a href="{$ScriptUrl}">Prejsť do rezervačného systému</a>
-	
+

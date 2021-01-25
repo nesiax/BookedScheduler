@@ -16,9 +16,9 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IUpdateReservationValidationRule
 {
-	/**
-	 * @param ExistingReservationSeries $reservationSeries
-	 * @return ReservationRuleResult
-	 */
-	function Validate($reservationSeries);
+    /**
+     * @param ExistingReservationSeries $reservationSeries
+     * @return ReservationRuleResult
+     */
+    function Validate($reservationSeries);
 }

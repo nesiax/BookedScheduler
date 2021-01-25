@@ -17,11 +17,11 @@ You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 <div>
-	<div id="reservation-response-image">
-		<span class="fa fa-warning fa-5x error"></span>
-	</div>
+    <div id="reservation-response-image">
+        <span class="fa fa-warning fa-5x error"></span>
+    </div>
 
-	<div id="failed-message" class="reservation-message">{translate key=ReservationCriticalError}</div>
+    <div id="failed-message" class="reservation-message">{translate key=ReservationCriticalError}</div>
 
-	<button id="btnSaveFailed" class="btn btn-warning"><span class="fa fa-arrow-circle-left"></span> {translate key='ReservationErrors'}</button>
+    <button id="btnSaveFailed" class="btn btn-warning"><span class="fa fa-arrow-circle-left"></span> {translate key='ReservationErrors'}</button>
 </div>

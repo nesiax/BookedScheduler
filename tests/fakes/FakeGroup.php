@@ -20,13 +20,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class FakeGroup extends Group
 {
-	public function __construct($id = 123, $name = 'group name')
-	{
-		$this->WithId($id);
-		$this->Rename($name);
-		$this->WithGroupAdmin(999);
-		$this->WithUser(1);
-		$this->WithFullPermission(2);
-		$this->WithRole(RoleLevel::APPLICATION_ADMIN);
-	}
+    public function __construct($id = 123, $name = 'group name')
+    {
+        $this->WithId($id);
+        $this->Rename($name);
+        $this->WithGroupAdmin(999);
+        $this->WithUser(1);
+        $this->WithFullPermission(2);
+        $this->WithRole(RoleLevel::APPLICATION_ADMIN);
+    }
 }

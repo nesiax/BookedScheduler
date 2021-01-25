@@ -20,6 +20,6 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReservationTypes
 {
-	const Reservation = 1;
-	const Blackout = 2;
+    const Reservation = 1;
+    const Blackout = 2;
 }

@@ -18,10 +18,10 @@ require_once(ROOT_DIR . 'lib/Email/Messages/ReservationEmailMessage.php');
 
 class ReservationUpdatedEmail extends ReservationEmailMessage
 {
-	public function Subject()
-	{
-		return $this->Translate('ReservationUpdatedAdminSubjectWithResource', array($this->primaryResource->GetName()));
-	}
+    public function Subject()
+    {
+        return $this->Translate('ReservationUpdatedAdminSubjectWithResource', array($this->primaryResource->GetName()));
+    }
 
     protected function GetTemplateName()
     {

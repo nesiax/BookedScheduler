@@ -16,40 +16,40 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class RequiresApprovalRule implements IReservationValidationRule
 {
-	/**
-	 * @var IAuthorizationService
-	 */
-	private $authorizationService;
+    /**
+     * @var IAuthorizationService
+     */
+    private $authorizationService;
 
-	public function __construct(IAuthorizationService $authorizationService)
-	{
-		$this->authorizationService = $authorizationService;
-	}
+    public function __construct(IAuthorizationService $authorizationService)
+    {
+        $this->authorizationService = $authorizationService;
+    }
 
-	/**
-	 * @param ReservationSeries $reservationSeries
-	 * @param null|ReservationRetryParameter[] $retryParameters
-	 * @return ReservationRuleResult
-	 */
-	function Validate($reservationSeries, $retryParameters)
-	{
-		$status = ReservationStatus::Created;
+    /**
+     * @param ReservationSeries $reservationSeries
+     * @param null|ReservationRetryParameter[] $retryParameters
+     * @return ReservationRuleResult
+     */
+    function Validate($reservationSeries, $retryParameters)
+    {
+        $status = ReservationStatus::Created;
 
-		/** @var BookableResource $resource */
-		foreach ($reservationSeries->AllResources() as $resource)
-		{
-			if ($resource->GetRequiresApproval())
-			{
-				if (!$this->authorizationService->CanApproveForResource($reservationSeries->BookedBy(), $resource))
-				{
-					$status = ReservationStatus::Pending;
-					break;
-				}
-			}
-		}
+        /** @var BookableResource $resource */
+        foreach ($reservationSeries->AllResources() as $resource)
+        {
+            if ($resource->GetRequiresApproval())
+            {
+                if (!$this->authorizationService->CanApproveForResource($reservationSeries->BookedBy(), $resource))
+                {
+                    $status = ReservationStatus::Pending;
+                    break;
+                }
+            }
+        }
 
-		$reservationSeries->SetStatusId($status);
+        $reservationSeries->SetStatusId($status);
 
-		return new ReservationRuleResult();
-	}
+        return new ReservationRuleResult();
+    }
 }

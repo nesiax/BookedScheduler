@@ -25,13 +25,13 @@ Szerzői jog tulajdonos: 2011-2020 Nick Korbel
 
 Ez a fájl a Booked Scheduler része.
 
-Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz 
+Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz
 bármely 3 változata vagy (belátásod alapjánszerint) későbbi változatok alapján,
-amelyeket a Free Software Foundation, adott ki. 
+amelyeket a Free Software Foundation, adott ki.
 
 Booked Scheduler abban a reményben kerül terjesztésre, hogy hasznos lesz,
 ém MINDEN GARANCIA NÉLKÜL; még a KERESKEDELMI vagy GYAKORLATI FELHASZNÁLÁS
-hallgatólagos garanciája nélkül.  További információt a 
+hallgatólagos garanciája nélkül.  További információt a
 GNU Általános Nyilvános Licenszben talál.
 
 A Booked Scheduler mellett meg kellett kapja a GNU Általános Nyilvános Licensz egy példányát is.
@@ -39,13 +39,13 @@ Amennyiben nem, kérjük látogassa meg az alábbi oldalt <http://www.gnu.org/li
 *}
 Ön nem jelentkezett be.<br/>
 A foglalás részletei:
-	<br/>
-	<br/>
-	kezdés: {formatdate date=$StartDate key=reservation_email}<br/>
-	Befejezés: {formatdate date=$EndDate key=reservation_email}<br/>
-	Elem: {$ResourceName}<br/>
-	Megnevezés: {$Title}<br/>
-	Leírás: {$Description|nl2br}
+    <br/>
+    <br/>
+    kezdés: {formatdate date=$StartDate key=reservation_email}<br/>
+    Befejezés: {formatdate date=$EndDate key=reservation_email}<br/>
+    Elem: {$ResourceName}<br/>
+    Megnevezés: {$Title}<br/>
+    Leírás: {$Description|nl2br}
     {if $IsAutoRelease}
         <br/>
         Amenyyiben nem jelentkezik be, ez a foglalás automatikusan törlésre kerül ekkor: {formatdate date=$AutoReleaseTime key=reservation_email}

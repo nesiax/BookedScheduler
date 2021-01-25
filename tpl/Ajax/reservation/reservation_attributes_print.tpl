@@ -18,15 +18,15 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 {
 {if $Attributes|count > 0}
-	{foreach from=$Attributes item=attribute name=attributes}
-		 "{$attribute->Id()}" :
-		[ "{$attribute->Type()}" ,
-		"{$attribute->Label()|escape:'javascript'}" ,
-		{if $attribute->Type() eq '5'}
-			"{formatdate date=$attribute->Value() key=embedded_datetime}" ] {if $smarty.foreach.attributes.last}{else},{/if}
-		{else}
-			"{$attribute->Value()|escape:'javascript'}" ] {if $smarty.foreach.attributes.last}{else},{/if}
-		{/if}
-	{/foreach}
+    {foreach from=$Attributes item=attribute name=attributes}
+         "{$attribute->Id()}" :
+        [ "{$attribute->Type()}" ,
+        "{$attribute->Label()|escape:'javascript'}" ,
+        {if $attribute->Type() eq '5'}
+            "{formatdate date=$attribute->Value() key=embedded_datetime}" ] {if $smarty.foreach.attributes.last}{else},{/if}
+        {else}
+            "{$attribute->Value()|escape:'javascript'}" ] {if $smarty.foreach.attributes.last}{else},{/if}
+        {/if}
+    {/foreach}
 {/if}
 }

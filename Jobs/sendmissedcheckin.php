@@ -48,16 +48,16 @@ try
 
     $alreadySeen = array();
 
-	$reservationViewRepository = new ReservationViewRepository();
+    $reservationViewRepository = new ReservationViewRepository();
 
     $now = Date::Now();
     $onlyMissedCheckinReservations = new SqlFilterFreeForm(sprintf("%s=1 AND %s IS NULL AND `%s`.`%s` BETWEEN '%s' AND '%s'",
         ColumnNames::ENABLE_CHECK_IN, ColumnNames::CHECKIN_DATE, TableNames::RESERVATION_INSTANCES_ALIAS, ColumnNames::RESERVATION_START, $now->AddMinutes(-1)->ToDatabase(), $now->ToDatabase()));
-	$reservations = $reservationViewRepository->GetList(null, null, null, null, $onlyMissedCheckinReservations)->Results();
+    $reservations = $reservationViewRepository->GetList(null, null, null, null, $onlyMissedCheckinReservations)->Results();
 
-	/** @var ReservationItemView $reservation */
-	foreach ($reservations as $reservation)
-	{
+    /** @var ReservationItemView $reservation */
+    foreach ($reservations as $reservation)
+    {
         if (array_key_exists($reservation->ReferenceNumber, $alreadySeen))
         {
             continue;
@@ -69,11 +69,11 @@ try
             $reservation->ReferenceNumber, $reservation->UserId, $reservation->ResourceName);
 
         ServiceLocator::GetEmailService()->Send(new MissedCheckinEmail($reservation));
-	}
+    }
 
 } catch (Exception $ex)
 {
-	Log::Error('Error running sendmissedcheckin.php: %s', $ex);
+    Log::Error('Error running sendmissedcheckin.php: %s', $ex);
 }
 
 Log::Debug('Finished running sendmissedcheckin.php');

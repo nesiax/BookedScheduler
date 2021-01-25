@@ -69,8 +69,8 @@ INNER JOIN
   INNER JOIN
     users u ON rs.owner_id = u.user_id
   WHERE
-    repeat_type <> 'none' 
-    AND uep.event_category = @event_category 
+    repeat_type <> 'none'
+    AND uep.event_category = @event_category
     AND uep.event_type = @event_type
   GROUP BY
     ri.series_id

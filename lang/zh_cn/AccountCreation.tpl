@@ -25,5 +25,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 单位: {$Organization}<br/>
 职位: {$Position}</p>
 {if !empty($CreatedBy)}
-	创建者: {$CreatedBy}
+    创建者: {$CreatedBy}
 {/if}

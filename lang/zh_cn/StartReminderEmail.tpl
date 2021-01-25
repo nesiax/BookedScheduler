@@ -16,15 +16,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
-您的预约即将开始。<br/> 
+您的预约即将开始。<br/>
 预约详情:
-	<br/>
-	<br/>
-	开始时间: {formatdate date=$StartDate key=reservation_email}<br/>
-	结束时间: {formatdate date=$EndDate key=reservation_email}<br/>
-	资源名称: {$ResourceName}<br/>
-	预约标题: {$Title}<br/>
-	预约说明: {$Description|nl2br}
+    <br/>
+    <br/>
+    开始时间: {formatdate date=$StartDate key=reservation_email}<br/>
+    结束时间: {formatdate date=$EndDate key=reservation_email}<br/>
+    资源名称: {$ResourceName}<br/>
+    预约标题: {$Title}<br/>
+    预约说明: {$Description|nl2br}
 <br/>
 <br/>
 <a href="{$ScriptUrl}/{$ReservationUrl}">查看此预约</a> |

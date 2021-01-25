@@ -17,5 +17,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IConvert
 {
-	public function Convert($value);
+    public function Convert($value);
 }

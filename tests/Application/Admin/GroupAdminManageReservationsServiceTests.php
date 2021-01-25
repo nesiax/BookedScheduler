@@ -29,10 +29,10 @@ class GroupAdminManageReservationsServiceTests extends TestBase
         $adminGroup3 = new UserGroup(3, null, 1, RoleLevel::GROUP_ADMIN);
         $user->WithOwnedGroups(array($adminGroup2, $adminGroup3));
 
-		$reservationRepo = $this->createMock('IReservationViewRepository');
-		$reservationAuth = $this->createMock('IReservationAuthorization');
-		$handler = $this->createMock('IReservationHandler');
-		$persistenceService = $this->createMock('IUpdateReservationPersistenceService');
+        $reservationRepo = $this->createMock('IReservationViewRepository');
+        $reservationAuth = $this->createMock('IReservationAuthorization');
+        $handler = $this->createMock('IReservationHandler');
+        $persistenceService = $this->createMock('IUpdateReservationPersistenceService');
         $userRepo = $this->createMock('IUserRepository');
         $userRepo->expects($this->once())
                 ->method('LoadById')

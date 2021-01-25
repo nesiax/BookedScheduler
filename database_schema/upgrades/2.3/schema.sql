@@ -10,8 +10,8 @@ CREATE TABLE `saved_reports` (
  `report_details` varchar(500) NOT NULL,
   PRIMARY KEY (`saved_report_id`),
   FOREIGN KEY (`user_id`)
-	REFERENCES `users`(`user_id`)
-	ON DELETE CASCADE
+    REFERENCES `users`(`user_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 ALTER TABLE `resources` ADD COLUMN `sort_order` TINYINT(2) unsigned;

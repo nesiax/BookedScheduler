@@ -25,5 +25,5 @@ Telefone: {$Phone}<br/>
 Organização: {$Organization}<br/>
 Posição: {$Position}</p>
 {if !empty($CreatedBy)}
-	Criado por: {$CreatedBy}
+    Criado por: {$CreatedBy}
 {/if}

@@ -304,8 +304,8 @@ class EmbeddedCalendarTitleFormatter
             $format = 'date';
         }
         $allowUser = !Configuration::Instance()->GetSectionKey(ConfigSection::PRIVACY, ConfigKeys::PRIVACY_HIDE_USER_DETAILS, new BooleanConverter());
-		$allowRevervation = !Configuration::Instance()->GetSectionKey(ConfigSection::PRIVACY, ConfigKeys::PRIVACY_HIDE_RESERVATION_DETAILS, new BooleanConverter());
-		
+        $allowRevervation = !Configuration::Instance()->GetSectionKey(ConfigSection::PRIVACY, ConfigKeys::PRIVACY_HIDE_RESERVATION_DETAILS, new BooleanConverter());
+
         $dateText = $this->GetDateText($reservation, $boundDate);
         $title = $reservation->GetTitle();
         $resourceName = $reservation->GetResourceName();
@@ -314,7 +314,7 @@ class EmbeddedCalendarTitleFormatter
         {
             $userName = '';
         }
-		if (!$allowRevervation)
+        if (!$allowRevervation)
         {
             $title = '';
         }

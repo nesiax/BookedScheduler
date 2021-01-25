@@ -96,7 +96,7 @@ class ExistingReservationTests extends TestBase
         $repeatDaily = new RepeatDaily(1, $currentSeriesDate->AddDays(10)->GetBegin());
 
         $builder = new ExistingReservationSeriesBuilder();
-//		$builder->WithBookedBy($this->fakeUser);
+//        $builder->WithBookedBy($this->fakeUser);
         $builder->WithRepeatOptions($currentRepeatOptions);
         $builder->WithInstance($oldReservation);
         $builder->WithInstance($currentInstance);
@@ -398,8 +398,8 @@ class ExistingReservationTests extends TestBase
         $newInstance2Start = Date::Parse('2015-01-09 09:30:00', 'UTC');
         $newInstance2End = Date::Parse('2015-01-10 00:00:00', 'UTC');
 
-//		$this->assertEquals(new DateRange($newInstance1Start, $newInstance1End), $series->GetInstance($newInstance1Start)->Duration());
-//		$this->assertEquals(new DateRange($newInstance2Start, $newInstance2End), $series->GetInstance($newInstance2Start)->Duration());
+//        $this->assertEquals(new DateRange($newInstance1Start, $newInstance1End), $series->GetInstance($newInstance1Start)->Duration());
+//        $this->assertEquals(new DateRange($newInstance2Start, $newInstance2End), $series->GetInstance($newInstance2Start)->Duration());
 
         $events = $series->GetEvents();
         $this->assertTrue(in_array(new InstanceUpdatedEvent($instance1, $series), $events));
@@ -1164,7 +1164,7 @@ class ExistingReservationTests extends TestBase
         $this->assertEquals(4, count($instances));
         $this->assertEquals(0, count($removedReferenceNumbers));
         $this->assertEquals(0, count($addedReferenceNumbers));
-		sort($updatedReferenceNumbers);
+        sort($updatedReferenceNumbers);
         $this->assertEquals([1, 2, 3, 4], $updatedReferenceNumbers);
         $this->assertEquals($instances[1]->StartDate(), $date1->GetBegin()->AddDays(1));
         $this->assertEquals($instances[1]->EndDate(), $date1->GetBegin()->AddDays(1)->SetTimeString("13:00"));
@@ -1273,7 +1273,7 @@ class ExistingReservationTests extends TestBase
         $this->assertEquals(2, count($instances), "the original/current is in the past");
         $this->assertEquals(3, count($removedReferenceNumbers));
         $this->assertEquals(2, count($addedReferenceNumbers));
-		sort($removedReferenceNumbers);
+        sort($removedReferenceNumbers);
         $this->assertEquals([2, 3, 4], $removedReferenceNumbers);
     }
 }

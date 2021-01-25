@@ -18,50 +18,50 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 <p>{$ParticipantDetails} has
     {if ($InvitationAction == InvitationAction::Decline || $InvitationAction == InvitationAction::CancelAll || $InvitationAction == InvitationAction::CancelInstance)}
-		declined your reservation invitation.
+        declined your reservation invitation.
     {elseif ($InvitationAction == InvitationAction::Join || $InvitationAction == InvitationAction::JoinAll)}
-		joined your reservation.
+        joined your reservation.
     {else}
-		accepted your reservation invitation.
+        accepted your reservation invitation.
     {/if}
 </p>
 <p><strong>Reservation Details:</strong></p>
 
 <p>
-	<strong>Start:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
-	<strong>End:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
-	<strong>Title:</strong> {$Title}<br/>
-	<strong>Description:</strong> {$Description|nl2br}
+    <strong>Start:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
+    <strong>End:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
+    <strong>Title:</strong> {$Title}<br/>
+    <strong>Description:</strong> {$Description|nl2br}
     {if $Attributes|count > 0}
-	<br/>
+    <br/>
     {foreach from=$Attributes item=attribute}
-	<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
     {/foreach}
 {/if}
 </p>
 
 <p>
     {if $ResourceNames|count > 1}
-		<strong>Resources ({$ResourceNames|count}):</strong>
-		<br/>
+        <strong>Resources ({$ResourceNames|count}):</strong>
+        <br/>
         {foreach from=$ResourceNames item=resourceName}
             {$resourceName}
-			<br/>
+            <br/>
         {/foreach}
     {else}
-		<strong>Resource:</strong>
+        <strong>Resource:</strong>
         {$ResourceName}
-		<br/>
+        <br/>
     {/if}
 </p>
 
 {if $ResourceImage}
-	<div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img alt="{$ResourceName|escape}" src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 <p><strong>Reference Number:</strong> {$ReferenceNumber}</p>
 
 <p>
-	<a href="{$ScriptUrl}/{$ReservationUrl}">View this reservation</a> |
-	<a href="{$ScriptUrl}">Log in to {$AppTitle}</a>
+    <a href="{$ScriptUrl}/{$ReservationUrl}">View this reservation</a> |
+    <a href="{$ScriptUrl}">Log in to {$AppTitle}</a>
 </p>

@@ -19,5 +19,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 $conf['settings']['wp_includes.directory'] = '/home/user/public_html/wordpress/wp-includes'; // full path to your wp-includes directory or path relative to Booked Scheduler root
-$conf['settings']['database.auth.when.wp.user.not.found'] = 'false';		// if wordpress auth fails, authenticate against Booked Scheduler database
+$conf['settings']['database.auth.when.wp.user.not.found'] = 'false';        // if wordpress auth fails, authenticate against Booked Scheduler database
 ?>

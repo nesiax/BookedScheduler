@@ -577,7 +577,7 @@ class Net_LDAP2_Util extends PEAR
     */
     public static function split_attribute_string($attr, $extended=false, $withDelim=false)
     {
-	if ($withDelim) $withDelim = PREG_SPLIT_DELIM_CAPTURE;
+    if ($withDelim) $withDelim = PREG_SPLIT_DELIM_CAPTURE;
 
         if (!$extended) {
             return preg_split('/(?<!\\\\)(=)/', $attr, 2, $withDelim);

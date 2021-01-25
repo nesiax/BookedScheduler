@@ -20,5 +20,5 @@
 
 interface IRegistrationPermissionStrategy
 {
-	public function AddAccount(User $user);
+    public function AddAccount(User $user);
 }

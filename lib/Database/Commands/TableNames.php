@@ -23,7 +23,7 @@ class TableNames
     const CUSTOM_ATTRIBUTE_VALUES = 'custom_attribute_values';
     const RESERVATION_SERIES_ALIAS = 'rs';
     const ACCESSORIES = 'accessories';
-	const GROUPS_ALIAS = 'g';
+    const GROUPS_ALIAS = 'g';
     const RESERVATION_ACCESSORIES_ALIAS = 'ra';
     const RESOURCES = 'resources';
     const RESOURCES_ALIAS = 'r';

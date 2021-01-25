@@ -20,15 +20,15 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class TestDateRange extends DateRange
 {
-	public function __construct()
-	{
-		parent::__construct(Date::Now(), Date::Now());
-	}
+    public function __construct()
+    {
+        parent::__construct(Date::Now(), Date::Now());
+    }
 
-	public static function CreateWithDays($days)
-	{
-		$now = Date::Now();
-		return new DateRange($now->AddDays($days), $now->AddDays($days));
-	}
+    public static function CreateWithDays($days)
+    {
+        $now = Date::Now();
+        return new DateRange($now->AddDays($days), $now->AddDays($days));
+    }
 }
 ?>

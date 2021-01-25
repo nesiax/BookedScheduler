@@ -16,18 +16,18 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class AddReservationPersistenceService implements IReservationPersistenceService
 {
-	/**
-	 * @var IReservationRepository
-	 */
-	private $_repository;
+    /**
+     * @var IReservationRepository
+     */
+    private $_repository;
 
-	public function __construct(IReservationRepository $repository)
-	{
-		$this->_repository = $repository;
-	}
+    public function __construct(IReservationRepository $repository)
+    {
+        $this->_repository = $repository;
+    }
 
-	public function Persist($reservation)
-	{
-		$this->_repository->Add($reservation);
-	}
+    public function Persist($reservation)
+    {
+        $this->_repository->Add($reservation);
+    }
 }

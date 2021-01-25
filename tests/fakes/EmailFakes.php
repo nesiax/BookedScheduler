@@ -23,26 +23,26 @@ require_once(BASE_DIR . '/lib/PHPMailer.class.php');
 
 class FakeMailer extends PHPMailer
 {
-	var $addresses = array();
-	var $Subject = null;
-	var $Body = null;
-	var $sendWasCalled = false;
-	var $isHtml = true;
+    var $addresses = array();
+    var $Subject = null;
+    var $Body = null;
+    var $sendWasCalled = false;
+    var $isHtml = true;
 
-	function FakeMailer() {
+    function FakeMailer() {
 
-	}
+    }
 
-	function AddAddress($address, $name = '') {
-		$this->addresses[] = $address;
-	}
+    function AddAddress($address, $name = '') {
+        $this->addresses[] = $address;
+    }
 
-	function Send() {
-		$this->sendWasCalled = true;
-	}
+    function Send() {
+        $this->sendWasCalled = true;
+    }
 
-	function IsHTML($bool) {
-		$this->isHtml = $bool;
-	}
+    function IsHTML($bool) {
+        $this->isHtml = $bool;
+    }
 }
 ?>

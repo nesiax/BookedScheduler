@@ -24,96 +24,96 @@ require_once(ROOT_DIR . 'WebServices/Controllers/AttributeSaveController.php');
 
 class AttributeSaveControllerTests extends TestBase
 {
-	/**
-	 * @var AttributeSaveController
-	 */
-	private $controller;
+    /**
+     * @var AttributeSaveController
+     */
+    private $controller;
 
-	/**
-	 * @var FakeAttributeRepository
-	 */
-	private $attributeRepository;
-	private $session;
+    /**
+     * @var FakeAttributeRepository
+     */
+    private $attributeRepository;
+    private $session;
 
-	public function setUp(): void
-	{
-		parent::setup();
+    public function setUp(): void
+    {
+        parent::setup();
 
-		$this->attributeRepository = new FakeAttributeRepository();
-		$this->controller = new AttributeSaveController($this->attributeRepository);
-		$this->session = new FakeWebServiceUserSession(1);
-	}
+        $this->attributeRepository = new FakeAttributeRepository();
+        $this->controller = new AttributeSaveController($this->attributeRepository);
+        $this->session = new FakeWebServiceUserSession(1);
+    }
 
-	public function testAddsAttribute()
-	{
-		$request = new CustomAttributeRequest();
-		$request->label = 'attributename';
-		$request->type = CustomAttributeTypes::SELECT_LIST;
-		$request->categoryId = CustomAttributeCategory::USER;
-		$request->regex= 'regex';
-		$request->required = true;
-		$request->possibleValues = '1,2,3';
-		$request->sortOrder = 9;
-		$request->appliesToIds = array(100);
+    public function testAddsAttribute()
+    {
+        $request = new CustomAttributeRequest();
+        $request->label = 'attributename';
+        $request->type = CustomAttributeTypes::SELECT_LIST;
+        $request->categoryId = CustomAttributeCategory::USER;
+        $request->regex= 'regex';
+        $request->required = true;
+        $request->possibleValues = '1,2,3';
+        $request->sortOrder = 9;
+        $request->appliesToIds = array(100);
 
-		$result = $this->controller->Create($request, $this->session);
+        $result = $this->controller->Create($request, $this->session);
 
-		$this->assertEquals(true, $result->WasSuccessful());
-		$this->assertEquals($this->attributeRepository->_LastCreateId, $result->AttributeId());
+        $this->assertEquals(true, $result->WasSuccessful());
+        $this->assertEquals($this->attributeRepository->_LastCreateId, $result->AttributeId());
 
-		$expected = CustomAttribute::Create($request->label, $request->type, $request->categoryId, $request->regex, $request->required,
-											$request->possibleValues, $request->sortOrder, $request->appliesToIds, $request->adminOnly);
-		$expected->WithIsPrivate($request->isPrivate);
-		$this->assertEquals($expected, $this->attributeRepository->_Added);
-	}
-	
-	public function testWhenAddRequestIsInvalid()
-	{
-		$request = new CustomAttributeRequest();
+        $expected = CustomAttribute::Create($request->label, $request->type, $request->categoryId, $request->regex, $request->required,
+                                            $request->possibleValues, $request->sortOrder, $request->appliesToIds, $request->adminOnly);
+        $expected->WithIsPrivate($request->isPrivate);
+        $this->assertEquals($expected, $this->attributeRepository->_Added);
+    }
 
-		$result = $this->controller->Create($request, $this->session);
+    public function testWhenAddRequestIsInvalid()
+    {
+        $request = new CustomAttributeRequest();
 
-		$this->assertEquals(false, $result->WasSuccessful());
-	}
+        $result = $this->controller->Create($request, $this->session);
 
-	public function testUpdatesAttribute()
-	{
-		$attributeId = 123;
-		$request = new CustomAttributeRequest();
-		$request->label = 'attributename';
-		$request->type = CustomAttributeTypes::SELECT_LIST;
-		$request->categoryId = CustomAttributeCategory::USER;
-		$request->regex= 'regex';
-		$request->required = true;
-		$request->possibleValues = '1,2,3';
-		$request->sortOrder = 9;
-		$request->appliesToIds = 100;
+        $this->assertEquals(false, $result->WasSuccessful());
+    }
 
-		$result = $this->controller->Update($attributeId, $request, $this->session);
+    public function testUpdatesAttribute()
+    {
+        $attributeId = 123;
+        $request = new CustomAttributeRequest();
+        $request->label = 'attributename';
+        $request->type = CustomAttributeTypes::SELECT_LIST;
+        $request->categoryId = CustomAttributeCategory::USER;
+        $request->regex= 'regex';
+        $request->required = true;
+        $request->possibleValues = '1,2,3';
+        $request->sortOrder = 9;
+        $request->appliesToIds = 100;
 
-		$this->assertEquals(true, $result->WasSuccessful());
-		$this->assertEquals($attributeId, $result->AttributeId());
+        $result = $this->controller->Update($attributeId, $request, $this->session);
 
-		$expected = new CustomAttribute($attributeId, $request->label, $request->type, $request->categoryId, $request->regex, $request->required,
-										$request->possibleValues, $request->sortOrder, $request->appliesToIds);
+        $this->assertEquals(true, $result->WasSuccessful());
+        $this->assertEquals($attributeId, $result->AttributeId());
 
-		$this->assertEquals($expected, $this->attributeRepository->_Updated);
-	}
+        $expected = new CustomAttribute($attributeId, $request->label, $request->type, $request->categoryId, $request->regex, $request->required,
+                                        $request->possibleValues, $request->sortOrder, $request->appliesToIds);
 
-	public function testWhenUpdateRequestIsInvalid()
-	{
-		$request = new CustomAttributeRequest();
+        $this->assertEquals($expected, $this->attributeRepository->_Updated);
+    }
 
-		$result = $this->controller->Update(1, $request, $this->session);
+    public function testWhenUpdateRequestIsInvalid()
+    {
+        $request = new CustomAttributeRequest();
 
-		$this->assertEquals(false, $result->WasSuccessful());
-	}
-	
-	public function testDeletesAttribute()
-	{
-		$result = $this->controller->Delete(1, $this->session);
+        $result = $this->controller->Update(1, $request, $this->session);
 
-		$this->assertEquals(true, $result->WasSuccessful());
-		$this->assertEquals(1, $result->AttributeId());
-	}
+        $this->assertEquals(false, $result->WasSuccessful());
+    }
+
+    public function testDeletesAttribute()
+    {
+        $result = $this->controller->Delete(1, $this->session);
+
+        $this->assertEquals(true, $result->WasSuccessful());
+        $this->assertEquals(1, $result->AttributeId());
+    }
 }

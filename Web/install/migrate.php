@@ -396,8 +396,8 @@ class MigrationPresenter
         Log::Debug('Start migrating schedules. Starting at row %s', $schedulesMigrated);
 
         $getLegacySchedules = new AdHocCommand("select scheduleid, scheduletitle, daystart, dayend, timespan,
-		                timeformat, weekdaystart, viewdays, usepermissions, ishidden, showsummary, adminemail, isdefault
-		                from schedules order by scheduleid limit $schedulesMigrated, 500");
+                        timeformat, weekdaystart, viewdays, usepermissions, ishidden, showsummary, adminemail, isdefault
+                        from schedules order by scheduleid limit $schedulesMigrated, 500");
 
         $reader = $legacyDatabase->Query($getLegacySchedules);
 
@@ -531,7 +531,7 @@ class MigrationPresenter
         Log::Debug('Start migrating accessories. Starting at row %s', $accessoriesMigrated);
 
         $getAccessories = new AdHocCommand("select resourceid, name, number_available from additional_resources
-		 order by resourceid limit $accessoriesMigrated, 500");
+         order by resourceid limit $accessoriesMigrated, 500");
 
         $reader = $legacyDatabase->Query($getAccessories);
 
@@ -645,7 +645,7 @@ class MigrationPresenter
         }
 
         $getUsers = new AdHocCommand("select memberid, email, password, fname, lname, phone, institution, position, e_add, e_mod, e_del, e_app, e_html, logon_name, is_admin, lang, timezone
-		from login order by memberid limit $usersMigrated, 100");
+        from login order by memberid limit $usersMigrated, 100");
         $reader = $legacyDatabase->Query($getUsers);
 
         while ($row = $reader->GetRow()) {
@@ -698,7 +698,7 @@ class MigrationPresenter
 
             if (!empty($insertPermissionSqls)) {
                 $insertPermission = "insert ignore into user_resource_permissions (resource_id, user_id) values " . implode(',', $insertPermissionSqls);
-//				die($insertPermission);
+//                die($insertPermission);
                 $currentDatabase->ExecuteInsert(new AdHocCommand($insertPermission));
             }
 
@@ -722,9 +722,9 @@ class MigrationPresenter
     {
         $reservationsMigrated = 0;
         $getMigratedCount = new AdHocCommand('SELECT
-				(select count(*) from reservation_series where legacyid is not null) +
-				(select count(*) from blackout_series where legacyid is not null )
-				as count');
+                (select count(*) from reservation_series where legacyid is not null) +
+                (select count(*) from blackout_series where legacyid is not null )
+                as count');
 
         $reader = ServiceLocator::GetDatabase()->Query($getMigratedCount);
         if ($row = $reader->GetRow()) {
@@ -877,10 +877,10 @@ class MigrationPresenter
 
         Log::Debug('Done migrating reservations (%s reservations)', $reservationsMigrated);
         $getLegacyCount = new AdHocCommand('select count(*) as count from reservations');
-//		$getMigratedCount = new AdHocCommand('SELECT
-//		(select count(*) from reservation_series where legacyid is not null) +
-//		(select count(*) from blackout_series where legacyid is not null )
-//		as count');
+//        $getMigratedCount = new AdHocCommand('SELECT
+//        (select count(*) from reservation_series where legacyid is not null) +
+//        (select count(*) from blackout_series where legacyid is not null )
+//        as count');
 
         $progressCounts = $this->GetProgressCounts($getLegacyCount, $getMigratedCount);
         $this->page->SetProgress($progressCounts);

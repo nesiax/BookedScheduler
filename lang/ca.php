@@ -323,8 +323,8 @@ class ca extends en_gb
         $strings['Pending'] = 'Pendent';
         $strings['Past'] = 'Passat';
         $strings['Restricted'] = 'Restringit';
-		$strings['ViewAll'] = 'Veure-ho tot';
-		$strings['MoveResourcesAndReservations'] = 'Moure tamb� Recursos i Reserves';
+        $strings['ViewAll'] = 'Veure-ho tot';
+        $strings['MoveResourcesAndReservations'] = 'Moure tamb� Recursos i Reserves';
 
         // Errors
         $strings['LoginError'] = 'No s\'ha trobat una correspond&egrave;ncia pel teu nom d\'usuari i contrasenya';

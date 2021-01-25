@@ -19,16 +19,16 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 <p><strong>Reservation Details:</strong></p>
 
 <p>
-	<strong>Start:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
-	<strong>End:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
-	<strong>Title:</strong> {$Title}<br/>
-	<strong>Description:</strong> {$Description|nl2br}
-	{if $Attributes|count > 0}
-		<br/>
-	    {foreach from=$Attributes item=attribute}
-			<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	    {/foreach}
-	{/if}
+    <strong>Start:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
+    <strong>End:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
+    <strong>Title:</strong> {$Title}<br/>
+    <strong>Description:</strong> {$Description|nl2br}
+    {if $Attributes|count > 0}
+        <br/>
+        {foreach from=$Attributes item=attribute}
+            <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+        {/foreach}
+    {/if}
 </p>
 
 <p>
@@ -47,27 +47,27 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 
 {if $RequiresApproval}
-	<p>* At least one of the resources reserved requires approval before usage. This reservation will be pending until it is approved. *</p>
+    <p>* At least one of the resources reserved requires approval before usage. This reservation will be pending until it is approved. *</p>
 {/if}
 
 {if $CheckInEnabled}
-	<p>
-	At least one of the resources reserved requires you to check in and out of your reservation.
+    <p>
+    At least one of the resources reserved requires you to check in and out of your reservation.
     {if $AutoReleaseMinutes != null}
-		This reservation will be cancelled unless you check in within {$AutoReleaseMinutes} minutes after the scheduled start time.
+        This reservation will be cancelled unless you check in within {$AutoReleaseMinutes} minutes after the scheduled start time.
     {/if}
-	</p>
+    </p>
 {/if}
 
 {if count($RepeatRanges) gt 0}
     <br/>
     <strong>The reservation occurs on the following dates ({$RepeatRanges|count}):</strong>
     <br/>
-	{foreach from=$RepeatRanges item=date name=dates}
-	    {formatdate date=$date->GetBegin()}
-	    {if !$date->IsSameDate()} - {formatdate date=$date->GetEnd()}{/if}
-	    <br/>
-	{/foreach}
+    {foreach from=$RepeatRanges item=date name=dates}
+        {formatdate date=$date->GetBegin()}
+        {if !$date->IsSameDate()} - {formatdate date=$date->GetEnd()}{/if}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $Participants|count >0}
@@ -115,31 +115,31 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 
 {if $CreditsCurrent > 0}
-	<br/>
-	This reservation costs {$CreditsCurrent} credits.
+    <br/>
+    This reservation costs {$CreditsCurrent} credits.
     {if $CreditsCurrent != $CreditsTotal}
-		This entire reservation series costs {$CreditsTotal} credits.
+        This entire reservation series costs {$CreditsTotal} credits.
     {/if}
 {/if}
 
 
 {if !empty($CreatedBy)}
-	<p><strong>Created by:</strong> {$CreatedBy}</p>
+    <p><strong>Created by:</strong> {$CreatedBy}</p>
 {/if}
 
 {if !empty($ApprovedBy)}
-	<p><strong>Approved by:</strong> {$ApprovedBy}</p>
+    <p><strong>Approved by:</strong> {$ApprovedBy}</p>
 {/if}
 
 <p><strong>Reference Number:</strong> {$ReferenceNumber}</p>
 
 {if !$Deleted}
-	<a href="{$ScriptUrl}/{$ReservationUrl}">View this reservation</a>
-	|
-	<a href="{$ScriptUrl}/{$ICalUrl}">Add to Calendar</a>
-	|
-	<a href="{$GoogleCalendarUrl}" target="_blank" rel="nofollow">Add to Google Calendar</a>
-	|
+    <a href="{$ScriptUrl}/{$ReservationUrl}">View this reservation</a>
+    |
+    <a href="{$ScriptUrl}/{$ICalUrl}">Add to Calendar</a>
+    |
+    <a href="{$GoogleCalendarUrl}" target="_blank" rel="nofollow">Add to Google Calendar</a>
+    |
 {/if}
 <a href="{$ScriptUrl}">Log in to {$AppTitle}</a>
 

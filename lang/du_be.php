@@ -323,8 +323,8 @@ class du_be extends en_gb
         $strings['Pending'] = 'In wachtlijst';
         $strings['Past'] = 'Verleden';
         $strings['Restricted'] = 'Restricted';
-		$strings['ViewAll'] = 'View All';
-		$strings['MoveResourcesAndReservations'] = 'Move resources and reservations to';
+        $strings['ViewAll'] = 'View All';
+        $strings['MoveResourcesAndReservations'] = 'Move resources and reservations to';
 
         // Errors
         $strings['LoginError'] = 'Ongeldige usernaam of paswoord opgegeven';

@@ -20,6 +20,6 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class WebServiceHeaders
 {
-	const SESSION_TOKEN = 'X-Booked-SessionToken';
-	const USER_ID = 'X-Booked-UserId';
+    const SESSION_TOKEN = 'X-Booked-SessionToken';
+    const USER_ID = 'X-Booked-UserId';
 }

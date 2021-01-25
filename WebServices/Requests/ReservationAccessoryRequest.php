@@ -20,13 +20,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReservationAccessoryRequest
 {
-	public $accessoryId;
-	public $quantityRequested;
+    public $accessoryId;
+    public $quantityRequested;
 
-	public function __construct($accessoryId, $quantityRequested)
-	{
-		$this->accessoryId = $accessoryId;
-		$this->quantityRequested = $quantityRequested;
-	}
+    public function __construct($accessoryId, $quantityRequested)
+    {
+        $this->accessoryId = $accessoryId;
+        $this->quantityRequested = $quantityRequested;
+    }
 }
 

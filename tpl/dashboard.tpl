@@ -19,31 +19,31 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {include file='globalheader.tpl' Qtip=true Owl=true}
 
 <div id="page-dashboard">
-	<div id="dashboardList">
-		{foreach from=$items item=dashboardItem}
-			<div>{$dashboardItem->PageLoad()}</div>
-		{/foreach}
-	</div>
+    <div id="dashboardList">
+        {foreach from=$items item=dashboardItem}
+            <div>{$dashboardItem->PageLoad()}</div>
+        {/foreach}
+    </div>
 
     {include file="javascript-includes.tpl" Qtip=true Owl=true}
 
-	{jsfile src="dashboard.js"}
-	{jsfile src="resourcePopup.js"}
-	{jsfile src="ajax-helpers.js"}
+    {jsfile src="dashboard.js"}
+    {jsfile src="resourcePopup.js"}
+    {jsfile src="ajax-helpers.js"}
 
-	<script type="text/javascript">
-		$(document).ready(function () {
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-			var dashboardOpts = {
-				reservationUrl: "{Pages::RESERVATION}?{QueryStringKeys::REFERENCE_NUMBER}=",
-				summaryPopupUrl: "ajax/respopup.php",
-				scriptUrl: '{$ScriptUrl}'
-			};
+            var dashboardOpts = {
+                reservationUrl: "{Pages::RESERVATION}?{QueryStringKeys::REFERENCE_NUMBER}=",
+                summaryPopupUrl: "ajax/respopup.php",
+                scriptUrl: '{$ScriptUrl}'
+            };
 
-			var dashboard = new Dashboard(dashboardOpts);
-			dashboard.init();
-		});
-	</script>
+            var dashboard = new Dashboard(dashboardOpts);
+            dashboard.init();
+        });
+    </script>
 </div>
 
 <div id="wait-box" class="wait-box">

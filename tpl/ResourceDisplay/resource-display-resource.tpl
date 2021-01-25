@@ -139,7 +139,7 @@
                 </div>
                 <div class="col-xs-6">
                     <div class="input-group input-group-lg">
-				            <span class="input-group-addon" id="endtime-addon"><span
+                            <span class="input-group-addon" id="endtime-addon"><span
                                         class="glyphicon glyphicon-time"></span></span>
                         <select title="End" class="form-control input-lg" aria-describedby="endtime-addon"
                                 id="endPeriod" {formname key=END_PERIOD}>

@@ -4,50 +4,50 @@ require_once(ROOT_DIR . '/lib/Config/namespace.php');
 
 class MoodleOptions
 {
-	const CONFIG_ID = 'moodle';
-	
-	public function __construct()
-	{
-		require_once(dirname(__FILE__) . '/Moodle.config.php');
+    const CONFIG_ID = 'moodle';
 
-		Configuration::Instance()->Register(
-			dirname(__FILE__) . '/Moodle.config.php',
-			self::CONFIG_ID);
+    public function __construct()
+    {
+        require_once(dirname(__FILE__) . '/Moodle.config.php');
 
-		Log::Debug('Moodle authentication plugin - Moodle options loaded');
-	}
+        Configuration::Instance()->Register(
+            dirname(__FILE__) . '/Moodle.config.php',
+            self::CONFIG_ID);
 
-	public function RetryAgainstDatabase()
-	{
-		return $this->GetConfig('database.auth.when.user.not.found', new BooleanConverter());
-	}
+        Log::Debug('Moodle authentication plugin - Moodle options loaded');
+    }
 
-	public function GetPath()
-	{
-		$path = $this->GetConfig('moodle.root.directory');
+    public function RetryAgainstDatabase()
+    {
+        return $this->GetConfig('database.auth.when.user.not.found', new BooleanConverter());
+    }
 
-		if (!BookedStringHelper::StartsWith($path, '/'))
-		{
-			$path = ROOT_DIR . "/$path";
-		}
-		if (BookedStringHelper::EndsWith($path, '/'))
-		{
-			return $path;
-		}
+    public function GetPath()
+    {
+        $path = $this->GetConfig('moodle.root.directory');
 
-		return $path . '/';
-	}
+        if (!BookedStringHelper::StartsWith($path, '/'))
+        {
+            $path = ROOT_DIR . "/$path";
+        }
+        if (BookedStringHelper::EndsWith($path, '/'))
+        {
+            return $path;
+        }
 
-	public function GetMoodleCookieId()
-	{
-		return $this->GetConfig('moodle.cookie.id');
-	}
+        return $path . '/';
+    }
+
+    public function GetMoodleCookieId()
+    {
+        return $this->GetConfig('moodle.cookie.id');
+    }
 
 
-	private function GetConfig($keyName, $converter = null)
-	{
-		return Configuration::Instance()->File(self::CONFIG_ID)->GetKey($keyName, $converter);
-	}
+    private function GetConfig($keyName, $converter = null)
+    {
+        return Configuration::Instance()->File(self::CONFIG_ID)->GetKey($keyName, $converter);
+    }
 }
 
 ?>

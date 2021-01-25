@@ -28,47 +28,47 @@ class ja_jp extends en_gb
         parent::__construct();
     }
 
-	/**
-	 * @return array
-	 */
-	protected function _LoadDates()
-	{
-		$dates = array();
+    /**
+     * @return array
+     */
+    protected function _LoadDates()
+    {
+        $dates = array();
 
-		$dates['general_date'] = 'Y-m-d';
+        $dates['general_date'] = 'Y-m-d';
         $dates['general_datetime'] = 'Y-m-d H:i:s';
-		$dates['short_datetime'] = 'Y-m-d g:i A';
+        $dates['short_datetime'] = 'Y-m-d g:i A';
         $dates['schedule_daily'] = 'Y-m-d (l)';
         $dates['reservation_email'] = 'Y-m-d @ g:i A (e)';
         $dates['res_popup'] = 'Y-m-d g:i A';
-		$dates['res_popup_time'] = 'g:i A';
-		$dates['short_reservation_date'] = 'Y-m-d g:i A';
+        $dates['res_popup_time'] = 'g:i A';
+        $dates['short_reservation_date'] = 'Y-m-d g:i A';
         $dates['dashboard'] = 'Y-m-d (l) g:i A';
         $dates['period_time'] = "g:i A";
-		$dates['timepicker'] = 'h:i a';
-		$dates['mobile_reservation_date'] = 'M/d g:i A';
+        $dates['timepicker'] = 'h:i a';
+        $dates['mobile_reservation_date'] = 'M/d g:i A';
         $dates['general_date_js'] = "yy-mm-dd";
         $dates['general_time_js'] = 'h:mm tt';
         $dates['timepicker_js'] = 'h:i a';
         $dates['momentjs_datetime'] = 'YY-m-d h:mm A';
         $dates['calendar_time'] = 'h:mmt';
         $dates['calendar_dates'] = 'm/d';
-		$dates['embedded_date'] = 'D d';
-		$dates['embedded_time'] = 'g:i A';
-		$dates['embedded_datetime'] = 'm/d g:i A';
-		$dates['report_date'] = '%m/%d';
+        $dates['embedded_date'] = 'D d';
+        $dates['embedded_time'] = 'g:i A';
+        $dates['embedded_datetime'] = 'm/d g:i A';
+        $dates['report_date'] = '%m/%d';
 
-		$this->Dates = $dates;
+        $this->Dates = $dates;
 
-		return $this->Dates;
-	}
+        return $this->Dates;
+    }
 
-	/**
-	 * @return array
-	 */
-	protected function _LoadStrings()
-	{
-		$strings = array();
+    /**
+     * @return array
+     */
+    protected function _LoadStrings()
+    {
+        $strings = array();
 
         $strings['FirstName'] = '名';
         $strings['LastName'] = '姓';
@@ -1008,7 +1008,7 @@ class ja_jp extends en_gb
         $strings['ReservationParticipantAccept'] = '%s は %s ( %s ) の予約への招待を受け入れました';
         $strings['ReservationParticipantDecline'] = '%s は %s ( %s ) の予約招待を拒否しました';
         $strings['ReservationParticipantJoin'] = '%s は %s ( %s ) の予約に参加しました';
-        
+
         // End Email Subjects
 
         $this->Strings = $strings;

@@ -20,7 +20,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class ReservationStatus
 {
-	const Created = 1;
-	const Deleted = 2;
-	const Pending = 3;
+    const Created = 1;
+    const Deleted = 2;
+    const Pending = 3;
 }

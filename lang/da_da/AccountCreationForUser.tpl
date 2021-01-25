@@ -29,7 +29,7 @@ Organisation: {$Organization}<br/>
 Adresse: {$Position}<br/>
 Adgangskode: {$Password}</p>
 {if !empty($CreatedBy)}
-	Oprettet af: {$CreatedBy}
+    Oprettet af: {$CreatedBy}
 {/if}
 
 <a href="{$ScriptUrl}">Log på {$AppTitle}</a>

@@ -17,17 +17,17 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface INewReservationPreconditionService
 {
-	/**
-	 * @param INewReservationPage $page
-	 */
-	public function CheckAll(INewReservationPage $page, UserSession $user);
+    /**
+     * @param INewReservationPage $page
+     */
+    public function CheckAll(INewReservationPage $page, UserSession $user);
 
 }
 
 interface IReservationPreconditionService
 {
-	/**
-	 * @param IReservationPage $page
-	 */
-	public function CheckAll(IReservationPage $page, UserSession $user);
+    /**
+     * @param IReservationPage $page
+     */
+    public function CheckAll(IReservationPage $page, UserSession $user);
 }

@@ -16,21 +16,21 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class UpdateReservationValidationService implements IReservationValidationService
 {
-	/**
-	 * @var IReservationValidationService
-	 */
-	private $ruleProcessor;
+    /**
+     * @var IReservationValidationService
+     */
+    private $ruleProcessor;
 
-	/**
-	 * @param IReservationValidationService $ruleProcessor
-	 */
-	public function __construct($ruleProcessor)
-	{
-		$this->ruleProcessor = $ruleProcessor;
-	}
+    /**
+     * @param IReservationValidationService $ruleProcessor
+     */
+    public function __construct($ruleProcessor)
+    {
+        $this->ruleProcessor = $ruleProcessor;
+    }
 
-	public function Validate($reservationSeries, $retryParameters = null)
-	{
-		return $this->ruleProcessor->Validate($reservationSeries, $retryParameters);
-	}
+    public function Validate($reservationSeries, $retryParameters = null)
+    {
+        return $this->ruleProcessor->Validate($reservationSeries, $retryParameters);
+    }
 }

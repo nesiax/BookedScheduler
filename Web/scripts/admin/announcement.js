@@ -1,55 +1,55 @@
 function AnnouncementManagement(opts) {
-	var options = opts;
+    var options = opts;
 
-	var elements = {
-		activeId: $('#activeId'),
-		announcementList: $('#announcementList'),
+    var elements = {
+        activeId: $('#activeId'),
+        announcementList: $('#announcementList'),
 
-		editDialog: $('#editDialog'),
-		deleteDialog: $('#deleteDialog'),
-		emailDialog: $('#emailDialog'),
+        editDialog: $('#editDialog'),
+        deleteDialog: $('#deleteDialog'),
+        emailDialog: $('#emailDialog'),
 
-		addForm: $('#addForm'),
-		form: $('#editForm'),
-		deleteForm: $('#deleteForm'),
-		emailForm: $('#emailForm'),
+        addForm: $('#addForm'),
+        form: $('#editForm'),
+        deleteForm: $('#deleteForm'),
+        emailForm: $('#emailForm'),
 
-		editText: $('#editText'),
-		editBegin: $('#editBegin'),
-		editEnd: $('#editEnd'),
-		editPriority: $('#editPriority'),
-		editUserGroups: $('#editUserGroups'),
-		editResourceGroups: $('#editResourceGroups'),
+        editText: $('#editText'),
+        editBegin: $('#editBegin'),
+        editEnd: $('#editEnd'),
+        editPriority: $('#editPriority'),
+        editUserGroups: $('#editUserGroups'),
+        editResourceGroups: $('#editResourceGroups'),
         editUserGroupsDiv: $('#editUserGroupsDiv'),
         editResourceGroupsDiv: $('#editResourceGroupsDiv'),
 
-		emailCount: $('#emailCount'),
+        emailCount: $('#emailCount'),
 
         displayPage: $('#addPage'),
         moreOptions: $('#moreOptions')
-	};
+    };
 
-	var announcements = new Object();
+    var announcements = new Object();
 
-	AnnouncementManagement.prototype.init = function () {
+    AnnouncementManagement.prototype.init = function () {
 
-		elements.announcementList.delegate('a.update', 'click', function (e) {
-			setActiveId($(this));
-			e.preventDefault();
-		});
+        elements.announcementList.delegate('a.update', 'click', function (e) {
+            setActiveId($(this));
+            e.preventDefault();
+        });
 
-		elements.announcementList.delegate('.edit', 'click', function () {
-			editAnnouncement();
-		});
-		elements.announcementList.delegate('.sendEmail', 'click', function () {
-			emailAnnouncement();
-		});
-		elements.announcementList.delegate('.delete', 'click', function () {
-			deleteAnnouncement();
-		});
+        elements.announcementList.delegate('.edit', 'click', function () {
+            editAnnouncement();
+        });
+        elements.announcementList.delegate('.sendEmail', 'click', function () {
+            emailAnnouncement();
+        });
+        elements.announcementList.delegate('.delete', 'click', function () {
+            deleteAnnouncement();
+        });
 
-		elements.displayPage.change(function(e){
-		    if ($(this).val() == '5')
+        elements.displayPage.change(function(e){
+            if ($(this).val() == '5')
             {
                 elements.moreOptions.hide();
             }
@@ -58,47 +58,47 @@ function AnnouncementManagement(opts) {
             }
         });
 
-		$(".save").click(function () {
-			$(this).closest('form').submit();
-		});
+        $(".save").click(function () {
+            $(this).closest('form').submit();
+        });
 
-		$(".cancel").click(function () {
-			$(this).closest('.dialog').modal("hide");
-		});
+        $(".cancel").click(function () {
+            $(this).closest('.dialog').modal("hide");
+        });
 
-		ConfigureAsyncForm(elements.addForm, getSubmitCallback(options.actions.add));
-		ConfigureAsyncForm(elements.deleteForm, getSubmitCallback(options.actions.deleteAnnouncement));
-		ConfigureAsyncForm(elements.form, getSubmitCallback(options.actions.edit));
-		ConfigureAsyncForm(elements.emailForm, getSubmitCallback(options.actions.email), function() {
-			elements.emailDialog.modal('hide');}
-		);
-	};
+        ConfigureAsyncForm(elements.addForm, getSubmitCallback(options.actions.add));
+        ConfigureAsyncForm(elements.deleteForm, getSubmitCallback(options.actions.deleteAnnouncement));
+        ConfigureAsyncForm(elements.form, getSubmitCallback(options.actions.edit));
+        ConfigureAsyncForm(elements.emailForm, getSubmitCallback(options.actions.email), function() {
+            elements.emailDialog.modal('hide');}
+        );
+    };
 
-	var getSubmitCallback = function (action) {
-		return function () {
-			return options.submitUrl + "?aid=" + getActiveId() + "&action=" + action;
-		};
-	};
+    var getSubmitCallback = function (action) {
+        return function () {
+            return options.submitUrl + "?aid=" + getActiveId() + "&action=" + action;
+        };
+    };
 
-	function setActiveId(activeElement) {
-		var id = activeElement.closest('tr').attr('data-announcement-id');
-		elements.activeId.val(id);
-	}
+    function setActiveId(activeElement) {
+        var id = activeElement.closest('tr').attr('data-announcement-id');
+        elements.activeId.val(id);
+    }
 
-	function getActiveId() {
-		return elements.activeId.val();
-	}
+    function getActiveId() {
+        return elements.activeId.val();
+    }
 
-	var editAnnouncement = function () {
-		var announcement = getActiveAnnouncement();
-		elements.editText.val(HtmlDecode(announcement.text));
-		elements.editBegin.val(announcement.start);
-		elements.editBegin.trigger('change');
-		elements.editEnd.val(announcement.end);
-		elements.editEnd.trigger('change');
-		elements.editPriority.val(announcement.priority);
+    var editAnnouncement = function () {
+        var announcement = getActiveAnnouncement();
+        elements.editText.val(HtmlDecode(announcement.text));
+        elements.editBegin.val(announcement.start);
+        elements.editBegin.trigger('change');
+        elements.editEnd.val(announcement.end);
+        elements.editEnd.trigger('change');
+        elements.editPriority.val(announcement.priority);
 
-		if (announcement.displayPage == 5)
+        if (announcement.displayPage == 5)
         {
             elements.editUserGroupsDiv.hide();
             elements.editResourceGroupsDiv.hide();
@@ -119,27 +119,27 @@ function AnnouncementManagement(opts) {
             elements.editResourceGroups.trigger('change');
         }
 
-		elements.editDialog.modal('show');
-	};
+        elements.editDialog.modal('show');
+    };
 
-	var emailAnnouncement = function() {
-		var announcement = getActiveAnnouncement();
+    var emailAnnouncement = function() {
+        var announcement = getActiveAnnouncement();
 
-		ajaxGet(options.getEmailCountUrl + '&aid=' +announcement.id, function(){}, function(data) {
-			elements.emailCount.text(data.users);
-			elements.emailDialog.modal('show');
-		});
-	};
+        ajaxGet(options.getEmailCountUrl + '&aid=' +announcement.id, function(){}, function(data) {
+            elements.emailCount.text(data.users);
+            elements.emailDialog.modal('show');
+        });
+    };
 
-	var deleteAnnouncement = function () {
-		elements.deleteDialog.modal('show');
-	};
+    var deleteAnnouncement = function () {
+        elements.deleteDialog.modal('show');
+    };
 
-	var getActiveAnnouncement = function () {
-		return announcements[getActiveId()];
-	};
+    var getActiveAnnouncement = function () {
+        return announcements[getActiveId()];
+    };
 
-	AnnouncementManagement.prototype.addAnnouncement = function (id, text, start, end, priority, groupIds, resourceIds, displayPage) {
-		announcements[id] = {id: id, text: text, start: start, end: end, priority: priority, groupIds: groupIds, resourceIds: resourceIds, displayPage: displayPage};
-	};
+    AnnouncementManagement.prototype.addAnnouncement = function (id, text, start, end, priority, groupIds, resourceIds, displayPage) {
+        announcements[id] = {id: id, text: text, start: start, end: end, priority: priority, groupIds: groupIds, resourceIds: resourceIds, displayPage: displayPage};
+    };
 }

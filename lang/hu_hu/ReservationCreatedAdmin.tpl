@@ -25,13 +25,13 @@ Szerzői jog tulajdonos: 2011-2020 Nick Korbel
 
 Ez a fájl a Booked Scheduler része.
 
-Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz 
+Booked Scheduler szabad szoftver: terjesztheted vagy módosíthatod a GNU Általános Nyilvános Licensz
 bármely 3 változata vagy (belátásod alapjánszerint) későbbi változatok alapján,
-amelyeket a Free Software Foundation, adott ki. 
+amelyeket a Free Software Foundation, adott ki.
 
 Booked Scheduler abban a reményben kerül terjesztésre, hogy hasznos lesz,
 ém MINDEN GARANCIA NÉLKÜL; még a KERESKEDELMI vagy GYAKORLATI FELHASZNÁLÁS
-hallgatólagos garanciája nélkül.  További információt a 
+hallgatólagos garanciája nélkül.  További információt a
 GNU Általános Nyilvános Licenszben talál.
 
 A Booked Scheduler mellett meg kellett kapja a GNU Általános Nyilvános Licensz egy példányát is.
@@ -43,25 +43,25 @@ A foglalás részletei:
 
 Felhasználó: {$UserName}<br/>
 {if !empty($CreatedBy)}
-	Created by: {$CreatedBy}
-	<br/>
+    Created by: {$CreatedBy}
+    <br/>
 {/if}
 Kezdés: {formatdate date=$StartDate key=reservation_email}<br/>
 Befejezés: {formatdate date=$EndDate key=reservation_email}<br/>
 {if $ResourceNames|count > 1}
-	Elemek:
-	<br/>
-	{foreach from=$ResourceNames item=resourceName}
-		{$resourceName}
-		<br/>
-	{/foreach}
+    Elemek:
+    <br/>
+    {foreach from=$ResourceNames item=resourceName}
+        {$resourceName}
+        <br/>
+    {/foreach}
 {else}
-	Elem: {$ResourceName}
-	<br/>
+    Elem: {$ResourceName}
+    <br/>
 {/if}
 
 {if $ResourceImage}
-	<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 Megnevezés: {$Title}<br/>
@@ -112,33 +112,33 @@ Leírás: {$Description|nl2br}
 {/if}
 
 {if $Accessories|count > 0}
-	<br/>
-	Kiegészítők:
-	<br/>
-	{foreach from=$Accessories item=accessory}
-		({$accessory->QuantityReserved}) {$accessory->Name}
-		<br/>
-	{/foreach}
+    <br/>
+    Kiegészítők:
+    <br/>
+    {foreach from=$Accessories item=accessory}
+        ({$accessory->QuantityReserved}) {$accessory->Name}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $Attributes|count > 0}
-	<br/>
-	{foreach from=$Attributes item=attribute}
-		<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	{/foreach}
+    <br/>
+    {foreach from=$Attributes item=attribute}
+        <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    {/foreach}
 {/if}
 
 {if $RequiresApproval}
-	<br/>
-	A foglalt elemek legalább egyike jóváhagyást igényel. Kérjük, biztosítsa a foglalás jóváhagyását vagy elvetését.
+    <br/>
+    A foglalt elemek legalább egyike jóváhagyást igényel. Kérjük, biztosítsa a foglalás jóváhagyását vagy elvetését.
 {/if}
 
 {if $CheckInEnabled}
-	<br/>
-	A foglalt elemek legalább egyike ki- és bejelentkezést igényel a fogalásba/ból.
-	{if $AutoReleaseMinutes != null}
-		Eza foglalás törlésre kerül, amennyiben nem történik bejelentkezés {$AutoReleaseMinutes} perccel az ütemezett kezdést követően.
-	{/if}
+    <br/>
+    A foglalt elemek legalább egyike ki- és bejelentkezést igényel a fogalásba/ból.
+    {if $AutoReleaseMinutes != null}
+        Eza foglalás törlésre kerül, amennyiben nem történik bejelentkezés {$AutoReleaseMinutes} perccel az ütemezett kezdést követően.
+    {/if}
 {/if}
 
 <br/>

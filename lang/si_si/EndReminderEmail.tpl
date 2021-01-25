@@ -22,13 +22,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 Vaša rezervacija bo kmalu potekla.<br/>
 Podrobnosti rezervacije:
-	<br/>
-	<br/>
-	Začetek: {formatdate date=$StartDate key=reservation_email}<br/>
-	Konec: {formatdate date=$EndDate key=reservation_email}<br/>
-	Vir: {$ResourceName}<br/>
-	Naslov: {$Title}<br/>
-	Opis: {$Description|nl2br}<br/>
+    <br/>
+    <br/>
+    Začetek: {formatdate date=$StartDate key=reservation_email}<br/>
+    Konec: {formatdate date=$EndDate key=reservation_email}<br/>
+    Vir: {$ResourceName}<br/>
+    Naslov: {$Title}<br/>
+    Opis: {$Description|nl2br}<br/>
 <br/>
 <a href="{$ScriptUrl}/{$ReservationUrl}">Ogled rezervacije</a> |
 <a href="{$ScriptUrl}/{$ICalUrl}">Dodaj v Koledar (Outlook)</a> |

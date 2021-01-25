@@ -84,12 +84,12 @@ class Installer
         $results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $populate_data);
 
         /**
-		 * Populate sample data given in /Booked Scheduler/database_schema/sample-data-utf8.sql
-		 */
-		if ($should_create_sample_data)
-		{
-			$results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $populate_sample_data);
-		}
+         * Populate sample data given in /Booked Scheduler/database_schema/sample-data-utf8.sql
+         */
+        if ($should_create_sample_data)
+        {
+            $results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $populate_sample_data);
+        }
 
         $results = array_merge($results, $upgradeResults);
         return $results;
@@ -243,12 +243,12 @@ class Installer
             return false;
         }
 
-		$select_table_result = mysqli_query($link, 'select * from layouts');
+        $select_table_result = mysqli_query($link, 'select * from layouts');
 
-		if (!$select_table_result)
-		{
-			return false;
-		}
+        if (!$select_table_result)
+        {
+            return false;
+        }
 
         $getVersion = 'SELECT * FROM `dbversion` order by version_number desc limit 0,1';
         $result = mysqli_query($link, $getVersion);
@@ -262,21 +262,21 @@ class Installer
         {
             $versionNumber = $row['version_number'];
 
-			if ($versionNumber == 2.1)
-			{
-				// bug in 2.2 upgrade did not insert version number, check for table instead
+            if ($versionNumber == 2.1)
+            {
+                // bug in 2.2 upgrade did not insert version number, check for table instead
 
-				$getCustomAttributes = 'SELECT * FROM custom_attributes';
-				$customAttributesResults = mysqli_query($link, $getCustomAttributes);
+                $getCustomAttributes = 'SELECT * FROM custom_attributes';
+                $customAttributesResults = mysqli_query($link, $getCustomAttributes);
 
-				if ($customAttributesResults)
-				{
-					mysqli_query($link, "insert into dbversion values('2.2', now())");
-					return 2.2;
-				}
-			}
+                if ($customAttributesResults)
+                {
+                    mysqli_query($link, "insert into dbversion values('2.2', now())");
+                    return 2.2;
+                }
+            }
 
-			return $versionNumber;
+            return $versionNumber;
         }
 
         return 2.0;

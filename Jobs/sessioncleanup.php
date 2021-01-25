@@ -39,13 +39,13 @@ JobCop::EnsureCommandLine();
 
 try
 {
-	$userSessionRepository = new UserSessionRepository();
+    $userSessionRepository = new UserSessionRepository();
     $userSessionRepository->CleanUp();
     Log::Debug('Cleaning up stale user sessions');
 
 } catch (Exception $ex)
 {
-	Log::Error('Error running sessioncleanup.php: %s', $ex);
+    Log::Error('Error running sessioncleanup.php: %s', $ex);
 }
 
 Log::Debug('Finished running sessioncleanup.php');

@@ -18,13 +18,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 Your reservation is starting soon.<br/>
 Reservation Details:
-	<br/>
-	<br/>
-	Start: {formatdate date=$StartDate key=reservation_email}<br/>
-	End: {formatdate date=$EndDate key=reservation_email}<br/>
-	Resource: {$ResourceName}<br/>
-	Title: {$Title}<br/>
-	Description: {$Description|nl2br}
+    <br/>
+    <br/>
+    Start: {formatdate date=$StartDate key=reservation_email}<br/>
+    End: {formatdate date=$EndDate key=reservation_email}<br/>
+    Resource: {$ResourceName}<br/>
+    Title: {$Title}<br/>
+    Description: {$Description|nl2br}
 <br/>
 <br/>
 <a href="{$ScriptUrl}/{$ReservationUrl}">View this reservation</a> |

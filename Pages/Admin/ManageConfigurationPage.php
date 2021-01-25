@@ -210,7 +210,7 @@ class ManageConfigurationPage extends ActionPage implements IManageConfiguration
         foreach ($settings as $setting) {
             $setting = trim($setting);
             if (!empty($setting)) {
-//				Log::Debug("%s=%s", $setting, $this->GetForm($setting));
+//                Log::Debug("%s=%s", $setting, $this->GetForm($setting));
                 $submittedSettings[] = ConfigSetting::ParseForm($setting, stripslashes($this->GetRawForm($setting)));
             }
         }

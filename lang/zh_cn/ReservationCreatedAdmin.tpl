@@ -22,25 +22,25 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 用户: {$UserName}<br/>
 {if !empty($CreatedBy)}
-	创建者: {$CreatedBy}
-	<br/>
+    创建者: {$CreatedBy}
+    <br/>
 {/if}
 开始时间: {formatdate date=$StartDate key=reservation_email}<br/>
 结束时间: {formatdate date=$EndDate key=reservation_email}<br/>
 {if $ResourceNames|count > 1}
-	资源名称:
-	<br/>
-	{foreach from=$ResourceNames item=resourceName}
-		{$resourceName}
-		<br/>
-	{/foreach}
+    资源名称:
+    <br/>
+    {foreach from=$ResourceNames item=resourceName}
+        {$resourceName}
+        <br/>
+    {/foreach}
 {else}
-	资源名称: {$ResourceName}
-	<br/>
+    资源名称: {$ResourceName}
+    <br/>
 {/if}
 
 {if $ResourceImage}
-	<div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
+    <div class="resource-image"><img src="{$ScriptUrl}/{$ResourceImage}"/></div>
 {/if}
 
 预约名称: {$Title}<br/>
@@ -59,33 +59,33 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {/foreach}
 
 {if $Accessories|count > 0}
-	<br/>
-	自主添加的附件列表:
-	<br/>
-	{foreach from=$Accessories item=accessory}
-		({$accessory->QuantityReserved}) {$accessory->Name}
-		<br/>
-	{/foreach}
+    <br/>
+    自主添加的附件列表:
+    <br/>
+    {foreach from=$Accessories item=accessory}
+        ({$accessory->QuantityReserved}) {$accessory->Name}
+        <br/>
+    {/foreach}
 {/if}
 
 {if $Attributes|count > 0}
-	<br/>
-	{foreach from=$Attributes item=attribute}
-		<div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
-	{/foreach}
+    <br/>
+    {foreach from=$Attributes item=attribute}
+        <div>{control type="AttributeControl" attribute=$attribute readonly=true}</div>
+    {/foreach}
 {/if}
 
 {if $RequiresApproval}
-	<br/>
-	至少有一个预约的资源在使用之前需要批准。请确认当前请求的预约是否批准。
+    <br/>
+    至少有一个预约的资源在使用之前需要批准。请确认当前请求的预约是否批准。
 {/if}
 
 {if $CheckInEnabled}
-	<br/>
-	预订的资源中至少有一个需要用户进行Check in 或者 Check out操作。
-	{if $AutoReleaseMinutes != null}
-		除非您在预约开始之后的 {$AutoReleaseMinutes} 分钟内进行Check in，否则此预约将被取消。
-	{/if}
+    <br/>
+    预订的资源中至少有一个需要用户进行Check in 或者 Check out操作。
+    {if $AutoReleaseMinutes != null}
+        除非您在预约开始之后的 {$AutoReleaseMinutes} 分钟内进行Check in，否则此预约将被取消。
+    {/if}
 {/if}
 
 <br/>

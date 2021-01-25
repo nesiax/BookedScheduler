@@ -11,10 +11,10 @@ To create a new Authentication plugin:
 - Create a PHP source file with the same folder name within this folder.  For example, /plugins/Auth/Ldap contains Ldap.php.
     This source file is what will be called during the authentication process.
 - Within this source file, require the Authentication namespace and implement the IAuthentication interface
-	<?php
-	require_once(ROOT_DIR . 'lib/Authentication/namespace.php');
-	class Ldap implements Authentication { ... }
-	?>
+    <?php
+    require_once(ROOT_DIR . 'lib/Authentication/namespace.php');
+    class Ldap implements Authentication { ... }
+    ?>
 - In the Booked Scheduler configuration file, set $conf['settings']['plugins']['Authentication'] to the folder name. For example, $conf['settings']['plugins']['Authentication'] = 'Ldap';
 
 This class is intended to decorate an IAuthentication instance, so in most cases you would want to create a new Authentication() class in the constructor if one isn't supplied as a parameter.

@@ -99,7 +99,7 @@ class ReservationCreditsPresenterTests extends TestBase
 
     public function testReturnsNumberOfCreditsConsumedForExistingReservation()
     {
-    	$pageDate = Date::Now()->AddDays(1);
+        $pageDate = Date::Now()->AddDays(1);
         $scheduleId = 100;
         $resource1 = new FakeBookableResource(1);
         $resource1->SetCreditsPerSlot(1);

@@ -853,15 +853,15 @@ class User
             $this->_addedAttributeValues[] = $attribute;
         }
 
-		if ($removeAttrOnDiff)
-		{
-			/** @var $attribute AttributeValue */
-			foreach ($removed as $attribute) {
-				if (!in_array($attribute->AttributeId, $this->adminAttributesIds)) {
-					$this->_removedAttributeValues[] = $attribute;
-				}
-			}
-		}
+        if ($removeAttrOnDiff)
+        {
+            /** @var $attribute AttributeValue */
+            foreach ($removed as $attribute) {
+                if (!in_array($attribute->AttributeId, $this->adminAttributesIds)) {
+                    $this->_removedAttributeValues[] = $attribute;
+                }
+            }
+        }
 
         foreach ($attributes as $attribute) {
             $this->AddAttributeValue($attribute);

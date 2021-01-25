@@ -25,7 +25,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
     <meta name="robots" content="noindex"/>
     {if $ShouldLogout}
         <meta http-equiv="REFRESH"
-			  content="{$SessionTimeoutSeconds};URL={$Path}logout.php?{QueryStringKeys::REDIRECT}={$smarty.server.REQUEST_URI|urlencode}" />
+              content="{$SessionTimeoutSeconds};URL={$Path}logout.php?{QueryStringKeys::REDIRECT}={$smarty.server.REQUEST_URI|urlencode}" />
     {/if}
     <link rel="shortcut icon" href="{$Path}{$FaviconUrl}"/>
     <link rel="icon" href="{$Path}{$FaviconUrl}"/>

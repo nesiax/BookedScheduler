@@ -216,9 +216,9 @@ class Schedule implements ISchedule
      */
     public function SetAdminGroupId($adminGroupId)
     {
-    	if (empty($adminGroupId)) {
-    		$adminGroupId = null;
-		}
+        if (empty($adminGroupId)) {
+            $adminGroupId = null;
+        }
         $this->_adminGroupId = $adminGroupId;
     }
 
@@ -364,73 +364,73 @@ class Schedule implements ISchedule
         return new CalendarSubscriptionUrl(null, $this->GetPublicId(), null);
     }
 
-	/**
-	 * @param $layoutType int
-	 */
+    /**
+     * @param $layoutType int
+     */
     public function SetLayoutType($layoutType)
     {
         $this->_layoutType = $layoutType;
     }
 
-	/**
-	 * @return int
-	 */
+    /**
+     * @return int
+     */
     public function GetLayoutType()
     {
         return $this->_layoutType;
     }
 
-	/**
-	 * @return bool
-	 */
+    /**
+     * @return bool
+     */
     public function HasCustomLayout()
     {
         return $this->_layoutType == ScheduleLayout::Custom;
     }
 
-	/**
-	 * @param $totalConcurrent int
-	 */
+    /**
+     * @param $totalConcurrent int
+     */
     public function SetTotalConcurrentReservations($totalConcurrent) {
-    	$total = intval($totalConcurrent);
-    	$this->_totalConcurrentReservations = min(65535, max($total, 0));
-	}
+        $total = intval($totalConcurrent);
+        $this->_totalConcurrentReservations = min(65535, max($total, 0));
+    }
 
-	/**
-	 * @return int
-	 */
-	public function GetTotalConcurrentReservations() {
-    	return $this->_totalConcurrentReservations;
-	}
+    /**
+     * @return int
+     */
+    public function GetTotalConcurrentReservations() {
+        return $this->_totalConcurrentReservations;
+    }
 
-	/**
-	 * @return bool
-	 */
-	public function EnforceConcurrentReservationMaximum() {
-    	return $this->_totalConcurrentReservations > 0;
-	}
+    /**
+     * @return bool
+     */
+    public function EnforceConcurrentReservationMaximum() {
+        return $this->_totalConcurrentReservations > 0;
+    }
 
-	/**
-	 * @param $max int
-	 */
+    /**
+     * @param $max int
+     */
     public function SetMaxResourcesPerReservation($max) {
-    	$total = intval($max);
-    	$this->_maxResourcesPerReservation = min(65535, max($total, 0));
-	}
+        $total = intval($max);
+        $this->_maxResourcesPerReservation = min(65535, max($total, 0));
+    }
 
-	/**
-	 * @return int
-	 */
-	public function GetMaxResourcesPerReservation() {
-    	return $this->_maxResourcesPerReservation;
-	}
+    /**
+     * @return int
+     */
+    public function GetMaxResourcesPerReservation() {
+        return $this->_maxResourcesPerReservation;
+    }
 
-	/**
-	 * @return bool
-	 */
-	public function EnforceMaxResourcesPerReservation() {
-    	return $this->_maxResourcesPerReservation > 0;
-	}
+    /**
+     * @return bool
+     */
+    public function EnforceMaxResourcesPerReservation() {
+        return $this->_maxResourcesPerReservation > 0;
+    }
 }
 
 class NullSchedule extends Schedule

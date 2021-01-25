@@ -29,35 +29,35 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
         {if $InstallPasswordMissing}
             <div class='error'>
-				<p>{translate key=SetInstallPassword}</p>
-			    <p>{translate key=InstallPasswordInstructions args="$ConfigPath,$ConfigSetting,$SuggestedInstallPassword"}</p>
+                <p>{translate key=SetInstallPassword}</p>
+                <p>{translate key=InstallPasswordInstructions args="$ConfigPath,$ConfigSetting,$SuggestedInstallPassword"}</p>
             </div>
         {/if}
 
         {if $ShowPasswordPrompt}
             <ul class="no-style">
-				<li>{translate key=ProvideInstallPassword}</li>
-			    <li>{translate key=InstallPasswordLocation args="$ConfigPath,$ConfigSetting"}</li>
+                <li>{translate key=ProvideInstallPassword}</li>
+                <li>{translate key=InstallPasswordLocation args="$ConfigPath,$ConfigSetting"}</li>
                 <li>{textbox type="password" name="INSTALL_PASSWORD" class="textbox" size="20"}
                     <button type="submit" name="" class="button" value="submit">{translate key=Next} {html_image src="arrow_large_right.png"}</button>
                 </li>
             </ul>
         {/if}
 
-		{if $ShowConfigSuccess}
-			<h3>{translate key=ConfigUpdateSuccess} <a href="{$Path}{Pages::LOGIN}">{translate key=Login}</a></h3>
-		{/if}
+        {if $ShowConfigSuccess}
+            <h3>{translate key=ConfigUpdateSuccess} <a href="{$Path}{Pages::LOGIN}">{translate key=Login}</a></h3>
+        {/if}
 
-		{if $ShowManualConfig}
-			{translate key=ConfigUpdateFailure}
+        {if $ShowManualConfig}
+            {translate key=ConfigUpdateFailure}
 
-			<div style="font-family: courier; border: solid 1px #666;padding: 10px;margin-top: 20px;background-color: #eee">
-				&lt;?php<br/>
-				error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);<br/>
-				{$ManualConfig|nl2br}
-				?&gt;
-			</div>
-		{/if}
+            <div style="font-family: courier; border: solid 1px #666;padding: 10px;margin-top: 20px;background-color: #eee">
+                &lt;?php<br/>
+                error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);<br/>
+                {$ManualConfig|nl2br}
+                ?&gt;
+            </div>
+        {/if}
 
     </form>
 </div>

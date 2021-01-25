@@ -95,9 +95,9 @@ class SchedulesWebService
      */
     public function GetSlots($scheduleId)
     {
-		$tz = $this->server->GetSession()->Timezone;
-		$startDate = $this->GetDate(WebServiceQueryStringKeys::START_DATE_TIME)->ToTimezone($tz);
-		$endDate = $this->GetDate(WebServiceQueryStringKeys::END_DATE_TIME)->ToTimezone($tz);
+        $tz = $this->server->GetSession()->Timezone;
+        $startDate = $this->GetDate(WebServiceQueryStringKeys::START_DATE_TIME)->ToTimezone($tz);
+        $endDate = $this->GetDate(WebServiceQueryStringKeys::END_DATE_TIME)->ToTimezone($tz);
 
         $resourceId = $this->server->GetQueryString(WebServiceQueryStringKeys::RESOURCE_ID);
 
@@ -109,9 +109,9 @@ class SchedulesWebService
         $builder = new ScheduleWebServicePageBuilder($startDate, $endDate, $resourceId);
         $reservationService = new ReservationService(new ReservationViewRepository(), new ReservationListingFactory());
         $scheduleService = new ScheduleService($scheduleRepository, $resourceService, new DailyLayoutFactory());
-		$presenter = new SchedulePresenter($scheduleWebServiceView, $scheduleService, $resourceService, $builder, $reservationService);
+        $presenter = new SchedulePresenter($scheduleWebServiceView, $scheduleService, $resourceService, $builder, $reservationService);
 
-		$presenter->PageLoad($this->server->GetSession(), true);
+        $presenter->PageLoad($this->server->GetSession(), true);
 
         $layout = $scheduleWebServiceView->GetDailyLayout();
         $isError = $scheduleWebServiceView->IsPermissionError();
@@ -358,9 +358,9 @@ class ScheduleWebServiceView implements ISchedulePage
      */
     public function GetResourceIds()
     {
-		if (empty($this->resourceId)) {
-			return array();
-		}
+        if (empty($this->resourceId)) {
+            return array();
+        }
 
         return array($this->resourceId);
     }

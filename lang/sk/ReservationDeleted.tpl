@@ -61,4 +61,4 @@ Koniec: {formatdate date=$EndDate key=reservation_email}<br/>
     {/foreach}
 {/if}
 <a href="{$ScriptUrl}">Prihlásiť sa do rezervačného systému</a>
-	
+

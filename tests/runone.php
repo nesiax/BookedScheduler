@@ -102,19 +102,19 @@ $suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
 
 for ($i = 0; $i < count($tests); $i++)
 {
-	require_once($tests[$i]);
-	$fileWithDir = explode('/', $tests[$i]);
-	$fileName = $tests[$i];
+    require_once($tests[$i]);
+    $fileWithDir = explode('/', $tests[$i]);
+    $fileName = $tests[$i];
 
-	if (count($fileWithDir) > 1)
-	{
-		$fileName = $fileWithDir[count($fileWithDir)-1];
-	}
+    if (count($fileWithDir) > 1)
+    {
+        $fileName = $fileWithDir[count($fileWithDir)-1];
+    }
 
-	$name_parts = explode('.', $fileName);
-	$name  = $name_parts[0];
-	//$suite->addTestFile($tests[$i]);
-	$suite->addTestSuite($name);
+    $name_parts = explode('.', $fileName);
+    $name  = $name_parts[0];
+    //$suite->addTestFile($tests[$i]);
+    $suite->addTestSuite($name);
 }
 
 PHPUnit_TextUI_TestRunner::run($suite);

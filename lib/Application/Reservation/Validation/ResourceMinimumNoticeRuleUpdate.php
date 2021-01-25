@@ -40,8 +40,8 @@ class ResourceMinimumNoticeRuleUpdate extends ResourceMinimumNoticeRuleAdd
 
 class ResourceMinimumNoticeCurrentInstanceRuleUpdate extends ResourceMinimumNoticeRuleUpdate
 {
-	protected function GetInstances($reservationSeries)
-	{
-		return array($reservationSeries->CurrentInstance());
-	}
+    protected function GetInstances($reservationSeries)
+    {
+        return array($reservationSeries->CurrentInstance());
+    }
 }

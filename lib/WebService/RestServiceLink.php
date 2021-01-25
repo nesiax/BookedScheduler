@@ -20,12 +20,12 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class RestServiceLink
 {
-	public $href;
-	public $title;
+    public $href;
+    public $title;
 
-	public function __construct($href, $title)
-	{
-		$this->href = $href;
-		$this->title = $title;
-	}
+    public function __construct($href, $title)
+    {
+        $this->href = $href;
+        $this->title = $title;
+    }
 }

@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 <div>
-	{translate key=ResourceDisplayInstructions}
-	<br/><br/>
-	<a href="https://www.bookedscheduler.com/help/administration/#Reservation_Tablet_View" target="blank">{translate key=Help}</a>
+    {translate key=ResourceDisplayInstructions}
+    <br/><br/>
+    <a href="https://www.bookedscheduler.com/help/administration/#Reservation_Tablet_View" target="blank">{translate key=Help}</a>
 </div>

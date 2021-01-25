@@ -1,4 +1,4 @@
-﻿{*
+{*
 Copyright 2011-2020 Nick Korbel, Paul Menchini
 
 This file is part of Booked Scheduler.
@@ -26,7 +26,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 职位: {$Position}<br/>
 密码: {$Password}</p>
 {if !empty($CreatedBy)}
-	创建者: {$CreatedBy}
+    创建者: {$CreatedBy}
 {/if}
 
 <a href="{$ScriptUrl}">登录到{$AppTitle}</a>

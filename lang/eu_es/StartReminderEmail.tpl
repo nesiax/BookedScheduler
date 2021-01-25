@@ -18,13 +18,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 Zure erreeserba laster hasiko da.<br/>
 Erreserbaren xehetasunak:
-	<br/>
-	<br/>
-	Hasiera: {formatdate date=$StartDate key=reservation_email}<br/>
-	Data: {formatdate date=$EndDate key=reservation_email}<br/>
-	Baliabidea: {$ResourceName}<br/>
-	Izenburua: {$Title}<br/>
-	Deskripzioa: {$Description|nl2br}<br/>
+    <br/>
+    <br/>
+    Hasiera: {formatdate date=$StartDate key=reservation_email}<br/>
+    Data: {formatdate date=$EndDate key=reservation_email}<br/>
+    Baliabidea: {$ResourceName}<br/>
+    Izenburua: {$Title}<br/>
+    Deskripzioa: {$Description|nl2br}<br/>
 <br/>
 <br/>
 <a href="{$ScriptUrl}/{$ReservationUrl}">Erreserba hau ikusi</a> |

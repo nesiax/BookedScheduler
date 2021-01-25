@@ -70,7 +70,7 @@ class AccountCreationForUserEmail extends EmailMessage
         $this->Set('Password', $this->password);
         $this->Set('AppTitle', Configuration::Instance()->GetKey(ConfigKeys::APP_TITLE));
         $this->Set('ScriptUrl', Configuration::Instance()->GetScriptUrl());
-		$this->Set('CreatedBy', '');
+        $this->Set('CreatedBy', '');
         if ($this->userSession != null && $this->userSession->UserId != $this->user->Id()) {
             $this->Set('CreatedBy', new FullName($this->userSession->FirstName, $this->userSession->LastName));
         }

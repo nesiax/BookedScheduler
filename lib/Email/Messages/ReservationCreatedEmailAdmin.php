@@ -123,7 +123,7 @@ class ReservationCreatedEmailAdmin extends EmailMessage
         $this->Set('ResourceName', $this->resource->GetName());
         $this->Set('Title', $this->reservationSeries->Title());
         $this->Set('Description', $this->reservationSeries->Description());
-        
+
         $img = $this->reservationSeries->Resource()->GetImage();
         if (!empty($img))
         {
@@ -172,7 +172,7 @@ class ReservationCreatedEmailAdmin extends EmailMessage
 
         $this->Set('ReferenceNumber', $this->reservationSeries->CurrentInstance()->ReferenceNumber());
     }
-    
+
     private function GetFullImagePath($img)
     {
         return Configuration::Instance()->GetKey(ConfigKeys::IMAGE_UPLOAD_URL) . '/' . $img;

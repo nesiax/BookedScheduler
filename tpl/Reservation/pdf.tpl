@@ -7,13 +7,13 @@ pdfDocument.autoTable({
   columnStyles: { title: { halign: 'center'  , valign: 'center', fontSize: 14}},
   theme: 'plain',
   body: [
-	{ logo: '', title: '- {$AppTitle|escape:'javascript'} - '},
+    { logo: '', title: '- {$AppTitle|escape:'javascript'} - '},
     { blank: ''},
   ],
   didDrawCell: data => {
-	if (data.section == 'body' && data.column.index == 0 && data.row.index == 0){
-		pdfDocument.addImage(logo, data.cell.x, data.cell.y + 1, 0, 0);
-	}
+    if (data.section == 'body' && data.column.index == 0 && data.row.index == 0){
+        pdfDocument.addImage(logo, data.cell.x, data.cell.y + 1, 0, 0);
+    }
   }
 });
 
@@ -21,7 +21,7 @@ pdfDocument.autoTable({
   styles: { halign: 'center'  , valign: 'center', fontSize: 12},
   theme: 'plain',
   body: [
-	['{translate key=ReservationDetails|capitalize}'],
+    ['{translate key=ReservationDetails|capitalize}'],
   ],
 });
 
@@ -30,21 +30,21 @@ pdfDocument.autoTable({
   columnStyles: { reftitle: { fontStyle: 'bold'}},
   theme: 'plain',
     body: [
-	{ reftitle: '{translate key=ReferenceNumber}', refnumb: '{$ReferenceNumber}'},
+    { reftitle: '{translate key=ReferenceNumber}', refnumb: '{$ReferenceNumber}'},
   ],
 });
 
 {if $ShowUserDetails && $ShowReservationDetails}
-	pdfDocument.autoTable({
-	  styles: { lineWidth: 0.02},
-	  theme: 'plain',
-	  body: [
-		{ user: '{$ReservationUserName}'},
-	  ],
-	  columns: [
-		{ header: '{translate key='User'}', dataKey: 'user' },
-	  ],
-	});
+    pdfDocument.autoTable({
+      styles: { lineWidth: 0.02},
+      theme: 'plain',
+      body: [
+        { user: '{$ReservationUserName}'},
+      ],
+      columns: [
+        { header: '{translate key='User'}', dataKey: 'user' },
+      ],
+    });
 {/if}
 
 var durationText = document.getElementsByClassName('durationText').item(0).innerText;
@@ -55,43 +55,43 @@ pdfDocument.autoTable({
   styles: { lineWidth: 0.02},
   theme: 'plain',
     body: [
-	[{ content: '{translate key='BeginDate'}', styles: { fontStyle: 'bold'}},
-	 { content: '{formatdate date=$StartDate key=embedded_datetime}'},
-	 { content: '{translate key='EndDate'}', styles: { fontStyle: 'bold'}},
-	 { content: '{formatdate date=$EndDate key=embedded_datetime}'},
-	],
-	[{ content: '{translate key=ReservationLength}', styles: { fontStyle: 'bold'}},
-	 { colSpan: 3, content: durationText},	 
-	],
-	[{ content: '{translate key=RepeatPrompt}', styles: { fontStyle: 'bold'}},
-	{if $IsRecurring}
-	 { content: '{translate key=$RepeatOptions[$RepeatType]['key']}'},
-	 { content: '{$RepeatInterval}'},	
-	 { content: '{translate key=$RepeatOptions[$RepeatType]['everyKey']}'},
+    [{ content: '{translate key='BeginDate'}', styles: { fontStyle: 'bold'}},
+     { content: '{formatdate date=$StartDate key=embedded_datetime}'},
+     { content: '{translate key='EndDate'}', styles: { fontStyle: 'bold'}},
+     { content: '{formatdate date=$EndDate key=embedded_datetime}'},
+    ],
+    [{ content: '{translate key=ReservationLength}', styles: { fontStyle: 'bold'}},
+     { colSpan: 3, content: durationText},
+    ],
+    [{ content: '{translate key=RepeatPrompt}', styles: { fontStyle: 'bold'}},
+    {if $IsRecurring}
+     { content: '{translate key=$RepeatOptions[$RepeatType]['key']}'},
+     { content: '{$RepeatInterval}'},
+     { content: '{translate key=$RepeatOptions[$RepeatType]['everyKey']}'},
     {else}
-	 { colSpan: 3, content: '{translate key=$RepeatOptions[$RepeatType]['key']}'},
-	{/if}
-	],
-	{if $IsRecurring}
-		{if $RepeatMonthlyType neq ''}
-			[{ content: '{translate key=Type}', styles: { fontStyle: 'bold'}},
-			{if $RepeatMonthlyType == 'dayOfMonth'}
-				{ colSpan: 3, content: '{translate key=repeatDayOfMonth}'},
-			{else}
-				{ colSpan: 3, content: '{translate key=repeatDayOfWeek}'},
-			{/if}
-			],
-		{/if}
-		{if count($RepeatWeekdays) gt 0}
-			[{ content: daysText, styles: { fontStyle: 'bold'}},
-			{ colSpan: 3, content: '{foreach from=$RepeatWeekdays item=day name=weekdaysLoop}{if $smarty.foreach.weekdaysLoop.last}{translate key=$DayNames[$day]}{else}{translate key=$DayNames[$day]},{/if} {/foreach}'},
-			],
-		{/if}	
-		[{ content: '{translate key=RepeatUntilPrompt}', styles: { fontStyle: 'bold'}},
-		 { colSpan: 3, content: '{formatdate date=$RepeatTerminationDate}'},	 
-		],
-	{/if}
-	],
+     { colSpan: 3, content: '{translate key=$RepeatOptions[$RepeatType]['key']}'},
+    {/if}
+    ],
+    {if $IsRecurring}
+        {if $RepeatMonthlyType neq ''}
+            [{ content: '{translate key=Type}', styles: { fontStyle: 'bold'}},
+            {if $RepeatMonthlyType == 'dayOfMonth'}
+                { colSpan: 3, content: '{translate key=repeatDayOfMonth}'},
+            {else}
+                { colSpan: 3, content: '{translate key=repeatDayOfWeek}'},
+            {/if}
+            ],
+        {/if}
+        {if count($RepeatWeekdays) gt 0}
+            [{ content: daysText, styles: { fontStyle: 'bold'}},
+            { colSpan: 3, content: '{foreach from=$RepeatWeekdays item=day name=weekdaysLoop}{if $smarty.foreach.weekdaysLoop.last}{translate key=$DayNames[$day]}{else}{translate key=$DayNames[$day]},{/if} {/foreach}'},
+            ],
+        {/if}
+        [{ content: '{translate key=RepeatUntilPrompt}', styles: { fontStyle: 'bold'}},
+         { colSpan: 3, content: '{formatdate date=$RepeatTerminationDate}'},
+        ],
+    {/if}
+    ],
 });
 
 pdfDocument.autoTable({
@@ -99,26 +99,26 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 16}, 2: { cellWidth: 18},3: { cellWidth: 20}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="Resources"}', styles: { fontStyle: 'bold'}},
-	 { content: '{translate key="RequiresApproval"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
-	 { content: '{translate key="RequiresCheckInNotification"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
-	 { content: '{translate key="ReleasedIn"} ({translate key="minutes"})', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
-	],
-	[{ content: '{$Resource->Name|escape:'javascript'}'},
-	 { content: '{if $Resource->GetRequiresApproval()}X{/if}', styles: { halign: 'center'}},
-	 { content: '{if $Resource->IsCheckInEnabled()}X{/if}', styles: { halign: 'center'}},
-	 { content: '{if $Resource->IsAutoReleased()}{$Resource->GetAutoReleaseMinutes()}{/if}', styles: { halign: 'center'}},
-	],
-	{foreach from=$AvailableResources item=resource}
-		{if is_array($AdditionalResourceIds) && in_array($resource->Id, $AdditionalResourceIds)}
-			[{ content: '{$resource->Name}'},
-			 { content: '{if $resource->GetRequiresApproval()}X{/if}', styles: { fontStyle: 'bold', halign: 'center'}},
-			 { content: '{if $resource->IsCheckInEnabled()}X{/if}', styles: { fontStyle: 'bold', halign: 'center'}},
-			 { content: '{if $resource->IsAutoReleased()}{$resource->GetAutoReleaseMinutes()}{else} - {/if}', styles: { halign: 'center'}},
-			],
-		{/if}
-	{/foreach}
-	],
+    [{ content: '{translate key="Resources"}', styles: { fontStyle: 'bold'}},
+     { content: '{translate key="RequiresApproval"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
+     { content: '{translate key="RequiresCheckInNotification"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
+     { content: '{translate key="ReleasedIn"} ({translate key="minutes"})', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
+    ],
+    [{ content: '{$Resource->Name|escape:'javascript'}'},
+     { content: '{if $Resource->GetRequiresApproval()}X{/if}', styles: { halign: 'center'}},
+     { content: '{if $Resource->IsCheckInEnabled()}X{/if}', styles: { halign: 'center'}},
+     { content: '{if $Resource->IsAutoReleased()}{$Resource->GetAutoReleaseMinutes()}{/if}', styles: { halign: 'center'}},
+    ],
+    {foreach from=$AvailableResources item=resource}
+        {if is_array($AdditionalResourceIds) && in_array($resource->Id, $AdditionalResourceIds)}
+            [{ content: '{$resource->Name}'},
+             { content: '{if $resource->GetRequiresApproval()}X{/if}', styles: { fontStyle: 'bold', halign: 'center'}},
+             { content: '{if $resource->IsCheckInEnabled()}X{/if}', styles: { fontStyle: 'bold', halign: 'center'}},
+             { content: '{if $resource->IsAutoReleased()}{$resource->GetAutoReleaseMinutes()}{else} - {/if}', styles: { halign: 'center'}},
+            ],
+        {/if}
+    {/foreach}
+    ],
 });
 
 {if $ShowReservationDetails && $Accessories|count > 0}
@@ -127,15 +127,15 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 18}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="Accessories"}', styles: { fontStyle: 'bold'}},
-	 { content: '{translate key="Quantity"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
-	],
-	{foreach from=$Accessories item=accessory}
-		[{ content: '{$accessory->Name|escape:'javascript'}'},
-		 { content: '{$accessory->QuantityReserved}', styles: { halign: 'center'}},
-		],
-	{/foreach}
-	]
+    [{ content: '{translate key="Accessories"}', styles: { fontStyle: 'bold'}},
+     { content: '{translate key="Quantity"}', styles: { fontStyle: 'bold', fontSize: 7, halign: 'center'}},
+    ],
+    {foreach from=$Accessories item=accessory}
+        [{ content: '{$accessory->Name|escape:'javascript'}'},
+         { content: '{$accessory->QuantityReserved}', styles: { halign: 'center'}},
+        ],
+    {/foreach}
+    ]
 });
 {/if}
 
@@ -145,15 +145,15 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 80}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="Participants"}', styles: { fontStyle: 'bold'}},
-	 { content: '{translate key="Email"}', styles: { fontStyle: 'bold', fontSize: 7}},
-	],
-	{foreach from=$Participants item=user}
-		[{ content: '{$user->FullName|escape:'javascript'}'},
-		 { content: '{$user->Email}'},
-		],
-	{/foreach}
-	]
+    [{ content: '{translate key="Participants"}', styles: { fontStyle: 'bold'}},
+     { content: '{translate key="Email"}', styles: { fontStyle: 'bold', fontSize: 7}},
+    ],
+    {foreach from=$Participants item=user}
+        [{ content: '{$user->FullName|escape:'javascript'}'},
+         { content: '{$user->Email}'},
+        ],
+    {/foreach}
+    ]
 });
 {/if}
 
@@ -163,15 +163,15 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 80}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="InvitationList"}', styles: { fontStyle: 'bold'}},
-	 { content: '{translate key="Email"}', styles: { fontStyle: 'bold', fontSize: 7}},
-	],
-	{foreach from=$Invitees item=user}
-		[{ content: '{$user->FullName|escape:'javascript'}'},
-		 { content: '{$user->Email}'},
-		],
-	{/foreach}
-	]
+    [{ content: '{translate key="InvitationList"}', styles: { fontStyle: 'bold'}},
+     { content: '{translate key="Email"}', styles: { fontStyle: 'bold', fontSize: 7}},
+    ],
+    {foreach from=$Invitees item=user}
+        [{ content: '{$user->FullName|escape:'javascript'}'},
+         { content: '{$user->Email}'},
+        ],
+    {/foreach}
+    ]
 });
 {/if}
 
@@ -180,63 +180,63 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 80}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="ReservationTitle"}', styles: { fontStyle: 'bold'}},
-	],
-	[{ content: '{$ReservationTitle|escape:'javascript'}'},
-	],
-	[{ content: '{translate key="ReservationDescription"}', styles: { fontStyle: 'bold'}},
-	],
-	[{ content: '{$Description|escape:'javascript'}'},
-	],
-	]
+    [{ content: '{translate key="ReservationTitle"}', styles: { fontStyle: 'bold'}},
+    ],
+    [{ content: '{$ReservationTitle|escape:'javascript'}'},
+    ],
+    [{ content: '{translate key="ReservationDescription"}', styles: { fontStyle: 'bold'}},
+    ],
+    [{ content: '{$Description|escape:'javascript'}'},
+    ],
+    ]
 });
 
 function GetSelectedResourceIds() {
-	var resourceIds = [parseInt($('#primaryResourceId').val())];
-	$('#additionalResources').find('.resourceId').each(function (i, element) {
-		resourceIds.push(parseInt($(element).val()));
-	});
-	return resourceIds;
+    var resourceIds = [parseInt($('#primaryResourceId').val())];
+    $('#additionalResources').find('.resourceId').each(function (i, element) {
+        resourceIds.push(parseInt($(element).val()));
+    });
+    return resourceIds;
 }
-	
-function LoadCustomAttributesData() {
-	var url = 'ajax/reservation_attributes_print.php?uid=' + $('#userId').val() + '&rn=' + $('#referenceNumber').val() + '&ro=' + $('#reservation-box').hasClass('readonly');
 
-	var resourceIds = GetSelectedResourceIds();
-	_.each(resourceIds, function (n) {
-		url += '&rid[]=' + n;
-	});
-	var json = null;
-	$.ajax({
-		async: false,
+function LoadCustomAttributesData() {
+    var url = 'ajax/reservation_attributes_print.php?uid=' + $('#userId').val() + '&rn=' + $('#referenceNumber').val() + '&ro=' + $('#reservation-box').hasClass('readonly');
+
+    var resourceIds = GetSelectedResourceIds();
+    _.each(resourceIds, function (n) {
+        url += '&rid[]=' + n;
+    });
+    var json = null;
+    $.ajax({
+        async: false,
         global: false,
         url: url,
         dataType: 'json',
-		success: function (data) {
+        success: function (data) {
             json = data;
         }
     });
-	return json;
+    return json;
 }
-var allAttributes = LoadCustomAttributesData();	
+var allAttributes = LoadCustomAttributesData();
 var bodyAttributes = [[{ content: '{translate key="AdditionalAttributes"}', styles: { fontStyle: 'bold'}}, { content: ''}]];
 
 if (Object.keys(allAttributes).length != 0) {
-	for (var obj in allAttributes) {
-		if (allAttributes[obj][0] == "4") {
-			if (allAttributes[obj][2] == "1") {
-				bodyAttributes.push([{ content: allAttributes[obj][1], styles: { fontStyle: 'bold'}}, { content: 'X', styles: { fontStyle: 'bold', halign: 'center'}}]);
-			};
-		} else {
-			bodyAttributes.push([{ colSpan: 2, content: allAttributes[obj][1], styles: { fontStyle: 'bold'}}]);
-			bodyAttributes.push([{ colSpan: 2, content: allAttributes[obj][2]}]);
-		};
-	};
-	pdfDocument.autoTable({
-		styles: { lineWidth: 0.02},
-		columnStyles: { 1: { cellWidth: 10}},
-		theme: 'plain',
-		body: bodyAttributes,
+    for (var obj in allAttributes) {
+        if (allAttributes[obj][0] == "4") {
+            if (allAttributes[obj][2] == "1") {
+                bodyAttributes.push([{ content: allAttributes[obj][1], styles: { fontStyle: 'bold'}}, { content: 'X', styles: { fontStyle: 'bold', halign: 'center'}}]);
+            };
+        } else {
+            bodyAttributes.push([{ colSpan: 2, content: allAttributes[obj][1], styles: { fontStyle: 'bold'}}]);
+            bodyAttributes.push([{ colSpan: 2, content: allAttributes[obj][2]}]);
+        };
+    };
+    pdfDocument.autoTable({
+        styles: { lineWidth: 0.02},
+        columnStyles: { 1: { cellWidth: 10}},
+        theme: 'plain',
+        body: bodyAttributes,
 });
 };
 
@@ -245,15 +245,15 @@ pdfDocument.autoTable({
   styles: { lineWidth: 0.02},
   theme: 'plain',
     body: [
-	[{ content: '{translate key="SendReminder"}', styles: { fontStyle: 'bold'}},
-	{if $ReminderTimeStart neq ''}
-	{ content: '{$ReminderTimeStart} {translate key=$ReminderIntervalStart} {translate key=ReminderBeforeStart}'},
-	{/if}
-	{if $ReminderTimeEnd neq ''}
-	{ content: '{$ReminderTimeEnd} {translate key=$ReminderIntervalEnd} {translate key=ReminderBeforeEnd}'},
-	{/if}
-	],
-	]
+    [{ content: '{translate key="SendReminder"}', styles: { fontStyle: 'bold'}},
+    {if $ReminderTimeStart neq ''}
+    { content: '{$ReminderTimeStart} {translate key=$ReminderIntervalStart} {translate key=ReminderBeforeStart}'},
+    {/if}
+    {if $ReminderTimeEnd neq ''}
+    { content: '{$ReminderTimeEnd} {translate key=$ReminderIntervalEnd} {translate key=ReminderBeforeEnd}'},
+    {/if}
+    ],
+    ]
 });
 {/if}
 
@@ -262,13 +262,13 @@ pdfDocument.autoTable({
   styles: { lineWidth: 0.02},
   theme: 'plain',
     body: [
-	[{ content: '{translate key=Attachments} ({$Attachments|count})', styles: { fontStyle: 'bold'}},
-	],
-	{foreach from=$Attachments item=attachment}
-	[{ content: '{$attachment->FileName()|escape:'javascript'}'},
-	],
-	{/foreach}
-	]
+    [{ content: '{translate key=Attachments} ({$Attachments|count})', styles: { fontStyle: 'bold'}},
+    ],
+    {foreach from=$Attachments item=attachment}
+    [{ content: '{$attachment->FileName()|escape:'javascript'}'},
+    ],
+    {/foreach}
+    ]
 });
 {/if}
 
@@ -278,16 +278,16 @@ pdfDocument.autoTable({
   columnStyles: { 1: { cellWidth: 10}},
   theme: 'plain',
     body: [
-	[{ content: '{translate key=IAccept} {translate key=TheTermsOfService}', styles: { fontStyle: 'bold'}},
-	 { content: 'X', styles: { fontStyle: 'bold', halign: 'center'}},
-	],
-	]
+    [{ content: '{translate key=IAccept} {translate key=TheTermsOfService}', styles: { fontStyle: 'bold'}},
+     { content: 'X', styles: { fontStyle: 'bold', halign: 'center'}},
+    ],
+    ]
 });
 {/if}
 
 $('.btnPDF').click(function (e) {
-	e.preventDefault();
-	
-	/*pdfDocument.save('{translate key='reservation'}_{$ReferenceNumber}.pdf'); */
-	window.open(URL.createObjectURL(pdfDocument.output("blob")))
+    e.preventDefault();
+
+    /*pdfDocument.save('{translate key='reservation'}_{$ReferenceNumber}.pdf'); */
+    window.open(URL.createObjectURL(pdfDocument.output("blob")))
 });

@@ -24,7 +24,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 </div>
 
 <div id="wait-box" class="wait-box">
-	{indicator id="waitIndicator"}
+    {indicator id="waitIndicator"}
 </div>
 
 {include file="javascript-includes.tpl"}
@@ -33,16 +33,16 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {jsfile src="autocomplete.js"}
 
 <script type="text/javascript">
-	$(function () {
-		var resourceDisplay = new ResourceDisplay();
-		resourceDisplay.initDisplay(
+    $(function () {
+        var resourceDisplay = new ResourceDisplay();
+        resourceDisplay.initDisplay(
                 {
                     url: '{$smarty.server.SCRIPT_NAME}?dr=resource&rid={$PublicResourceId}&dr=display',
                     userAutocompleteUrl: "ajax/autocomplete.php?type={AutoCompleteType::User}&as=1",
                     allowAutocomplete: {if $AllowAutocomplete}true{else}false{/if}
                 }
         );
-	});
+    });
 </script>
 
 {include file='globalfooter.tpl'}

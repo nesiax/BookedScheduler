@@ -39,21 +39,21 @@ class Url
         $this->hasQuestionMark = BookedStringHelper::Contains($url, '?');
     }
 
-	/**
-	 * @param $urlFragment string
-	 * @return Url
-	 */
-	public function Add($urlFragment)
-	{
-		if (!BookedStringHelper::EndsWith($this->url, '/'))
-		{
-			$this->url .= '/';
-		}
+    /**
+     * @param $urlFragment string
+     * @return Url
+     */
+    public function Add($urlFragment)
+    {
+        if (!BookedStringHelper::EndsWith($this->url, '/'))
+        {
+            $this->url .= '/';
+        }
 
-		$this->url .= urlencode($urlFragment);
+        $this->url .= urlencode($urlFragment);
 
-		return $this;
-	}
+        return $this;
+    }
 
     /**
      * @param string $name

@@ -219,8 +219,8 @@ class ReservationRepository implements IReservationRepository
         $database = ServiceLocator::GetDatabase();
 
 //        $creditAdjustment = 0 - $existingReservationSeries->GetCreditsConsumed();
-//		$creditAdjustment = $existingReservationSeries->GetCreditsRequired() - $existingReservationSeries->GetOriginalCreditsConsumed();
-		$creditAdjustment = 0 - $existingReservationSeries->GetUnusedCreditBalance();
+//        $creditAdjustment = $existingReservationSeries->GetCreditsRequired() - $existingReservationSeries->GetOriginalCreditsConsumed();
+        $creditAdjustment = 0 - $existingReservationSeries->GetUnusedCreditBalance();
         if ($creditAdjustment != 0) {
             Log::Debug('CREDITS - Reservation delete adjusting credits for user %s by %s', $existingReservationSeries->UserId(), $creditAdjustment);
 
@@ -301,9 +301,9 @@ class ReservationRepository implements IReservationRepository
             $instance = new Reservation($series, $duration, $row[ColumnNames::RESERVATION_INSTANCE_ID], $row[ColumnNames::REFERENCE_NUMBER]);
             $instance->WithCheckin(Date::FromDatabase($row[ColumnNames::CHECKIN_DATE]), Date::FromDatabase($row[ColumnNames::CHECKOUT_DATE]));
             $instance->WithCreditsConsumed($row[ColumnNames::CREDIT_COUNT]);
-			$instance->SetCreditsRequired($row[ColumnNames::CREDIT_COUNT]);
+            $instance->SetCreditsRequired($row[ColumnNames::CREDIT_COUNT]);
 
-			$series->WithCurrentInstance($instance);
+            $series->WithCurrentInstance($instance);
         }
         $reader->Free();
 

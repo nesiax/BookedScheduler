@@ -16,23 +16,23 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class LoginTime
 {
-	/**
-	 * @var null
-	 * Only for testing
-	 */
-	public static $Now = null;
+    /**
+     * @var null
+     * Only for testing
+     */
+    public static $Now = null;
 
-	private static $_format = 'Y-m-d H:i:s';
+    private static $_format = 'Y-m-d H:i:s';
 
-	public static function Now()
-	{
-		if (empty(self::$Now))
-		{
-			return Date::Now()->ToDatabase();
-		}
-		else
-		{
-			return date(self::$_format, self::$Now);
-		}
-	}
+    public static function Now()
+    {
+        if (empty(self::$Now))
+        {
+            return Date::Now()->ToDatabase();
+        }
+        else
+        {
+            return date(self::$_format, self::$Now);
+        }
+    }
 }

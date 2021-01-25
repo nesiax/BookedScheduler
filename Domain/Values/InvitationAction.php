@@ -20,10 +20,10 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class InvitationAction
 {
-	const Accept = 'accept';
-	const CancelAll = 'cancelAll';
-	const CancelInstance = 'cancelInstance';
-	const Decline = 'decline';
-	const Join = 'join';
-	const JoinAll = 'joinAll';
+    const Accept = 'accept';
+    const CancelAll = 'cancelAll';
+    const CancelInstance = 'cancelInstance';
+    const Decline = 'decline';
+    const Join = 'join';
+    const JoinAll = 'joinAll';
 }

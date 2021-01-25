@@ -59,7 +59,7 @@ class ScheduleUserRepository implements IScheduleUserRepository
             }
         }
 
-		$reader->Free();
+        $reader->Free();
 
         return $resources;
     }
@@ -84,7 +84,7 @@ class ScheduleUserRepository implements IScheduleUserRepository
             $groupList[$group_id][] = array($resourceId, $resourceName, $permissionType);
         }
 
-		$reader->Free();
+        $reader->Free();
 
         $groups = array();
         foreach ($groupList as $group_id => $resourceList) {
@@ -116,7 +116,7 @@ class ScheduleUserRepository implements IScheduleUserRepository
             $resources[] = new ScheduleResource($row[ColumnNames::RESOURCE_ID], $row[ColumnNames::RESOURCE_NAME]);
         }
 
-		$reader->Free();
+        $reader->Free();
 
         return $resources;
     }

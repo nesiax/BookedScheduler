@@ -745,7 +745,7 @@ class es extends en_gb
         $strings['ReservationDetails'] = 'Detalles de la Reserva';
         $strings['StartTime'] = 'Hora de Comienzo';
         $strings['EndTime'] = 'Hora de Fin';
-		$strings['ReservationSeriesEndingPreference'] = 'Cuando mi reserva recurrente está por terminar';
+        $strings['ReservationSeriesEndingPreference'] = 'Cuando mi reserva recurrente está por terminar';
         // End Strings
 
         // Install

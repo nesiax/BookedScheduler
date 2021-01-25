@@ -22,22 +22,22 @@ require_once(ROOT_DIR . 'lib/Application/Authorization/namespace.php');
 
 class FakePermissionService implements IPermissionService
 {
-	/**
-	 * @var array|IResource[]
-	 */
-	public $Resources;
+    /**
+     * @var array|IResource[]
+     */
+    public $Resources;
 
-	/**
-	 * @var UserSession
-	 */
-	public $User;
+    /**
+     * @var UserSession
+     */
+    public $User;
 
-	/**
-	 * @var array|bool[]
-	 */
-	public $ReturnValues = array();
+    /**
+     * @var array|bool[]
+     */
+    public $ReturnValues = array();
 
-	private $_invocationCount = 0;
+    private $_invocationCount = 0;
     public $_CanBookResource = false;
     /**
      * @var bool|bool[]
@@ -45,20 +45,20 @@ class FakePermissionService implements IPermissionService
     public $_CanViewResource = false;
 
     /**
-	 * @param $returnValues array|bool[]
-	 */
-	public function __construct($returnValues = array())
-	{
-		$this->ReturnValues = $returnValues;
-	}
+     * @param $returnValues array|bool[]
+     */
+    public function __construct($returnValues = array())
+    {
+        $this->ReturnValues = $returnValues;
+    }
 
-	public function CanAccessResource(IPermissibleResource $resource, UserSession $user)
-	{
-		$this->Resources[] = $resource;
-		$this->User = $user;
+    public function CanAccessResource(IPermissibleResource $resource, UserSession $user)
+    {
+        $this->Resources[] = $resource;
+        $this->User = $user;
 
-		return $this->ReturnValues[$this->_invocationCount++];
-	}
+        return $this->ReturnValues[$this->_invocationCount++];
+    }
 
     public function CanBookResource(IPermissibleResource $resource, UserSession $user)
     {
@@ -78,16 +78,16 @@ class FakePermissionService implements IPermissionService
 class FakePermissionServiceFactory implements IPermissionServiceFactory
 {
 
-	/**
-	 * @var IPermissionService
-	 */
-	public $service;
+    /**
+     * @var IPermissionService
+     */
+    public $service;
 
-	/**
-	 * @return IPermissionService
-	 */
-	function GetPermissionService()
-	{
-		return ($this->service == null) ? new FakePermissionService() : $this->service;
-	}
+    /**
+     * @return IPermissionService
+     */
+    function GetPermissionService()
+    {
+        return ($this->service == null) ? new FakePermissionService() : $this->service;
+    }
 }

@@ -16,5 +16,5 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 interface IReservationInitializer
 {
-	public function Initialize();
+    public function Initialize();
 }

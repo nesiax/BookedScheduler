@@ -59,7 +59,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                 <span class="fa fa-print"></span>
                 {translate key='Print'}</a>
         </li>
-		<li>
+        <li>
             <a href="#" class="btnPDF">
                 <span class="fa fa-file-pdf-o"></span>
                 PDF</a>

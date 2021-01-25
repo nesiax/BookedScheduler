@@ -17,8 +17,8 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 {if $resource->GetResourceGroupIds()|count == 0}
-	{translate key=None}
+    {translate key=None}
 {/if}
 {foreach from=$resource->GetResourceGroupIds() item=resourceGroupId name=eachGroup}
-	<span class="resourceGroupId" data-value="{$resourceGroupId}">{$ResourceGroupList[$resourceGroupId]->name}</span>{if !$smarty.foreach.eachGroup.last}, {/if}
+    <span class="resourceGroupId" data-value="{$resourceGroupId}">{$ResourceGroupList[$resourceGroupId]->name}</span>{if !$smarty.foreach.eachGroup.last}, {/if}
 {/foreach}

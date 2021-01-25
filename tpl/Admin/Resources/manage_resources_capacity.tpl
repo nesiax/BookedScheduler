@@ -17,10 +17,10 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 <div class="maxParticipants"
-	 data-value="{$resource->GetMaxParticipants()}">
-	{if $resource->HasMaxParticipants()}
-		{translate key='ResourceCapacity' args=$resource->GetMaxParticipants()}
-	{else}
-		{translate key='ResourceCapacityNone'}
-	{/if}
+     data-value="{$resource->GetMaxParticipants()}">
+    {if $resource->HasMaxParticipants()}
+        {translate key='ResourceCapacity' args=$resource->GetMaxParticipants()}
+    {else}
+        {translate key='ResourceCapacityNone'}
+    {/if}
 </div>

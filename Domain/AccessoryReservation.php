@@ -101,11 +101,11 @@ class AccessoryReservation
         return $this->quantityReserved;
     }
 
-	/**
-	 * @return DateRange
-	 */
-	public function GetDuration()
-	{
-    	return new DateRange($this->GetStartDate(), $this->GetEndDate());
-	}
+    /**
+     * @return DateRange
+     */
+    public function GetDuration()
+    {
+        return new DateRange($this->GetStartDate(), $this->GetEndDate());
+    }
 }

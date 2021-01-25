@@ -16,9 +16,9 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class CookieKeys
 {
-	private function __construct()
-	{}
+    private function __construct()
+    {}
 
-	const LANGUAGE = 'language';
-	const PERSIST_LOGIN = 'persist_login';
+    const LANGUAGE = 'language';
+    const PERSIST_LOGIN = 'persist_login';
 }

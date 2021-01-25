@@ -17,11 +17,11 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
 class AuthorizationServiceFactory
 {
-	/**
-	 * @return IAuthorizationService
-	 */
-	public static function GetAuthorizationService()
-	{
-		return PluginManager::Instance()->LoadAuthorization();
-	}
+    /**
+     * @return IAuthorizationService
+     */
+    public static function GetAuthorizationService()
+    {
+        return PluginManager::Instance()->LoadAuthorization();
+    }
 }

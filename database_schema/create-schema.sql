@@ -40,9 +40,9 @@ CREATE TABLE `time_blocks` (
  `end_time` time NOT NULL,
  PRIMARY KEY (`block_id`),
  INDEX (`layout_id`),
- FOREIGN KEY (`layout_id`) 
-	REFERENCES `layouts`(`layout_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (`layout_id`)
+    REFERENCES `layouts`(`layout_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -61,8 +61,8 @@ CREATE TABLE `schedules` (
  PRIMARY KEY (`schedule_id`),
  INDEX (`layout_id`),
  FOREIGN KEY (`layout_id`)
-	REFERENCES `layouts`(`layout_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `layouts`(`layout_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 
@@ -78,7 +78,7 @@ CREATE TABLE `groups` (
  `legacyid` char(16),
  PRIMARY KEY (`group_id`),
  FOREIGN KEY (`admin_group_id`)
-	REFERENCES `groups`(`group_id`)
+    REFERENCES `groups`(`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 
@@ -106,11 +106,11 @@ CREATE TABLE `group_roles` (
  INDEX (`group_id`),
  INDEX (`role_id`),
  FOREIGN KEY (`group_id`)
-	REFERENCES `groups`(`group_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
+    REFERENCES `groups`(`group_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (`role_id`)
-	REFERENCES `roles`(`role_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `roles`(`role_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -151,9 +151,9 @@ CREATE TABLE `users` (
  `legacypassword` varchar(32),
  PRIMARY KEY (`user_id`),
  INDEX (`status_id`),
- FOREIGN KEY (`status_id`) 
-	REFERENCES `user_statuses`(`status_id`)
-	ON UPDATE CASCADE ON DELETE RESTRICT
+ FOREIGN KEY (`status_id`)
+    REFERENCES `user_statuses`(`status_id`)
+    ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -167,12 +167,12 @@ CREATE TABLE `user_groups` (
  PRIMARY KEY (`group_id`, `user_id`),
  INDEX (`user_id`),
  INDEX (`group_id`),
- FOREIGN KEY (`user_id`) 
-	REFERENCES users(`user_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
- FOREIGN KEY (`group_id`) 
-	REFERENCES `groups`(`group_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (`user_id`)
+    REFERENCES users(`user_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+ FOREIGN KEY (`group_id`)
+    REFERENCES `groups`(`group_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 
@@ -205,8 +205,8 @@ CREATE TABLE `resources` (
  PRIMARY KEY (`resource_id`),
  INDEX (`schedule_id`),
  FOREIGN KEY (`schedule_id`)
-	REFERENCES `schedules`(`schedule_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `schedules`(`schedule_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -221,12 +221,12 @@ CREATE TABLE `user_resource_permissions` (
  PRIMARY KEY (`user_id`, `resource_id`),
  INDEX (`user_id`),
  INDEX (`resource_id`),
- FOREIGN KEY (`user_id`) 
-	REFERENCES users(`user_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
- FOREIGN KEY (`resource_id`) 
-	REFERENCES `resources`(`resource_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (`user_id`)
+    REFERENCES users(`user_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+ FOREIGN KEY (`resource_id`)
+    REFERENCES `resources`(`resource_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -240,12 +240,12 @@ CREATE TABLE `group_resource_permissions` (
  PRIMARY KEY (`group_id`, `resource_id`),
  INDEX (`group_id`),
  INDEX (`resource_id`),
- FOREIGN KEY (`group_id`) 
-	REFERENCES `groups`(`group_id`) 
-	ON UPDATE CASCADE ON DELETE CASCADE,
- FOREIGN KEY (`resource_id`) 
-	REFERENCES `resources`(`resource_id`) 
-	ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (`group_id`)
+    REFERENCES `groups`(`group_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+ FOREIGN KEY (`resource_id`)
+    REFERENCES `resources`(`resource_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -345,12 +345,12 @@ CREATE TABLE `reservation_resources` (
  PRIMARY KEY (`series_id`, `resource_id`),
  INDEX (`resource_id`),
  INDEX (`series_id`),
- FOREIGN KEY (`resource_id`) 
-	REFERENCES resources(`resource_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
- FOREIGN KEY (`series_id`) 
-	REFERENCES `reservation_series`(`series_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (`resource_id`)
+    REFERENCES resources(`resource_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+ FOREIGN KEY (`series_id`)
+    REFERENCES `reservation_series`(`series_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -384,8 +384,8 @@ CREATE TABLE  `blackout_instances` (
   INDEX `end_date` (`end_date`),
   INDEX `blackout_series_id` (`blackout_series_id`),
   FOREIGN KEY (`blackout_series_id`)
-  	REFERENCES `blackout_series` (`blackout_series_id`)
-  	ON DELETE CASCADE
+      REFERENCES `blackout_series` (`blackout_series_id`)
+      ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
@@ -399,8 +399,8 @@ CREATE TABLE `user_email_preferences` (
   `event_type` varchar(45) NOT NULL,
  PRIMARY KEY (`user_id`, `event_category`, `event_type`),
  FOREIGN KEY (`user_id`)
-	REFERENCES `users`(`user_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `users`(`user_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -419,14 +419,14 @@ CREATE TABLE `quotas` (
  `schedule_id` smallint(5) unsigned,
  PRIMARY KEY (`quota_id`),
  FOREIGN KEY (`resource_id`)
-	REFERENCES `resources`(`resource_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
+    REFERENCES `resources`(`resource_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (`group_id`)
-	REFERENCES `groups`(`group_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
+    REFERENCES `groups`(`group_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (`schedule_id`)
-	REFERENCES `schedules`(`schedule_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `schedules`(`schedule_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 --
@@ -455,11 +455,11 @@ CREATE TABLE `reservation_accessories` (
  INDEX (`accessory_id`),
  INDEX (`series_id`),
  FOREIGN KEY (`accessory_id`)
-	REFERENCES accessories(`accessory_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE,
+    REFERENCES accessories(`accessory_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (`series_id`)
-	REFERENCES `reservation_series`(`series_id`)
-	ON UPDATE CASCADE ON DELETE CASCADE
+    REFERENCES `reservation_series`(`series_id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 SET foreign_key_checks = 1;

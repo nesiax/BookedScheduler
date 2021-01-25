@@ -18,77 +18,77 @@ require_once(ROOT_DIR . 'Domain/Access/namespace.php');
 
 interface IReservationConflictResolution
 {
-	/**
-	 * @param ReservationItemView $existingReservation
-	 * @param Blackout $blackout
-	 * @return bool
-	 */
-	public function Handle(ReservationItemView $existingReservation, Blackout $blackout);
+    /**
+     * @param ReservationItemView $existingReservation
+     * @param Blackout $blackout
+     * @return bool
+     */
+    public function Handle(ReservationItemView $existingReservation, Blackout $blackout);
 }
 
 abstract class ReservationConflictResolution implements IReservationConflictResolution
 {
-	const BookAround = 'bookAround';
-	const Delete = 'delete';
-	const Notify = 'notify';
+    const BookAround = 'bookAround';
+    const Delete = 'delete';
+    const Notify = 'notify';
 
-	protected function __construct()
-	{
-	}
+    protected function __construct()
+    {
+    }
 
-	/**
-	 * @param string|ReservationConflictResolution $resolutionType
-	 * @return ReservationConflictResolution
-	 */
-	public static function Create($resolutionType)
-	{
-		if ($resolutionType == self::Delete)
-		{
-			return new ReservationConflictDelete(new ReservationRepository(), new DeleteReservationNotificationService(new UserRepository(), new AttributeRepository()));
-		}
-		if ($resolutionType == self::BookAround)
-		{
-			return new ReservationConflictBookAround();
-		}
-		return new ReservationConflictNotify();
-	}
+    /**
+     * @param string|ReservationConflictResolution $resolutionType
+     * @return ReservationConflictResolution
+     */
+    public static function Create($resolutionType)
+    {
+        if ($resolutionType == self::Delete)
+        {
+            return new ReservationConflictDelete(new ReservationRepository(), new DeleteReservationNotificationService(new UserRepository(), new AttributeRepository()));
+        }
+        if ($resolutionType == self::BookAround)
+        {
+            return new ReservationConflictBookAround();
+        }
+        return new ReservationConflictNotify();
+    }
 }
 
 class ReservationConflictNotify extends ReservationConflictResolution
 {
-	public function Handle(ReservationItemView $existingReservation, Blackout $blackout)
-	{
-		return false;
-	}
+    public function Handle(ReservationItemView $existingReservation, Blackout $blackout)
+    {
+        return false;
+    }
 }
 
 class ReservationConflictDelete extends ReservationConflictResolution
 {
-	/**
-	 * @var IReservationRepository
-	 */
-	private $repository;
+    /**
+     * @var IReservationRepository
+     */
+    private $repository;
     /**
      * @var IReservationNotificationService
      */
     private $notificationService;
 
     public function __construct(IReservationRepository $repository, IReservationNotificationService $notificationService)
-	{
-		$this->repository = $repository;
+    {
+        $this->repository = $repository;
         $this->notificationService = $notificationService;
     }
 
-	public function Handle(ReservationItemView $existingReservation, Blackout $blackout)
-	{
-		$reservation = $this->repository->LoadById($existingReservation->GetId());
-		$reservation->ApplyChangesTo(SeriesUpdateScope::ThisInstance);
-		$reservation->Delete(ServiceLocator::GetServer()->GetUserSession(), 'Deleting conflicting reservation');
-		$this->repository->Delete($reservation);
+    public function Handle(ReservationItemView $existingReservation, Blackout $blackout)
+    {
+        $reservation = $this->repository->LoadById($existingReservation->GetId());
+        $reservation->ApplyChangesTo(SeriesUpdateScope::ThisInstance);
+        $reservation->Delete(ServiceLocator::GetServer()->GetUserSession(), 'Deleting conflicting reservation');
+        $this->repository->Delete($reservation);
         $this->notificationService->Notify($reservation);
 
-		return true;
-	}
+        return true;
+    }
 }
 
 class ReservationConflictBookAround extends ReservationConflictResolution

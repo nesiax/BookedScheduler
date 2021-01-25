@@ -44,8 +44,8 @@ class ReservationInitializerFactory implements IReservationInitializerFactory
 
     public function __construct(
         IScheduleRepository $scheduleRepository,
-		IUserRepository $userRepository,
-		IResourceService $resourceService,
+        IUserRepository $userRepository,
+        IResourceService $resourceService,
         IReservationAuthorization $reservationAuthorization
     )
     {

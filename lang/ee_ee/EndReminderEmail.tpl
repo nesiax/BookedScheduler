@@ -18,13 +18,13 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 *}
 Sinu broneering lõpeb varsti.<br/>
 Broneeringu detailid:
-	<br/>
-	<br/>
-	Algus: {formatdate date=$StartDate key=reservation_email}<br/>
-	Lõpp: {formatdate date=$EndDate key=reservation_email}<br/>
-	Väljak: {$ResourceName}<br/>
-	Pealkiri: {$Title}<br/>
-	Kirjeldus: {$Description|nl2br}
+    <br/>
+    <br/>
+    Algus: {formatdate date=$StartDate key=reservation_email}<br/>
+    Lõpp: {formatdate date=$EndDate key=reservation_email}<br/>
+    Väljak: {$ResourceName}<br/>
+    Pealkiri: {$Title}<br/>
+    Kirjeldus: {$Description|nl2br}
 <br/>
 <a href="{$ScriptUrl}/{$ReservationUrl}">Vaata seda broneeringut</a> |
 <a href="{$ScriptUrl}/{$ICalUrl}">Lisa kalendrisse</a> |
