@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -33,8 +34,14 @@ class DatabaseFactory
             $hostSpec = Configuration::Instance()->GetSectionKey(ConfigSection::DATABASE, ConfigKeys::DATABASE_HOSTSPEC);
             $dbName = Configuration::Instance()->GetSectionKey(ConfigSection::DATABASE, ConfigKeys::DATABASE_NAME);
 
-            require_once(ROOT_DIR . 'lib/Database/MySQL/namespace.php');
-            self::$_instance = new Database(new MySqlConnection($dbUser, $dbPassword, $hostSpec, $dbName));
+            if ($databaseType == 'mysql') {
+                require_once(ROOT_DIR . 'lib/Database/MySQL/namespace.php');
+                self::$_instance = new Database(new MySqlConnection($dbUser, $dbPassword, $hostSpec, $dbName));
+            }
+            if ($databaseType == 'pgsql') {
+                require_once(ROOT_DIR . 'lib/Database/PGSQL/namespace.php');
+                self::$_instance = new Database(new PGSqlConnection($dbUser, $dbPassword, $hostSpec, $dbName));
+            }
         }
 
         return self::$_instance;

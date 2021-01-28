@@ -26,15 +26,15 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
  * Application configuration
  */
 $conf['settings']['app.title'] = 'Booked Scheduler';            // application title
-$conf['settings']['default.timezone'] = 'America/New_York';      // look up here http://php.net/manual/en/timezones.php
+$conf['settings']['default.timezone'] = 'America/Bogota';      // look up here http://php.net/manual/en/timezones.php
 $conf['settings']['allow.self.registration'] = 'true';             // if users can register themselves
 $conf['settings']['admin.email'] = 'admin@example.com';         // email address of admin user
 $conf['settings']['admin.email.name'] = 'Booked Administrator';    // name to be used in From: field when sending automatic emails
 $conf['settings']['default.page.size'] = '50';                  // number of records per page
 $conf['settings']['enable.email'] = 'true';                     // global configuration to enable if any emails will be sent
 $conf['settings']['default.language'] = 'en_us';                // find your language in the lang directory
-$conf['settings']['script.url'] = 'http://localhost/Web';       // public URL to the Web directory of this instance. this is the URL that appears when you are logging in. leave http: or https: off to auto-detect
-$conf['settings']['image.upload.directory'] = 'Web/uploads/images'; // full or relative path to where images will be stored
+$conf['settings']['script.url'] = 'http://localhost/PGBookedScheduler/Web';       // public URL to the Web directory of this instance. this is the URL that appears when you are logging in. leave http: or https: off to auto-detect
+$conf['settings']['image.upload.directory'] = '/PGBookedScheduler/Web/uploads/images'; // full or relative path to where images will be stored
 $conf['settings']['image.upload.url'] = 'uploads/images';       // full or relative path to show uploaded images from
 $conf['settings']['cache.templates'] = 'true';                  // true recommended, caching template files helps web pages render faster
 $conf['settings']['use.local.js.libs'] = 'false';                // false recommended, delivers jQuery from Google CDN, uses less bandwidth
@@ -46,8 +46,8 @@ $conf['settings']['inactivity.timeout'] = '30';                 // minutes befor
 $conf['settings']['name.format'] = '{first} {last}';             // display format when showing user names
 $conf['settings']['css.extension.file'] = '';                       // full or relative url to an additional css file to include. this can be used to override the default style
 $conf['settings']['disable.password.reset'] = 'false';               // if the password reset functionality should be disabled
-$conf['settings']['home.url'] = '';                               // the url to open when the logo is clicked
-$conf['settings']['logout.url'] = '';                               // the url to be directed to after logging out
+$conf['settings']['home.url'] = 'http://localhost/PGBookedScheduler/Web';                               // the url to open when the logo is clicked
+$conf['settings']['logout.url'] = 'http://localhost/PGBookedScheduler/Web';                               // the url to be directed to after logging out
 $conf['settings']['default.homepage'] = '1';                       // the default homepage to use when new users register (1 = Dashboard, 2 = Schedule, 3 = My Calendar, 4 = Resource Calendar)
 
 $conf['settings']['schedule']['use.per.user.colors'] = 'false';         // color reservations by user
@@ -109,11 +109,11 @@ $conf['settings']['uploads']['reservation.attachment.extensions'] = 'txt,jpg,gif
 /**
  * Database configuration
  */
-$conf['settings']['database']['type'] = 'mysql';
-$conf['settings']['database']['user'] = 'booked_user';        // database user with permission to the booked database
+$conf['settings']['database']['type'] = 'pgsql';
+$conf['settings']['database']['user'] = 'pgbs_user';        // database user with permission to the booked database
 $conf['settings']['database']['password'] = 'password';
 $conf['settings']['database']['hostspec'] = '127.0.0.1';        // ip, dns or named pipe
-$conf['settings']['database']['name'] = 'bookedscheduler';
+$conf['settings']['database']['name'] = 'pgbs_db';
 /**
  * Mail server configuration
  */

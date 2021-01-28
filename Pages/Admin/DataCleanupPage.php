@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2018-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -41,7 +42,7 @@ class DataCleanupPage extends AdminPage
 
         $reservationsReader = ServiceLocator::GetDatabase()->Query(new AdHocCommand('select count(1) as count from reservation_instances ri inner join reservation_series rs on ri.series_id = rs.series_id where rs.status_id <> 2'));
         $deletedReservationReader = ServiceLocator::GetDatabase()->Query(new AdHocCommand('select count(1) as count from reservation_instances ri inner join reservation_series rs on ri.series_id = rs.series_id where rs.status_id = 2'));
-        $blackoutsReader = ServiceLocator::GetDatabase()->Query(new AdHocCommand('select count(1) as count from blackout_instances bi inner join blackout_series bs on bi.blackout_series_id = bs.blackout_series_id'));
+        $blackoutsReader = ServiceLocator::GetDatabase()->Query(new AdHocCommand('select count(1) as count from blackout_instances bi inner join blackout_series bs on bi.series_id = bs.series_id'));
         $usersReader = ServiceLocator::GetDatabase()->Query(new AdHocCommand('select count(1) as count from users'));
 
         $reservationCount = 0;
@@ -125,7 +126,7 @@ class DataCleanupPage extends AdminPage
             $reservationsReader->Free();
         }
         if ($dr == 'getBlackoutCount') {
-            $command = new AdHocCommand('select count(1) as count from blackout_instances bi inner join blackout_series bs on bi.blackout_series_id = bs.blackout_series_id where bi.start_date < @startDate');
+            $command = new AdHocCommand('select count(1) as count from blackout_instances bi inner join blackout_series bs on bi.series_id = bs.series_id where bi.start_date < @startDate');
             $command->AddParameter(new Parameter(ParameterNames::START_DATE, $date));
 
             $reservationsReader = ServiceLocator::GetDatabase()->Query($command);

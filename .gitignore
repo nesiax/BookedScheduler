@@ -26,3 +26,6 @@
 /plugins/Authentication/Saml/Saml.config.php
 # emacs backup files
 *~
+/custom/
+/uploads/reservation
+/logs/*

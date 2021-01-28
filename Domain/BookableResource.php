@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -663,9 +664,9 @@ class BookableResource implements IBookableResource
                                          $row[ColumnNames::RESOURCE_NOTES],
                                          $row[ColumnNames::RESOURCE_MINDURATION],
                                          $row[ColumnNames::RESOURCE_MAXDURATION],
-                                         $row[ColumnNames::RESOURCE_AUTOASSIGN],
-                                         $row[ColumnNames::RESOURCE_REQUIRES_APPROVAL],
-                                         $row[ColumnNames::RESOURCE_ALLOW_MULTIDAY],
+                                         ($row[ColumnNames::RESOURCE_AUTOASSIGN]=='t')?1:0,
+                                         ($row[ColumnNames::RESOURCE_REQUIRES_APPROVAL]=='t')?1:0,
+                                         ($row[ColumnNames::RESOURCE_ALLOW_MULTIDAY]=='t')?1:0,
                                          $row[ColumnNames::RESOURCE_MAX_PARTICIPANTS],
                                          $row[ColumnNames::RESOURCE_MINNOTICE_ADD],
                                          $row[ColumnNames::RESOURCE_MAXNOTICE],
@@ -678,7 +679,7 @@ class BookableResource implements IBookableResource
         $resource->ChangeStatus($row[ColumnNames::RESOURCE_STATUS_ID], $row[ColumnNames::RESOURCE_STATUS_REASON_ID]);
 
         $resource->WithPublicId($row[ColumnNames::PUBLIC_ID]);
-        $resource->WithSubscription($row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION]);
+        $resource->WithSubscription(($row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION]=='t')?1:0);
         $resource->WithScheduleAdminGroupId($row[ColumnNames::SCHEDULE_ADMIN_GROUP_ID_ALIAS]);
         $resource->SetResourceTypeId($row[ColumnNames::RESOURCE_TYPE_ID]);
         $resource->SetBufferTime($row[ColumnNames::RESOURCE_BUFFER_TIME]);
@@ -702,7 +703,7 @@ class BookableResource implements IBookableResource
         }
         if (isset($row[ColumnNames::ENABLE_CHECK_IN]))
         {
-            $resource->_enableCheckIn = intval($row[ColumnNames::ENABLE_CHECK_IN]);
+            $resource->_enableCheckIn = ($row[ColumnNames::ENABLE_CHECK_IN]=='t')?1:0;
         }
         if (isset($row[ColumnNames::AUTO_RELEASE_MINUTES]))
         {
@@ -710,7 +711,7 @@ class BookableResource implements IBookableResource
         }
         if (isset($row[ColumnNames::RESOURCE_ALLOW_DISPLAY]))
         {
-            $resource->_isDisplayAllowed = intval($row[ColumnNames::RESOURCE_ALLOW_DISPLAY]);
+            $resource->_isDisplayAllowed = ($row[ColumnNames::RESOURCE_ALLOW_DISPLAY]=='t')?1:0;
         }
         if (isset($row[ColumnNames::RESOURCE_IMAGE_LIST]))
         {

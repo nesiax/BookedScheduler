@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -323,14 +324,14 @@ class Schedule implements ISchedule
     public static function FromRow($row)
     {
         $schedule = new Schedule($row[ColumnNames::SCHEDULE_ID],
-            $row[ColumnNames::SCHEDULE_NAME],
-            $row[ColumnNames::SCHEDULE_DEFAULT],
-            $row[ColumnNames::SCHEDULE_WEEKDAY_START],
-            $row[ColumnNames::SCHEDULE_DAYS_VISIBLE],
-            $row[ColumnNames::TIMEZONE_NAME],
-            $row[ColumnNames::LAYOUT_ID]);
+                                 $row[ColumnNames::SCHEDULE_NAME],
+                                 ($row[ColumnNames::SCHEDULE_DEFAULT]=='t')?1:0,
+                                 $row[ColumnNames::SCHEDULE_WEEKDAY_START],
+                                 $row[ColumnNames::SCHEDULE_DAYS_VISIBLE],
+                                 $row[ColumnNames::TIMEZONE_NAME],
+                                 $row[ColumnNames::LAYOUT_ID]);
 
-        $schedule->WithSubscription($row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION]);
+        $schedule->WithSubscription(($row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION]=='t')?1:0);
         $schedule->WithPublicId($row[ColumnNames::PUBLIC_ID]);
         $schedule->SetAdminGroupId($row[ColumnNames::SCHEDULE_ADMIN_GROUP_ID]);
         $schedule->SetAvailability(Date::FromDatabase($row[ColumnNames::SCHEDULE_AVAILABLE_START_DATE]), Date::FromDatabase($row[ColumnNames::SCHEDULE_AVAILABLE_END_DATE]));

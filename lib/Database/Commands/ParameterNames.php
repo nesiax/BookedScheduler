@@ -1,5 +1,6 @@
 <?php
 /**
+Copyright 2021 Nestor Diaz
 Copyright 2012-2020 Nick Korbel
 
 This file is part of Booked Scheduler.
@@ -63,7 +64,7 @@ class ParameterNames
     const AUTO_RELEASE_MINUTES = '@auto_release_minutes';
     const ADDITIONAL_PROPERTIES = '@additional_properties';
 
-    const BLACKOUT_SERIES_ID = '@blackout_series_id';
+    const BLACKOUT_SERIES_ID = '@series_id';
     const BLACKOUT_INSTANCE_ID = '@blackout_instance_id';
 
     const CHECKIN_DATE = '@checkin_date';
@@ -284,4 +285,3 @@ class ParameterNames
     const HOMEPAGE_SELECTION_SETTING = '@homepage_setting';
     const TIMEZONE_SELECTION_SETTING = '@timezone_setting';
 }
-

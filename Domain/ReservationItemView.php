@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2017-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -504,17 +505,8 @@ class ReservationItemView implements IReservedItemView
                 $id = $pair[0];
                 $name = $pair[1];
                 $name_parts = explode(' ', $name);
-                $firstnames = $name_parts[0];
-                $lastnames = $name_parts[1];
-                if (count($name_parts) > 2) {
-                    # more than just one first and one last name
-                    $lastIndex = count($name_parts) - 1;
-                    $firstnames = implode(' ', array_splice($name_parts, 0, $lastIndex));
-                    $lastnames = $name_parts[$lastIndex];
-                    // could be extended to guess which is a middle name etc.
-                }
                 $this->ParticipantIds[] = $id;
-                $name = new FullName($firstnames, $lastnames);
+                $name = new FullName($name_parts[0], $name_parts[1]);
                 $this->ParticipantNames[$id] = $name->__toString();
             }
         }
@@ -530,17 +522,8 @@ class ReservationItemView implements IReservedItemView
                 $id = $pair[0];
                 $name = $pair[1];
                 $name_parts = explode(' ', $name);
-                $firstnames = $name_parts[0];
-                $lastnames = $name_parts[1];
-                if (count($name_parts) > 2) {
-                    # more than just one first and one last name
-                    $lastIndex = count($name_parts) - 1;
-                    $firstnames = implode(' ', array_splice($name_parts, 0, $lastIndex));
-                    $lastnames = $name_parts[$lastIndex];
-                    // could be extended to guess which is a middle name etc.
-                }
                 $this->InviteeIds[] = $id;
-                $name = new FullName($firstnames, $lastnames);
+                $name = new FullName($name_parts[0], $name_parts[1]);
                 $this->InviteeNames[$id] = $name->__toString();
             }
         }
@@ -680,7 +663,7 @@ class ReservationItemView implements IReservedItemView
         $view->CheckinDate = Date::FromDatabase($row[ColumnNames::CHECKIN_DATE]);
         $view->CheckoutDate = Date::FromDatabase($row[ColumnNames::CHECKOUT_DATE]);
         $view->OriginalEndDate = Date::FromDatabase($row[ColumnNames::PREVIOUS_END_DATE]);
-        $view->IsCheckInEnabled = (bool)$row[ColumnNames::ENABLE_CHECK_IN];
+        $view->IsCheckInEnabled = ($row[ColumnNames::ENABLE_CHECK_IN]=='t')?1:0;
         $view->AutoReleaseMinutes = $row[ColumnNames::AUTO_RELEASE_MINUTES];
         $view->CreditsConsumed = $row[ColumnNames::CREDIT_COUNT];
         $view->ResourceAdminGroupId = $row[ColumnNames::RESOURCE_ADMIN_GROUP_ID_RESERVATIONS];

@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  * Copyright 2012-2014 Alois Schloegl
  *
@@ -149,7 +150,7 @@ class ReservationViewRepository implements IReservationViewRepository
             $reservationView->RepeatWeekdays = $repeatConfig->Weekdays;
             $reservationView->RepeatMonthlyType = $repeatConfig->MonthlyType;
             $reservationView->RepeatTerminationDate = $repeatConfig->TerminationDate;
-            $reservationView->AllowParticipation = (bool)$row[ColumnNames::RESERVATION_ALLOW_PARTICIPATION];
+            $reservationView->AllowParticipation = ($row[ColumnNames::RESERVATION_ALLOW_PARTICIPATION]=='t')?1:0;
             $reservationView->CheckinDate = Date::FromDatabase($row[ColumnNames::CHECKIN_DATE]);
             $reservationView->CheckoutDate = Date::FromDatabase($row[ColumnNames::CHECKOUT_DATE]);
             $reservationView->OriginalEndDate = Date::FromDatabase($row[ColumnNames::PREVIOUS_END_DATE]);
@@ -305,7 +306,7 @@ class ReservationViewRepository implements IReservationViewRepository
                 $row[ColumnNames::SCHEDULE_ID],
                 $row[ColumnNames::SCHEDULE_ADMIN_GROUP_ID_ALIAS],
                 $row[ColumnNames::RESOURCE_STATUS_ID],
-                $row[ColumnNames::ENABLE_CHECK_IN],
+                ($row[ColumnNames::ENABLE_CHECK_IN]=='t')?1:0,
                 $row[ColumnNames::AUTO_RELEASE_MINUTES]
             );
             $rrv->SetColor(ColumnNames::RESERVATION_COLOR);

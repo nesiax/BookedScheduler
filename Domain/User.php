@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -530,7 +531,7 @@ class User
         $user->passwordSalt = $row[ColumnNames::SALT];
         $user->homepageId = $row[ColumnNames::HOMEPAGE_ID];
         $user->lastLogin = $row[ColumnNames::LAST_LOGIN];
-        $user->isCalendarSubscriptionAllowed = $row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION];
+        $user->isCalendarSubscriptionAllowed = ($row[ColumnNames::ALLOW_CALENDAR_SUBSCRIPTION]=='t')?1:0;
         $user->publicId = $row[ColumnNames::PUBLIC_ID];
         $user->defaultScheduleId = $row[ColumnNames::DEFAULT_SCHEDULE_ID];
 

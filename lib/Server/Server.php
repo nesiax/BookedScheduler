@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -296,7 +297,14 @@ class Server
      */
     public function GetHeader($headerCode)
     {
-        return $_SERVER[$headerCode];
+        if (array_key_exists($headerCode, $_SERVER))
+        {
+            return $_SERVER[$headerCode];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /**

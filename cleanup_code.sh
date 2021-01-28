@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Replace for unix user id the add user id to running php process
+# i.e. adduser www-data ${USER}
+
 USER="1000"
 GROUP="1000"
 

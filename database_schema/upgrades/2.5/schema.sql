@@ -43,11 +43,11 @@ CREATE TABLE `resource_group_assignment` (
 
 DROP TABLE IF EXISTS `blackout_series_resources`;
 CREATE TABLE `blackout_series_resources` (
- `blackout_series_id` int unsigned NOT NULL,
+ `series_id` int unsigned NOT NULL,
  `resource_id` smallint(5) unsigned NOT NULL,
-  PRIMARY KEY (`blackout_series_id`, `resource_id`),
-    FOREIGN KEY (`blackout_series_id`)
-        REFERENCES `blackout_series`(`blackout_series_id`)
+  PRIMARY KEY (`series_id`, `resource_id`),
+    FOREIGN KEY (`series_id`)
+        REFERENCES `blackout_series`(`series_id`)
         ON DELETE CASCADE,
     FOREIGN KEY (`resource_id`)
         REFERENCES `resources`(`resource_id`)
@@ -59,7 +59,7 @@ FROM `blackout_series`
 LEFT JOIN `resources` ON `blackout_series`.`resource_id` = `resources`.`resource_id`
 WHERE `resources`.`resource_id` IS NULL;
 
-INSERT INTO `blackout_series_resources` SELECT `blackout_series_id`, `resource_id` FROM `blackout_series`;
+INSERT INTO `blackout_series_resources` SELECT `series_id`, `resource_id` FROM `blackout_series`;
 
 ALTER TABLE `blackout_series` DROP COLUMN `resource_id`;
 ALTER TABLE `blackout_series` ADD COLUMN `repeat_type` varchar(10) default NULL;

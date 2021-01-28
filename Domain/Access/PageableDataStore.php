@@ -1,5 +1,6 @@
 <?php
 /**
+Copyright 2021 Nestor Diaz
 Copyright 2011-2020 Nick Korbel
 
 This file is part of Booked Scheduler.

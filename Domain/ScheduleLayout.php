@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2011-2020 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -788,17 +789,17 @@ class PeakTimes
 
     public static function FromRow($row)
     {
-        $allDay = intval($row[ColumnNames::PEAK_ALL_DAY]);
+        $allDay = ($row[ColumnNames::PEAK_ALL_DAY]=='t')?1:0;
 
         $beginTime = !empty($row[ColumnNames::PEAK_START_TIME]) ? Time::Parse($row[ColumnNames::PEAK_START_TIME]) : null;
         $endTime = !empty($row[ColumnNames::PEAK_END_TIME]) ? Time::Parse($row[ColumnNames::PEAK_END_TIME]) : null;
 
-        $everyDay = intval($row[ColumnNames::PEAK_EVERY_DAY]);
+        $everyDay = ($row[ColumnNames::PEAK_EVERY_DAY]=='t')?1:0;
 
         $weekdays = !empty($row[ColumnNames::PEAK_DAYS]) ? explode(',', $row[ColumnNames::PEAK_DAYS]) : array();
 
 
-        $allYear = intval($row[ColumnNames::PEAK_ALL_YEAR]);
+        $allYear = ($row[ColumnNames::PEAK_ALL_YEAR]=='t')?1:0;
 
         $beginDay = $row[ColumnNames::PEAK_BEGIN_DAY];
         $beginMonth = $row[ColumnNames::PEAK_BEGIN_MONTH];

@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2012-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -817,7 +818,7 @@ class MigrationPresenter
                 $blackout->AddResourceId($mappedResourceId);
 
                 $newId = $blackoutRepository->Add($blackout);
-                $currentDatabase->Execute(new AdHocCommand("update blackout_series set legacyid = \"$legacyId\" where blackout_series_id = $newId"));
+                $currentDatabase->Execute(new AdHocCommand("update blackout_series set legacyid = \"$legacyId\" where series_id = $newId"));
             }
             else {
                 // handle reservation

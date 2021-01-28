@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2012-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -213,7 +214,7 @@ class ColumnNames
     const BLACKOUT_END = 'end_date';
     const BLACKOUT_TITLE = 'title';
     const BLACKOUT_DESCRIPTION = 'description';
-    const BLACKOUT_SERIES_ID = 'blackout_series_id';
+    const BLACKOUT_SERIES_ID = 'series_id';
 
     // ATTRIBUTES //
     const ATTRIBUTE_ID = 'custom_attribute_id';

@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -97,10 +98,10 @@ class AddAttributeCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_TYPE, (int)$type));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_CATEGORY, (int)$category));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_REGEX, $regex));
-        $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_REQUIRED, (int)$required));
+        $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_REQUIRED, ($required)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_POSSIBLE_VALUES, $possibleValues));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_SORT_ORDER, $sortOrder));
-        $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_ADMIN_ONLY, (int)$adminOnly));
+        $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_ADMIN_ONLY, ($adminOnly)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_SECONDARY_CATEGORY, $secondaryCategory));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_SECONDARY_ENTITY_IDS, implode(',', $secondaryEntityIds)));
         $this->AddParameter(new Parameter(ParameterNames::ATTRIBUTE_IS_PRIVATE, (int)$isPrivate));
@@ -180,7 +181,7 @@ class AddGroupCommand extends SqlCommand
     {
         parent::__construct(Queries::ADD_GROUP);
         $this->AddParameter(new Parameter(ParameterNames::GROUP_NAME, $groupName));
-        $this->AddParameter(new Parameter(ParameterNames::GROUP_ISDEFAULT, intval($isDefault)));
+        $this->AddParameter(new Parameter(ParameterNames::GROUP_ISDEFAULT, ($isDefault)?'t':'f'));
     }
 }
 
@@ -323,12 +324,12 @@ class AddPeakTimesCommand extends SqlCommand
     {
         parent::__construct(Queries::ADD_PEAK_TIMES);
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ID, $scheduleId));
-        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_ALL_DAY, (int)$allDay));
+        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_ALL_DAY, ($allDay)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_START_TIME, $beginTime));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_END_TIME, $endTime));
-        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_EVERY_DAY, (int)$everyDay));
+        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_EVERY_DAY, ($everyDay)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_DAYS, $peakDays));
-        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_ALL_YEAR, (int)$allYear));
+        $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_ALL_YEAR, ($allYear)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_BEGIN_DAY, $beginDay));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_BEGIN_MONTH, $beginMonth));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_TIMES_END_DAY, $endDay));
@@ -414,7 +415,7 @@ class AddReservationSeriesCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::TYPE_ID, $reservationTypeIds));
         $this->AddParameter(new Parameter(ParameterNames::STATUS_ID, $statusId));
         $this->AddParameter(new Parameter(ParameterNames::USER_ID, $ownerId));
-        $this->AddParameter(new Parameter(ParameterNames::ALLOW_PARTICIPATION, (int)$allowParticipation));
+        $this->AddParameter(new Parameter(ParameterNames::ALLOW_PARTICIPATION, ($allowParticipation)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::TERMS_ACCEPTANCE_DATE, $termsAcceptanceDate->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::LAST_ACTION_BY, $lastActionBy));
     }
@@ -564,9 +565,9 @@ class AddResourceCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MININCREMENT, $min_increment));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAXDURATION, $max_duration));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_COST, $unit_cost));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_AUTOASSIGN, (int)$autoassign));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_REQUIRES_APPROVAL, $requires_approval));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_MULTIDAY, $allow_multiday));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_AUTOASSIGN, ($autoassign)?'t':'f'));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_REQUIRES_APPROVAL, ($requires_approval)?'t':'f'));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_MULTIDAY, ($allow_multiday)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAX_PARTICIPANTS, $max_participants));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MINNOTICE_ADD, $min_notice_time_add));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAXNOTICE, $max_notice_time));
@@ -648,7 +649,7 @@ class AddScheduleCommand extends SqlCommand
     {
         parent::__construct(Queries::ADD_SCHEDULE);
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_NAME, $scheduleName));
-        $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ISDEFAULT, (int)$isDefault));
+        $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ISDEFAULT, ($isDefault)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_WEEKDAYSTART, $weekdayStart));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_DAYSVISIBLE, $daysVisible));
         $this->AddParameter(new Parameter(ParameterNames::LAYOUT_ID, $layoutId));
@@ -2481,7 +2482,7 @@ class UpdateGroupCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::GROUP_ID, $groupId));
         $this->AddParameter(new Parameter(ParameterNames::GROUP_NAME, $groupName));
         $this->AddParameter(new Parameter(ParameterNames::GROUP_ADMIN_ID, $adminGroupId));
-        $this->AddParameter(new Parameter(ParameterNames::GROUP_ISDEFAULT, intval($isDefault)));
+        $this->AddParameter(new Parameter(ParameterNames::GROUP_ISDEFAULT, ($isDefault)?'t':'f'));
     }
 }
 
@@ -2566,7 +2567,7 @@ class UpdateReservationSeriesCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::DATE_MODIFIED, $dateModified->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::STATUS_ID, $statusId));
         $this->AddParameter(new Parameter(ParameterNames::USER_ID, $ownerId));
-        $this->AddParameter(new Parameter(ParameterNames::ALLOW_PARTICIPATION, (int)$allowParticipation));
+        $this->AddParameter(new Parameter(ParameterNames::ALLOW_PARTICIPATION, ($allowParticipation)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::LAST_ACTION_BY, $lastActionBy));
     }
 }
@@ -2617,16 +2618,16 @@ class UpdateResourceCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_NOTES, $notes));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MINDURATION, $minDuration->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAXDURATION, $maxDuration->ToDatabase()));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_AUTOASSIGN, (int)$autoAssign));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_REQUIRES_APPROVAL, $requiresApproval));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_MULTIDAY, (int)$allowMultiday));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_AUTOASSIGN, ($autoAssign)?'t':'f'));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_REQUIRES_APPROVAL, ($requiresApproval)?'t':'f'));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_MULTIDAY, ($allowMultiday)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAX_PARTICIPANTS, $maxParticipants));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MINNOTICE_ADD, $minNoticeTimeAdd->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MAXNOTICE, $maxNoticeTime->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_IMAGE_NAME, $imageName));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ID, $scheduleId));
         $this->AddParameter(new Parameter(ParameterNames::GROUP_ADMIN_ID, $adminGroupId));
-        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, (int)$allowCalendarSubscription));
+        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, ($allowCalendarSubscription)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PUBLIC_ID, $publicId));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_SORT_ORDER, $sortOrder));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_TYPE_ID, empty($resourceTypeId) ? null : $resourceTypeId));
@@ -2634,9 +2635,9 @@ class UpdateResourceCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_STATUS_REASON_ID, $reasonId));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_BUFFER_TIME, $bufferTime->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::COLOR, $color));
-        $this->AddParameter(new Parameter(ParameterNames::ENABLE_CHECK_IN, (int)$checkinEnabled));
+        $this->AddParameter(new Parameter(ParameterNames::ENABLE_CHECK_IN, ($checkinEnabled)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::AUTO_RELEASE_MINUTES, $autoReleaseMinutes));
-        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_DISPLAY, (int)$isDisplayEnabled));
+        $this->AddParameter(new Parameter(ParameterNames::RESOURCE_ALLOW_DISPLAY, ($isDisplayEnabled)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::CREDIT_COUNT, $credits));
         $this->AddParameter(new Parameter(ParameterNames::PEAK_CREDIT_COUNT, $peakCredits));
         $this->AddParameter(new Parameter(ParameterNames::RESOURCE_MINNOTICE_UPDATE, $minNoticeTimeUpdate->ToDatabase()));
@@ -2699,10 +2700,10 @@ class UpdateScheduleCommand extends SqlCommand
 
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ID, $scheduleId));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_NAME, $name));
-        $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ISDEFAULT, (int)$isDefault));
+        $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ISDEFAULT, ($isDefault)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_WEEKDAYSTART, (int)$weekdayStart));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_DAYSVISIBLE, (int)$daysVisible));
-        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, (int)$subscriptionEnabled));
+        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, ($subscriptionEnabled)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PUBLIC_ID, $publicId));
         $this->AddParameter(new Parameter(ParameterNames::GROUP_ADMIN_ID, $adminGroupId));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_AVAILABILITY_BEGIN, $availabilityBegin->ToDatabase()));
@@ -2757,7 +2758,7 @@ class UpdateUserCommand extends SqlCommand
         $this->AddParameter(new Parameter(ParameterNames::TIMEZONE_NAME, $timezoneName));
         $this->AddParameter(new Parameter(ParameterNames::DATE_MODIFIED, Date::Now()->ToDatabase()));
         $this->AddParameter(new Parameter(ParameterNames::LAST_LOGIN, $lastLogin));
-        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, (int)$allowCalendarSubscription));
+        $this->AddParameter(new Parameter(ParameterNames::ALLOW_CALENDAR_SUBSCRIPTION, ($allowCalendarSubscription)?'t':'f'));
         $this->AddParameter(new Parameter(ParameterNames::PUBLIC_ID, $publicId));
         $this->AddParameter(new Parameter(ParameterNames::LANGUAGE, $language));
         $this->AddParameter(new Parameter(ParameterNames::SCHEDULE_ID, $scheduleId));

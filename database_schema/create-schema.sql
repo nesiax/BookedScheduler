@@ -358,7 +358,7 @@ CREATE TABLE `reservation_resources` (
 --
 DROP TABLE IF EXISTS `blackout_series`;
 CREATE TABLE  `blackout_series` (
-  `blackout_series_id` int unsigned NOT NULL auto_increment,
+  `series_id` int unsigned NOT NULL auto_increment,
   `date_created` datetime NOT NULL,
   `last_modified` datetime,
   `title` varchar(85) NOT NULL,
@@ -366,7 +366,7 @@ CREATE TABLE  `blackout_series` (
   `owner_id` mediumint(8) unsigned NOT NULL,
   `resource_id` mediumint(8) unsigned NOT NULL,
   `legacyid` char(16),
-  PRIMARY KEY  (`blackout_series_id`)
+  PRIMARY KEY  (`series_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
@@ -378,14 +378,14 @@ CREATE TABLE  `blackout_instances` (
   `blackout_instance_id` int unsigned NOT NULL auto_increment,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
-  `blackout_series_id` int unsigned NOT NULL,
+  `series_id` int unsigned NOT NULL,
   PRIMARY KEY  (`blackout_instance_id`),
   INDEX `start_date` (`start_date`),
   INDEX `end_date` (`end_date`),
-  INDEX `blackout_series_id` (`blackout_series_id`),
-  FOREIGN KEY (`blackout_series_id`)
-      REFERENCES `blackout_series` (`blackout_series_id`)
-      ON DELETE CASCADE
+  INDEX `series_id` (`series_id`),
+  FOREIGN KEY (`series_id`)
+    REFERENCES `blackout_series` (`series_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --

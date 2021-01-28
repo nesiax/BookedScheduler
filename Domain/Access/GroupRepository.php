@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -113,6 +114,7 @@ class GroupRepository implements IGroupRepository, IGroupViewRepository
         }
 
         $builder = array('GroupItemView', 'Create');
+
         return PageableDataStore::GetList($command, $builder, $pageNumber, $pageSize, $sortField, $sortDirection);
     }
 
@@ -292,10 +294,19 @@ class GroupUserView
 
 class GroupItemView
 {
+    public function __construct($groupId, $groupName, $adminGroupName = null, $isDefault = false, $roles = array())
+    {
+        $this->Id = $groupId;
+        $this->Name = $groupName;
+        $this->AdminGroupName = $adminGroupName;
+        $this->IsDefault = $isDefault;
+        $this->Roles = $roles;
+    }
+
     public static function Create($row)
     {
         $adminName = isset($row[ColumnNames::GROUP_ADMIN_GROUP_NAME]) ? $row[ColumnNames::GROUP_ADMIN_GROUP_NAME] : null;
-        $isDefault = intval($row[ColumnNames::GROUP_ISDEFAULT]);
+        $isDefault = ($row[ColumnNames::GROUP_ISDEFAULT] == 't') ? 1 : 0;
         $roles = explode(',', $row[ColumnNames::GROUP_ROLE_LIST]);
         return new GroupItemView($row[ColumnNames::GROUP_ID], $row[ColumnNames::GROUP_NAME], $adminName, $isDefault, $roles);
     }
@@ -394,21 +405,13 @@ class GroupItemView
         return $this->IsGroupAdmin() || $this->IsScheduleAdmin() || $this->IsResourceAdmin();
     }
 
-    public function __construct($groupId, $groupName, $adminGroupName = null, $isDefault = 0, $roles = array())
-    {
-        $this->Id = $groupId;
-        $this->Name = $groupName;
-        $this->AdminGroupName = $adminGroupName;
-        $this->IsDefault = $isDefault;
-        $this->Roles = $roles;
-    }
 }
 
 class GroupPermissionItemView extends GroupItemView
 {
     public $PermissionType;
 
-    public function __construct($groupId, $groupName, $adminGroupName = null, $isDefault = 0)
+    public function __construct($groupId, $groupName, $adminGroupName = null, $isDefault = false)
     {
         parent::__construct($groupId, $groupName, $adminGroupName, $isDefault);
         $this->PermissionType = ResourcePermissionType::None;

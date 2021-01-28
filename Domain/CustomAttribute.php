@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2012-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -369,11 +370,11 @@ class CustomAttribute
                 $row[ColumnNames::ATTRIBUTE_TYPE],
                 $row[ColumnNames::ATTRIBUTE_CATEGORY],
                 $row[ColumnNames::ATTRIBUTE_CONSTRAINT],
-                $row[ColumnNames::ATTRIBUTE_REQUIRED],
+                ($row[ColumnNames::ATTRIBUTE_REQUIRED]=='t')?1:0,
                 $row[ColumnNames::ATTRIBUTE_POSSIBLE_VALUES],
                 $row[ColumnNames::ATTRIBUTE_SORT_ORDER],
                 $entityIds,
-                $row[ColumnNames::ATTRIBUTE_ADMIN_ONLY]
+                ($row[ColumnNames::ATTRIBUTE_ADMIN_ONLY]=='t')?1:0
         );
 
         $attribute->WithEntityDescriptions($descriptions);
@@ -387,7 +388,7 @@ class CustomAttribute
 
         if (isset($row[ColumnNames::ATTRIBUTE_IS_PRIVATE]))
         {
-            $attribute->WithIsPrivate($row[ColumnNames::ATTRIBUTE_IS_PRIVATE]);
+            $attribute->WithIsPrivate(($row[ColumnNames::ATTRIBUTE_IS_PRIVATE]=='t')?1:0);
         }
 
         return $attribute;

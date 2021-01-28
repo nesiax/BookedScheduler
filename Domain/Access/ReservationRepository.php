@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright 2021 Nestor Diaz
  * Copyright 2011-2020 Nick Korbel
  *
  * This file is part of Booked Scheduler.
@@ -292,7 +293,7 @@ class ReservationRepository implements IReservationRepository
             $series->WithDescription($description);
             $series->WithOwner($row[ColumnNames::RESERVATION_OWNER]);
             $series->WithStatus($row[ColumnNames::RESERVATION_STATUS]);
-            $series->AllowParticipation($row[ColumnNames::RESERVATION_ALLOW_PARTICIPATION]);
+            $series->AllowParticipation(($row[ColumnNames::RESERVATION_ALLOW_PARTICIPATION]=='t')?1:0);
 
             $startDate = Date::FromDatabase($row[ColumnNames::RESERVATION_START]);
             $endDate = Date::FromDatabase($row[ColumnNames::RESERVATION_END]);
