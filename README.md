@@ -1,4 +1,4 @@
-# Migrating a WAMP (Windows + Apache + MySQL + PHP ) to LNPP( Linux + Nginx + PostgreSQL + PHP)
+# Migrating a WAMP (Windows + Apache + MySQL + PHP) to LNPP (Linux + Nginx + PostgreSQL + PHP)
 
 ### A case study for BookedScheduler.
 
@@ -45,13 +45,13 @@ CREATE DATABASE pgbs_db WITH TEMPLATE = template0 OWNER = pgbs_user;
 ALTER USER pgbs_user WITH PASSWORD '<your_password>';
 ```
 
-If you are creating a database from scratch you would be better running the script: ```pgbs_db_data-2021-01-25.sql``` (located under the ```database_schema/pgsql/``` directory) on the above database since that will create everything to get up and running.
+If you are creating a database from scratch you would be better running the script: ```pgbs_db_data-2021-01-25.sql``` (located under the [database_schema/pgsql](database_schema/pgsql) directory) on the above database since that will create everything to get up and running.
 
 ## Database migration
 
 In case you want to migrate a MySQL database, here are the steps:
 
-Firt make sure that you can access mysql and postgresql database from command line, like so:
+First make sure that you can access mysql and postgresql database from command line, like so:
 
 ```
 $ mysql -h <mysql_host> -u <mysql_user> <mysql_db> -p
@@ -162,13 +162,13 @@ bookedscheduler.reservation_waitlist_requests          0          0             
 
 ## Compatibility
 
-If you have loaded a MySQL database into PostgreSQL, you **have** to run the ```compatibility.sql``` script. That script will turn some ```tinyint(1)``` (booleans as managed by MySQL) into PostgreSQL true booleans, and since previous BookedScheduler uses some MySQL functions we must program and add them using PostgreSQL Procedural Language.
+If you have loaded a MySQL database into PostgreSQL, you **have** to run the [compatibility.sql](./database_schema/pgsql/compatibility.sql) script. That script will turn some ```tinyint(1)``` (booleans as managed by MySQL) into PostgreSQL true booleans, and since previous BookedScheduler uses some MySQL functions we must program and add them using PostgreSQL Procedural Language.
 
 ## ER Diagram
 
 In case you are intererested, sooner after I loaded the MySQL database I had to do some revese engineering in order to understand the Entity-Relationship diagram, for that purpose I used [pgmodeler](http://pgmodeler.io).
 
-In the folder ```pgmodeler``` you will find a file with the model and also a model picture.
+In the folder [pgmodeler](pgmodeler) you will find a file with the model and also a model picture.
 
 ## Nginx
 
