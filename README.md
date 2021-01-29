@@ -1,4 +1,4 @@
-# Migrating a LAMP (Linux + Apache + MySQL + PHP ) to LNPP( Linux + Nginx + PostgreSQL + PHP)
+# Migrating a WAMP (Windows + Apache + MySQL + PHP ) to LNPP( Linux + Nginx + PostgreSQL + PHP)
 
 ### A case study for BookedScheduler.
 
