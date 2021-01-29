@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {*
+Copyright 2021 Nestor Diaz
 Copyright 2011-2020 Nick Korbel
 
 This file is part of Booked Scheduler.
@@ -346,7 +347,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                                 {if $ShowNewVersion}
                                     <li class="divider new-version"></li>
                                     <li id="navNewVersion" class="new-version">
-                                        <a href="https://www.bookedscheduler.com/whatsnew">{translate key=WhatsNew}</a>
+                                        <a href="https://github.com/nesiax/PGBookedScheduler/whatsnew">{translate key=WhatsNew}</a>
                                     </li>
                                 {/if}
                             </ul>
@@ -356,9 +357,9 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{translate key="Help"} <b
                                     class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li id="navHelp"><a href="https://www.bookedscheduler.com/help/usage">{translate key=Help}</a></li>
+                            <li id="navHelp"><a href="{$Path}usage.php">{translate key=Usage}</a></li>
                             {if $CanViewAdmin}
-                                <li id="navHelpAdmin"><a href="https://www.bookedscheduler.com/help/administration">{translate key=Administration}</a></li>
+                                <li id="navHelpAdmin"><a href="{$Path}administration.php">{translate key=Administration}</a></a></li>
                             {/if}
                             <li id="navAbout"><a href="{$Path}help.php?ht=about">{translate key=About}</a></li>
                         </ul>
@@ -375,3 +376,11 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 
 <div id="main" class="container-fluid" {if $HideNavBar}style="padding-bottom:0;"{/if}>
+
+{*
+For Emacs:
+Local Variables:
+mode: html
+coding: utf-8
+End:
+*}

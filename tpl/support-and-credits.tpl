@@ -1,4 +1,5 @@
 {*
+Copyright 2021 Nestor Diaz
 Copyright 2012-2020 Nick Korbel
 
 This file is part of Booked Scheduler.
@@ -21,19 +22,18 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 
     <div class="default-box col-xs-12 col-sm-8 col-sm-offset-2">
 
-        <h1>About Booked Scheduler</h1>
+        <h1>About PG Booked Scheduler</h1>
 
         <h2>Support</h2>
 
-        <p><a href="https://www.bookedscheduler.com">Booked Scheduler Official Home</a></p>
-        <p><a href="https://www.twinkletoessoftware.com">Twinkle Toes Software</a></p>
-        <p><a href="https://forums.bookedscheduler.com">Booked Scheduler Community Support</a></p>
+        <p><a href="https://github.com/nesiax/PGBookedScheduler">PGBooked Scheduler Official Home</a></p>
 
         <h2>Credits</h2>
 
         <h3>Authors</h3>
 
         <ul>
+            <li>Nestor Diaz</li>
             <li>Nick Korbel</li>
             <li>Dung Le</li>
             <li>Jan Mattila</li>

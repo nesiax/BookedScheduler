@@ -1,5 +1,5 @@
-{*
-Copyright 2021 Nestor Diaz
+<?php
+/**
 Copyright 2011-2020 Nick Korbel
 
 This file is part of Booked Scheduler.
@@ -16,17 +16,25 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
-*}
-<div>
-    {translate key=ResourceDisplayInstructions}
-    <br/><br/>
-    <a href="{$Path}administration.php" target="blank">{translate key=Administration}</a>
-</div>
+*/
 
-{*
-For Emacs:
-Local Variables:
-mode: html
-coding: utf-8
-End:
-*}
+require_once(ROOT_DIR . 'Pages/Page.php');
+
+class UsagePage extends Page
+{
+    public function __construct()
+    {
+        parent::__construct('Usage');
+    }
+
+    public function PageLoad()
+    {
+        $this->Set('RemindersPath', realpath(ROOT_DIR . 'Jobs/sendreminders.php'));
+        $this->Set('AutoReleasePath', realpath(ROOT_DIR . 'Jobs/autorelease.php'));
+        $this->Set('WaitListPath', realpath(ROOT_DIR . 'Jobs/sendwaitlist.php'));
+        $this->Set('MissedCheckinPath', realpath(ROOT_DIR . 'Jobs/sendmissedcheckin.php'));
+        $this->Set('ServerTimezone', date_default_timezone_get());
+
+        $this->DisplayLocalized('usage.tpl');
+    }
+}
